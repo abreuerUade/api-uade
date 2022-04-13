@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+
 import React from 'react';
 
 export default function Navbar(){
@@ -6,8 +6,8 @@ export default function Navbar(){
 
     return (
         
-        <Container>
-            
-        </Container>
+       <div>
+            <h1>Este es el Navbar</h1>
+        </div>
         );
     }

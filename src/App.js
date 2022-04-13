@@ -1,22 +1,31 @@
 
-import { Box } from '@mui/material';
 import './App.css';
-import FullRecipie from './components/FullRecipie';
-import Home from './components/Home';
-import Login from './components/Login';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import FullRecipie from './pages/FullRecipie';
+import Home from './pages/Home';
+import Login from './pages/Login';
 import Navbar from './components/Navbar';
-import Signup from './components/Signup';
+import Signup from './pages/Signup';
+import Profile from './pages/Profile';
+
 
 function App() {
   return (
-    <Box>
-      <Navbar></Navbar>
-      <h1>Holitas</h1>
-      <Login></Login>
-      <Signup></Signup>
-      <Home></Home>
-      <FullRecipie></FullRecipie>
-    </Box>
+   <BrowserRouter>
+      <div><Navbar /></div>
+      <Routes>
+            <Route path='/home' element={<Home />} />
+            <Route path='/login' element={<Login/>} />
+            <Route path='/signup' element={<Signup/>} />
+            <Route path='/fullrecipie' element={<FullRecipie/>} />
+            <Route path='/profile' element={<Profile/>} />
+      </Routes>
+      
+
+
+   </BrowserRouter>
+
+    
   );
 }
 
