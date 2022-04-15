@@ -1,13 +1,16 @@
-import { Container } from '@mui/material';
 import React from 'react';
+import Navbar from '../components/Navbar';
 
 export default function Profile(){
 
 
     return (
         
-        <Container>
-            <h1>Este es el Profile</h1>
-        </Container>
+        <div>
+            <Navbar />
+
+            
+
+        </div>
         );
     }
