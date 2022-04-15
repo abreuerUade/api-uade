@@ -9,7 +9,7 @@ export default function Profile(){
         <div>
             <Navbar />
 
-            
+            <h1>Este es el profile</h1>
 
         </div>
         );

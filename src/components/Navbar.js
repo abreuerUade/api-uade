@@ -140,7 +140,8 @@ const ResponsiveAppBar = () => {
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">
 
-                    <Link style={{textDecoration: "none", color:"black" }} to={`/${setting}`}>
+                    <Link style={{textDecoration: "none", color:"black" }} 
+                          to={setting === "Logout" ? `/login` : `/${setting}`}>
                        {setting}
                     </Link>
                       
