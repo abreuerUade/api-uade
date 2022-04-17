@@ -71,7 +71,7 @@ const ResponsiveAppBar = () => {
 
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container maxWidth="xxl">
         <Toolbar disableGutters style={{display:'flex', justifyContent:"space-between", width:'100%'}}>
           <Link to='/home'>
             <Box sx={{display: 'inline-flex', alignItems: 'center' }} >
