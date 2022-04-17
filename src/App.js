@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
-import Dashboard from './pages/Dashboard';
+import MyRecipies from './pages/MyRecipies';
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         <Route path='/signup' element={<Signup/>} />
         <Route path='/fullrecipie' element={<FullRecipie/>} />
         <Route path='/profile' element={<Profile/>} />
-        <Route path='/dashboard' element={<Dashboard/>} />
+        <Route path='/myrecipies' element={<MyRecipies />} />
       </Routes>
 
    </BrowserRouter>

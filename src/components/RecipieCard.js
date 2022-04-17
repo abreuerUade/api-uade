@@ -9,10 +9,19 @@ import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { Typography } from '@mui/material';
 
 
 
 export default function RecipeReviewCard() {
+
+  const [isFav, setIsFav] = React.useState(false)
+
+  let isHeart = isFav ? "red" : "grey"
+
+  function toggleHeart() {
+    setIsFav(prevHeart => !prevHeart)
+  }
 
   return (
     <Card sx={{ maxWidth: 300, minWidth: 270}}>
@@ -38,8 +47,9 @@ export default function RecipeReviewCard() {
       />
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <FavoriteIcon onClick={toggleHeart} sx={{ color: `${isHeart}` } } /> 
         </IconButton>
+        <Typography variant="caption">34</Typography>
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>

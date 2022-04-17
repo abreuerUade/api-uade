@@ -13,7 +13,7 @@ export default function Home(){
             <Grid container justifyContent="center"
                   alignItems="center" 
                   spacing={{ xs: 2, md: 3 }} 
-                  columns={{ xs: 4, sm: 8, md: 10, lg: 12, xl: 12}}
+                  columns={{ xs: 4, sm: 8, md: 12, lg: 12, xl:16 }}
                   >
                 <Grid item xs={4}>
                     <RecipieCard />

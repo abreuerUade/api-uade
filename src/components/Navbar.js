@@ -56,7 +56,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const settings = ['Profile', 'Dashboard', 'Logout'];
+const settings = ['My Account', 'My Recipies', 'Logout'];
 
 const ResponsiveAppBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
