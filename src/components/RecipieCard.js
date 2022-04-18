@@ -5,15 +5,15 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
-import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { Typography } from '@mui/material';
+import { CardContent, Typography } from '@mui/material';
 
 
 
-export default function RecipeReviewCard() {
+
+export default function RecipeReviewCard(prop) {
 
   const [isFav, setIsFav] = React.useState(false)
 
@@ -27,32 +27,38 @@ export default function RecipeReviewCard() {
     <Card sx={{ maxWidth: 300, minWidth: 270}}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
+          <Avatar src={process.env.PUBLIC_URL + `/images/${prop.pic}`} />
+            
+      
         }
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
+        title={`${prop.name}`}
         subheader="September 14, 2016"
       />
       <CardMedia
         component="img"
         height="194"
-        src={require('../images/paella.jpg')} 
+        src={process.env.PUBLIC_URL + `/images/${prop.src}`} 
         alt="Paella dish"
       />
+      <CardContent>
+          <Typography variant="Subtitle2">Difficulty: {`${prop.dificulty}`}</Typography>
+
+      </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon onClick={toggleHeart} sx={{ color: `${isHeart}` } } /> 
         </IconButton>
-        <Typography variant="caption">34</Typography>
+        
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
+
+        
         
       </CardActions>
     </Card>

@@ -76,11 +76,11 @@ const ResponsiveAppBar = () => {
           <Link to='/home'>
             <Box sx={{display: 'inline-flex', alignItems: 'center' }} >
               
-                <img  src={require('../images/only_logo_white_large.png')} alt="" 
+                <img  src={process.env.PUBLIC_URL + "images/only_logo_white_large.png"} alt="" 
                       width={"55px"} />
               
-                <img  src={require('../images/logo_white_large_name.png')} alt="" 
-                      width={"150px"} Hspace={"30"}  />
+                <img  src={process.env.PUBLIC_URL + "images/logo_white_large_name.png"} alt="" 
+                      width={"150px"} hspace={"30"}  />
             </Box>         
           </Link>
               
@@ -99,7 +99,7 @@ const ResponsiveAppBar = () => {
            <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Donato" 
-                      src={require('../images/donato.jpg')} 
+                      src={process.env.PUBLIC_URL + "images/donato.jpg"} 
                         sx={{ width: 56, height: 56 }} 
                 />
               </IconButton>

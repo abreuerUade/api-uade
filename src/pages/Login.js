@@ -98,7 +98,7 @@ export default function SignIn() {
             flexDirection: 'column',
             alignItems: 'center',
           }}>
-          <img  src={require('../images/logo_large.png')} alt="" 
+          <img  src={"logo_large.png"} alt="" 
             width={"200px"} />
       </Box>
     </ThemeProvider>

@@ -119,7 +119,7 @@ export default function SignUp() {
             flexDirection: 'column',
             alignItems: 'center',
           }}>
-          <img  src={require('../images/logo_large.png')} alt="" 
+          <img  src={"logo_large.png"} alt="" 
             width={"200px"} />
       </Box>
     </ThemeProvider>
