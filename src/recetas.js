@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default[
     {
+        id: 1,
         name: "Hamburguer",
         category:"Fast Food",
         ingredients: "Bread, Meat, Cheese",
@@ -14,6 +15,7 @@ export default[
     },
 
     {
+        id: 2,
         name: "Chicken Pasta",
         category:"Italian",
         ingredients: "Pasta, Chicken, Cheese",
@@ -27,6 +29,7 @@ export default[
     },
 
     {
+        id: 3,
         name: "Onion Soup",
         category:"Soup",
         ingredients: "Onions, Butter, Cheese",
@@ -40,6 +43,7 @@ export default[
     },
 
     {
+        id: 4,
         name: "Quesadilla",
         category:"Mexican",
         ingredients: "Tortilla, Cheese",

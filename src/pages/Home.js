@@ -7,12 +7,8 @@ import recetas from '../recetas.js';
 export default function Home(){
 
     const recipieElements = recetas.map(receta => {
-        return (<Grid item xs={4}>
-                    <RecipieCard name={receta.name}
-                                 src={receta.imgSrc}
-                                 dificulty={receta.dificulty}
-                                 pic={receta.creator.pic}  
-                                 />            
+        return (<Grid item xs={4} key={receta.id} >
+                    <RecipieCard item={receta} />            
                 </Grid>)
             }) 
 

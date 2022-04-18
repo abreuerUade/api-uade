@@ -27,7 +27,7 @@ export default function RecipeReviewCard(prop) {
     <Card sx={{ maxWidth: 300, minWidth: 270}}>
       <CardHeader
         avatar={
-          <Avatar src={process.env.PUBLIC_URL + `/images/${prop.pic}`} />
+          <Avatar src={process.env.PUBLIC_URL + `/images/${prop.item.creator.pic}`} />
             
       
         }
@@ -36,22 +36,22 @@ export default function RecipeReviewCard(prop) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={`${prop.name}`}
+        title={`${prop.item.name}`}
         subheader="September 14, 2016"
       />
       <CardMedia
         component="img"
         height="194"
-        src={process.env.PUBLIC_URL + `/images/${prop.src}`} 
+        src={process.env.PUBLIC_URL + `/images/${prop.item.imgSrc}`} 
         alt="Paella dish"
       />
       <CardContent>
-          <Typography variant="Subtitle2">Difficulty: {`${prop.dificulty}`}</Typography>
+          <Typography variant="Subtitle2">Difficulty: {`${prop.item.dificulty}`}</Typography>
 
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon onClick={toggleHeart} sx={{ color: `${isHeart}` } } /> 
+        <IconButton onClick={toggleHeart} aria-label="add to favorites">
+          <FavoriteIcon  sx={{ color: `${isHeart}` } } /> 
         </IconButton>
         
         <IconButton aria-label="share">
