@@ -7,7 +7,7 @@ import recetas from '../recetas.js';
 export default function Home(){
 
     const recipieElements = recetas.map(receta => {
-        return (<Grid item xs={4} key={receta.id} >
+        return (<Grid item xs={3} sm={4} key={receta.id} >
                     <RecipieCard item={receta} />            
                 </Grid>)
             }) 
@@ -16,9 +16,9 @@ export default function Home(){
         <div
         ><Navbar />
         <Container sx={{ width: '100%', marginTop: "30px" }}>
-            <Grid container justifyContent="center"
+            <Grid container justifyContent="space-evenly"
                   alignItems="center" 
-                  spacing={{ xs: 2, md: 3 }} 
+                  spacing={{ xs: 2, md: 2 }} 
                   columns={{ xs: 4, sm: 8, md: 12, lg: 12, xl:16 }}
                   >
 

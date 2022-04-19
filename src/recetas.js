@@ -8,6 +8,7 @@ export default[
         dificulty: "5",
         imgSrc: "hamburguesa.jpg",
         date: "July 18, 2019",
+        rate: 4,
         creator: {
             name:"Donato",
             pic:"donato.jpg"
@@ -22,6 +23,7 @@ export default[
         dificulty: "6",
         imgSrc: "chickenpasta.jpg",
         date: "September 14, 2020",
+        rate: 3.8,
         creator: {
             name:"Ariel",
             pic:"palacios.jpg"
@@ -36,6 +38,7 @@ export default[
         dificulty: "4",
         imgSrc: "onionsoup.jpg",
         date: "October 4, 2021",
+        rate: 3,
         creator: {
             name:"Maru",
             pic:"botana.jpg"
@@ -50,6 +53,7 @@ export default[
         dificulty: "3",
         imgSrc: "quesadilla.jpg",
         date: "October 8, 2021",
+        rate: 4.1,
         creator: {
             name:"Doly",
             pic:"irigoyen.jpg"

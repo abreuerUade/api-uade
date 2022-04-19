@@ -8,7 +8,9 @@ import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { CardContent, Typography } from '@mui/material';
+import { Box, CardContent, Typography } from '@mui/material';
+import Rater from 'react-rater';
+import 'react-rater/lib/react-rater.css';
 
 
 
@@ -45,9 +47,12 @@ export default function RecipeReviewCard(prop) {
         src={process.env.PUBLIC_URL + `/images/${prop.item.imgSrc}`} 
         alt="Paella dish"
       />
-      <CardContent>
+      <CardContent sx={{display: 'flex', justifyContent:"space-between"}}>
           <Typography variant="Subtitle2">Difficulty: {`${prop.item.dificulty}`}</Typography>
-
+          <Box>
+            <Rater total={5} rating={prop.item.rate} interactive={false} />
+            <Typography variant="caption">&nbsp;&nbsp;&nbsp;{`${prop.item.rate}`}</Typography>
+          </Box>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton onClick={toggleHeart} aria-label="add to favorites">
