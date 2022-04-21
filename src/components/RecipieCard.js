@@ -9,7 +9,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Box, CardContent, Typography } from '@mui/material';
-import Rater from 'react-rater';
+import Rating from '@mui/material/Rating';
 import 'react-rater/lib/react-rater.css';
 
 
@@ -49,8 +49,8 @@ export default function RecipeReviewCard(prop) {
       />
       <CardContent sx={{display: 'flex', justifyContent:"space-between"}}>
           <Typography variant="Subtitle2">Difficulty: {`${prop.item.dificulty}`}</Typography>
-          <Box>
-            <Rater total={5} rating={prop.item.rate} interactive={false} />
+          <Box sx={{display: 'flex', justifyContent:"space-between", alignContent:'center'}} >
+            <Rating size='small' name="half-rating-read" value={prop.item.rate} precision={0.1} readOnly />
             <Typography variant="caption">&nbsp;&nbsp;&nbsp;{`${prop.item.rate}`}</Typography>
           </Box>
       </CardContent>

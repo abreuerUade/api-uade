@@ -23,7 +23,7 @@ export default[
         dificulty: "6",
         imgSrc: "chickenpasta.jpg",
         date: "September 14, 2020",
-        rate: 3.8,
+        rate: 3.5,
         creator: {
             name:"Ariel",
             pic:"palacios.jpg"
