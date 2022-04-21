@@ -58,7 +58,64 @@ export default[
             name:"Doly",
             pic:"irigoyen.jpg"
         },
-    }
+    },
+
+    {
+        id: 5,
+        name: "Cesar Salad",
+        category:"Salad",
+        ingredients: "Chicken, letuce",
+        dificulty: "6",
+        imgSrc: "cesar.jpg",
+        date: "October 4, 2021",
+        rate: 4.6,
+        creator: {
+            name:"Doly",
+            pic:"irigoyen.jpg"
+        },
+    },
+    {
+        id: 6,
+        name: "Bannana Muffins",
+        category:"Bakery",
+        ingredients: "Muffins, Bannana",
+        dificulty: "7",
+        imgSrc: "muffins.jpg",
+        date: "October 4, 2021",
+        rate: 4.7,
+        creator: {
+            name:"Maru",
+            pic:"botana.jpg"
+        },
+    },
+    {
+        id: 7,
+        name: "Ramen",
+        category:"Japanese",
+        ingredients: "Onions, Butter, Cheese",
+        dificulty: "9",
+        imgSrc: "ramen.jpg",
+        date: "October 4, 2021",
+        rate: 5,
+        creator: {
+            name:"Donato",
+            pic:"donato.jpg"
+        },
+    },
+    {
+        id: 8,
+        name: "Falafel",
+        category:"Arabic",
+        ingredients: "Onions, Butter, Cheese",
+        dificulty: "7",
+        imgSrc: "falafel.jpg",
+        date: "October 4, 2021",
+        rate: 5.7,
+        creator: {
+            name:"Ariel",
+            pic:"palacios.jpg"
+        },
+    },
 
     
 ]

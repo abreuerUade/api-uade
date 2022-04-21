@@ -1,15 +1,15 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 
-export default function Profile(){
+export default function MyAccount(){
 
 
     return (
         
         <div>
-            <Navbar />
-
-            <h1>Este es el profile</h1>
+            <Navbar text="MY ACCOUNT" />
+            
+            
 
         </div>
         );

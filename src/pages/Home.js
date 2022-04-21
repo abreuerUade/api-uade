@@ -15,7 +15,7 @@ export default function Home(){
 
     return (   
         <div>
-        <Navbar />
+        <Navbar text="HOME" />
         
         <Container sx={{ width: '100%', marginTop: "15px" }}>
             <Filterbar />

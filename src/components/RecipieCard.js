@@ -47,9 +47,9 @@ export default function RecipeReviewCard(prop) {
         src={process.env.PUBLIC_URL + `/images/${prop.item.imgSrc}`} 
         alt="Paella dish"
       />
-      <CardContent sx={{display: 'flex', justifyContent:"space-between"}}>
+      <CardContent sx={{display: 'flex', justifyContent:"space-between",alignContent:'center'}}>
           <Typography variant="Subtitle2">Difficulty: {`${prop.item.dificulty}`}</Typography>
-          <Box sx={{display: 'flex', justifyContent:"space-between", alignContent:'center'}} >
+          <Box sx={{display: 'flex', alignContent:'center'}} >
             <Rating size='small' name="half-rating-read" value={prop.item.rate} precision={0.1} readOnly />
             <Typography variant="caption">&nbsp;&nbsp;&nbsp;{`${prop.item.rate}`}</Typography>
           </Box>

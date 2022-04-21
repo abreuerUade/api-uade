@@ -11,9 +11,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 
-const settings = ['My Account', 'My Recipies', 'Logout'];
+const settings = ['MyAccount', 'My Recipies', 'Logout'];
 
-const ResponsiveAppBar = () => {
+const Navbar = (props) => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -40,9 +40,12 @@ const ResponsiveAppBar = () => {
             </Box>         
           </Link>
               
-                
+        <Typography  variant="h4">
+            {`${props.text}`}
+        </Typography>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{display:'flex', alignContent:'center', flexGrow: 0 }}>
+
            <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Donato" 
@@ -87,4 +90,4 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
-export default ResponsiveAppBar;
+export default Navbar;
