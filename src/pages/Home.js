@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Container } from '@mui/material';
 import Navbar from '../components/Navbar.js'
 import RecipieCard from '../components/RecipieCard'
+import Filterbar from '../components/Filterbar'
 import recetas from '../recetas.js';
 
 export default function Home(){
@@ -13,9 +14,11 @@ export default function Home(){
             }) 
 
     return (   
-        <div
-        ><Navbar />
-        <Container sx={{ width: '100%', marginTop: "30px" }}>
+        <div>
+        <Navbar />
+        
+        <Container sx={{ width: '100%', marginTop: "15px" }}>
+            <Filterbar />
             <Grid container justifyContent="space-evenly"
                   alignItems="center" 
                   spacing={{ xs: 2, md: 2 }} 
