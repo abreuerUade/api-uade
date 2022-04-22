@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/api-uade/static/css/main.ca57846c.css",
+    "main.js": "/api-uade/static/js/main.e7a6cbcb.js",
+    "index.html": "/api-uade/index.html",
+    "main.ca57846c.css.map": "/api-uade/static/css/main.ca57846c.css.map",
+    "main.e7a6cbcb.js.map": "/api-uade/static/js/main.e7a6cbcb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ca57846c.css",
+    "static/js/main.e7a6cbcb.js"
+  ]
+}
