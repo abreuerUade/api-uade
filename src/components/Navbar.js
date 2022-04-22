@@ -44,8 +44,8 @@ const Navbar = (props) => {
             {`${props.text}`}
         </Typography>
 
-          <Box sx={{display:'flex', alignContent:'center', flexGrow: 0 }}>
-
+          <Box sx={{display:'flex', alignContent:'center' }}>
+          <Typography marginTop={2} marginRight={2}>Donato De Santis</Typography>
            <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Donato" 

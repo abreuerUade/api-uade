@@ -27,8 +27,9 @@ export default function SignIn() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+    
+      <ThemeProvider theme={theme}>
+      <Container  component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
@@ -98,9 +99,11 @@ export default function SignIn() {
             flexDirection: 'column',
             alignItems: 'center',
           }}>
-          <img  src={"logo_large.png"} alt="" 
+          <img  src={process.env.PUBLIC_URL + "/images/logo_large.png"} alt="" 
             width={"200px"} />
       </Box>
     </ThemeProvider>
+    
+    
   );
 }

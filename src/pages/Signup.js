@@ -3,8 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -89,11 +87,16 @@ export default function SignUp() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                <TextField
+                  required
+                  fullWidth
+                  name="phone"
+                  label="Phone Number"
+                  id="phone"
+                  autoComplete="new-phone"
                 />
               </Grid>
+              
             </Grid>
             <Button
               type="submit"
@@ -119,7 +122,7 @@ export default function SignUp() {
             flexDirection: 'column',
             alignItems: 'center',
           }}>
-          <img  src={"logo_large.png"} alt="" 
+          <img  src={process.env.PUBLIC_URL + "/images/logo_large.png"} alt="" 
             width={"200px"} />
       </Box>
     </ThemeProvider>

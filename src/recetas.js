@@ -10,6 +10,7 @@ export default[
         date: "July 18, 2019",
         rate: 4,
         creator: {
+            creatorId: 1,
             name:"Donato",
             pic:"donato.jpg"
         },
