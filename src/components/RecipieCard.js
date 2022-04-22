@@ -10,7 +10,6 @@ import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Box, CardContent, Typography } from '@mui/material';
 import Rating from '@mui/material/Rating';
-import 'react-rater/lib/react-rater.css';
 
 
 

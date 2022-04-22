@@ -40,7 +40,7 @@ const Navbar = (props) => {
             </Box>         
           </Link>
               
-        <Typography  variant="h4">
+        <Typography variant="h4">
             {`${props.text}`}
         </Typography>
 
