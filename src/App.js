@@ -18,11 +18,11 @@ function App() {
    <BrowserRouter>
       <Routes>
         
-        <Route path='/' element={<Home />} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/' element={<Home user={currentUser} />} />
+        <Route path='/home' element={<Home user={currentUser} />} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
-        <Route path='/fullrecipie' element={<FullRecipie/>} />
+        <Route path='/fullrecipie' element={<FullRecipie user={currentUser} />} />
         <Route path='/MyAccount' element={<MyAccount user={currentUser} />} />
         <Route path='/myrecipies' element={<MyRecipies />} />
 

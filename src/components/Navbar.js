@@ -23,7 +23,7 @@ const Navbar = (props) => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  
   return (
     <AppBar position="static">
       <Container maxWidth="xxl">
