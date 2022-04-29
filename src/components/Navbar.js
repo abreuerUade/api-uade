@@ -23,6 +23,9 @@ const Navbar = (props) => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const user = props.userName
+  const pic = props.pic
   
   return (
     <AppBar position="static">
@@ -45,11 +48,11 @@ const Navbar = (props) => {
         </Typography>
 
           <Box sx={{display:'flex', alignContent:'center' }}>
-          <Typography marginTop={2} marginRight={2}>Donato De Santis</Typography>
+          <Typography marginTop={2} marginRight={2}>{user}</Typography>
            <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Donato" 
-                      src={process.env.PUBLIC_URL + "images/donato.jpg"} 
+                      src={process.env.PUBLIC_URL + `images/${pic}`} 
                         sx={{ width: 56, height: 56 }} 
                 />
               </IconButton>

@@ -7,7 +7,8 @@ import recetas from '../recetas.js';
 
 
 export default function Home(props){
-    
+    const userName = props.userName
+    const userPic = props.pic
 
     const recipieElements = recetas.map(receta => {
         return (<Grid item xs={3} sm={4} key={receta.id} >
@@ -17,14 +18,14 @@ export default function Home(props){
     
     return (   
         <div>
-        <Navbar text="HOME" />
+        <Navbar text="HOME" userName={userName} pic={userPic}  />
         
         <Container sx={{ width: '100%', marginTop: "15px" }}>
             <Filterbar />
             <Grid container justifyContent="space-evenly"
                   alignItems="center" 
                   spacing={{ xs: 2, md: 2 }} 
-                  columns={{ xs: 4, sm: 8, md: 12, lg: 12, xl:12 }}
+                  columns={{ xs: 4, sm: 8, md: 12, lg: 12, xl:16 }}
                   >
                 
                 {recipieElements}

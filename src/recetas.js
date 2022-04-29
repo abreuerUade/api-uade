@@ -4,7 +4,29 @@ export default[
         id: 1,
         name: "Hamburguer",
         category:"Fast Food",
-        ingredients: "Bread, Meat, Cheese",
+        ingredients:  [
+            {
+                id: 1,
+                qty: "1",
+                type: "Brioche Bread"
+            },
+            {
+                id: 2,
+                qty: "260 g",
+                type: "Grouded Beef"
+            },
+            {
+                id: 3,
+                qty: "50 g",
+                type: " Cheddar Cheese"
+            },
+            {
+                id: 4,
+                qty: "1",
+                type: "Onion"
+            }
+    
+            ],
         dificulty: "5",
         imgSrc: "hamburguesa.jpg",
         date: "July 18, 2019",
@@ -14,13 +36,36 @@ export default[
             name:"Donato",
             pic:"donato.jpg"
         },
+        preparation: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     },
 
     {
         id: 2,
         name: "Chicken Pasta",
         category:"Italian",
-        ingredients: "Pasta, Chicken, Cheese",
+        ingredients:  [
+            {   
+                id:1,
+                qty: "250 g",
+                type: "Fresh Pasta"
+            },
+            {
+                id:2,
+                qty: "150 g",
+                type: "Chicken Breast"
+            },
+            {
+                id:3,
+                qty: "200 ml",
+                type: "Heavy Cream"
+            },
+            {
+                id:4,
+                qty: "1",
+                type: "Onion"
+            }
+    
+            ],
         dificulty: "6",
         imgSrc: "chickenpasta.jpg",
         date: "September 14, 2020",
@@ -29,6 +74,8 @@ export default[
             name:"Ariel",
             pic:"palacios.jpg"
         },
+        preparation: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+
     },
 
     {
@@ -111,7 +158,7 @@ export default[
         dificulty: "7",
         imgSrc: "falafel.jpg",
         date: "October 4, 2021",
-        rate: 5.7,
+        rate: 4.7,
         creator: {
             name:"Ariel",
             pic:"palacios.jpg"

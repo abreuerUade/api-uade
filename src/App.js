@@ -14,6 +14,8 @@ function App() {
   
   const currentUser = users[0]
 
+  const userName = currentUser.firstName + ' ' + currentUser.lastName
+  const userPic = currentUser.profPic
   
   const location = useLocation()
   const data = location.state
@@ -23,12 +25,12 @@ function App() {
    
       <Routes>
         
-        <Route path='/' element={<Home user={currentUser} />} />
-        <Route path='/home' element={<Home user={currentUser}  />} />
+        <Route path='/' element={<Home userName={userName} pic={userPic}/>} />
+        <Route path='/home' element={<Home userName={userName} pic={userPic}  />} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
-        <Route path='/fullrecipie' element={<FullRecipie user={currentUser} receta={data}  />} />
-        <Route path='/MyAccount' element={<MyAccount user={currentUser} />} />
+        <Route path='/fullrecipie' element={<FullRecipie userName={userName} pic={userPic} receta={data}  />} />
+        <Route path='/MyAccount' element={<MyAccount userName={userName} pic={userPic} />} />
         <Route path='/myrecipies' element={<MyRecipies />} />
         
 
