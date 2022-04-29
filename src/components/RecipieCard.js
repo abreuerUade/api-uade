@@ -10,6 +10,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Box, CardContent, Typography } from '@mui/material';
 import Rating from '@mui/material/Rating';
+import { Link } from 'react-router-dom';
 
 
 
@@ -23,6 +24,8 @@ export default function RecipeReviewCard(prop) {
   function toggleHeart() {
     setIsFav(prevHeart => !prevHeart)
   }
+
+  
 
   return (
     <Card sx={{ maxWidth: 300, minWidth: 270}}>
@@ -40,12 +43,14 @@ export default function RecipeReviewCard(prop) {
         title={`${prop.item.name}`}
         subheader="September 14, 2016"
       />
-      <CardMedia
+      <Link to='/fullrecipie' state={prop}>
+      <CardMedia 
         component="img"
         height="194"
         src={process.env.PUBLIC_URL + `/images/${prop.item.imgSrc}`} 
         alt="Paella dish"
       />
+      </Link>
       <CardContent sx={{display: 'flex', justifyContent:"space-between",alignContent:'center'}}>
           <Typography variant="Subtitle2">Difficulty: {`${prop.item.dificulty}`}</Typography>
           <Box sx={{display: 'flex', alignContent:'center'}} >

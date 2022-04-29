@@ -5,17 +5,19 @@ import RecipieCard from '../components/RecipieCard'
 import Filterbar from '../components/Filterbar'
 import recetas from '../recetas.js';
 
-export default function Home(prop){
+
+export default function Home(props){
+    
 
     const recipieElements = recetas.map(receta => {
         return (<Grid item xs={3} sm={4} key={receta.id} >
-                    <RecipieCard item={receta} />            
+                    <RecipieCard item={receta}   />            
                 </Grid>)
             }) 
     
     return (   
         <div>
-        <Navbar text="HOME" user={prop} />
+        <Navbar text="HOME" />
         
         <Container sx={{ width: '100%', marginTop: "15px" }}>
             <Filterbar />
