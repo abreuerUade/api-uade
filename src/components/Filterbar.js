@@ -8,9 +8,6 @@ import TextField from '@mui/material/TextField';
 import FilterListIcon from '@mui/icons-material/FilterList';
 
 
-
-
-
 const ResponsiveFilterBar = () => {
 
     const [order, setOrder] = React.useState('');

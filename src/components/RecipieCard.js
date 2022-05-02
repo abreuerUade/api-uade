@@ -47,7 +47,7 @@ export default function RecipeReviewCard(prop) {
       <CardMedia 
         component="img"
         height="194"
-        src={process.env.PUBLIC_URL + `/images/${prop.item.imgSrc}`} 
+        src={process.env.PUBLIC_URL + `/images/${prop.item.images[0].src}`} 
         alt="Paella dish"
       />
       </Link>

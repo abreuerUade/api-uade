@@ -28,7 +28,24 @@ export default[
     
             ],
         dificulty: "5",
-        imgSrc: "hamburguesa.jpg",
+        images:[
+            {
+                id:1 ,
+                src: "hamburguesa.jpg"
+            },
+            {
+                id:2,
+                src: "hamburguesa2.jpg"
+            },
+            {
+                id:3,
+                src: "hamburguesa3.jpg"
+            },
+            {
+                id:4,
+                src: "hamburguesa4.jpg"
+            },
+        ] ,
         date: "July 18, 2019",
         rate: 4,
         creator: {
@@ -67,7 +84,20 @@ export default[
     
             ],
         dificulty: "6",
-        imgSrc: "chickenpasta.jpg",
+        images:[
+            {
+                src: "chickenpasta.jpg"
+            },
+            {
+                src: "chickenpasta.jpg"
+            },
+            {
+                src: "chickenpasta.jpg"
+            },
+            {
+                src: "chickenpasta.jpg"
+            },
+        ] ,
         date: "September 14, 2020",
         rate: 3.5,
         creator: {
@@ -84,7 +114,20 @@ export default[
         category:"Soup",
         ingredients: "Onions, Butter, Cheese",
         dificulty: "4",
-        imgSrc: "onionsoup.jpg",
+        images:[
+            {
+                src: "onionsoup.jpg"
+            },
+            {
+                src: "onionsoup.jpg"
+            },
+            {
+                src: "onionsoup.jpg"
+            },
+            {
+                src: "onionsoup.jpg"
+            },
+        ] ,
         date: "October 4, 2021",
         rate: 3,
         creator: {
@@ -99,7 +142,20 @@ export default[
         category:"Mexican",
         ingredients: "Tortilla, Cheese",
         dificulty: "3",
-        imgSrc: "quesadilla.jpg",
+        images:[
+            {
+                src: "quesadilla.jpg"
+            },
+            {
+                src: "quesadilla.jpg"
+            },
+            {
+                src: "quesadilla.jpg"
+            },
+            {
+                src: "quesadilla.jpg"
+            },
+        ] ,
         date: "October 8, 2021",
         rate: 4.1,
         creator: {
@@ -114,7 +170,20 @@ export default[
         category:"Salad",
         ingredients: "Chicken, letuce",
         dificulty: "6",
-        imgSrc: "cesar.jpg",
+        images:[
+            {
+                src: "cesar.jpg"
+            },
+            {
+                src: "cesar.jpg"
+            },
+            {
+                src: "cesar.jpg"
+            },
+            {
+                src: "cesar.jpg"
+            },
+        ] ,
         date: "October 4, 2021",
         rate: 4.6,
         creator: {
@@ -128,7 +197,20 @@ export default[
         category:"Bakery",
         ingredients: "Muffins, Bannana",
         dificulty: "7",
-        imgSrc: "muffins.jpg",
+        images:[
+            {
+                src: "muffins.jpg"
+            },
+            {
+                src: "muffins.jpg"
+            },
+            {
+                src: "muffins.jpg"
+            },
+            {
+                src: "muffins.jpg"
+            },
+        ] ,
         date: "October 4, 2021",
         rate: 4.7,
         creator: {
@@ -142,7 +224,20 @@ export default[
         category:"Japanese",
         ingredients: "Onions, Butter, Cheese",
         dificulty: "9",
-        imgSrc: "ramen.jpg",
+        images:[
+            {
+                src: "ramen.jpg"
+            },
+            {
+                src: "ramen.jpg"
+            },
+            {
+                src: "ramen.jpg"
+            },
+            {
+                src: "ramen.jpg"
+            },
+        ] ,
         date: "October 4, 2021",
         rate: 5,
         creator: {
@@ -156,7 +251,21 @@ export default[
         category:"Arabic",
         ingredients: "Onions, Butter, Cheese",
         dificulty: "7",
-        imgSrc: "falafel.jpg",
+        images:[
+            {
+                
+                src: "falafel.jpg"
+            },
+            {
+                src: "falafel.jpg"
+            },
+            {
+                src: "falafel.jpg"
+            },
+            {
+                src: "falafel.jpg"
+            },
+        ] ,
         date: "October 4, 2021",
         rate: 4.7,
         creator: {
