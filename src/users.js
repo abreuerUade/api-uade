@@ -8,6 +8,15 @@ export default[
         phone:"+54115555555",
         profPic: "donato.jpg",
     
+    },
+    {
+        id:2,
+        firstName:"Arielo",
+        lastName: "Palacios",
+        mail: "palacios@cucina.com",
+        phone:"+54114445555",
+        profPic: "palacios.jpg",
+    
     }
 
 

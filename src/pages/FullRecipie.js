@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from '../components/Navbar'
 import Typography from '@mui/material/Typography';
 import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
-import { lightBlue, grey, cyan } from '@mui/material/colors';
+import {  grey } from '@mui/material/colors';
 import { Rating } from '@mui/material';
 
 import Slider from '../components/Slider/Slider';
@@ -14,14 +14,14 @@ export default function FullRecipie(props){
     const pic = props.pic
     const receta = props.receta.item
 
-    const ingColor = lightBlue[700]
-    const nameColor = grey[200]
-    const prepColor = cyan[700]
+    const prepColor = grey[50]
+    const ingColor = grey[50]
+    const nameColor = grey[50]
 
     const ingredientItems = receta.ingredients.map(item => {
         return (<ListItem key={item.id}>
                 <DinnerDiningIcon color='white'/>&nbsp;&nbsp;&nbsp;
-                <Typography variant='h6'color="common.white">{`${item.type} - ${item.qty} `}</Typography>
+                <Typography variant='subtitle1'>{`${item.type} - ${item.qty} `}</Typography>
             </ListItem>
     )})
 
@@ -31,17 +31,17 @@ export default function FullRecipie(props){
         <Navbar text="" userName={user} pic={pic}/>
 
         <Container sx={{marginTop: "50px"}}>
-            <Grid container>
+            <Grid container spacing={{ xs: 2, md: 2 }}>
                 <Grid item xs={12}>
                     <Box boxShadow={3} sx={{
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-around',    
-                        height: 100,
+                        height: 50,
                         backgroundColor: `${nameColor}`,
                         borderRadius: '16px'
                         }}>
-                        <Typography variant='h3'>
+                        <Typography variant='h4'>
                             {receta.name.toUpperCase()}
                         </Typography>
                         
@@ -50,8 +50,14 @@ export default function FullRecipie(props){
                     </Box>
                 </Grid>
 
-                <Grid item mt={3} xs={12} sm={6} md={6} xl={6} > 
-                    <Slider img={receta.images} />
+                <Grid item mt={3} xs={12} sm={6} md={6} xl={6}  > 
+                    <Box boxShadow={3} sx={{  
+                        backgroundColor: `${nameColor}`,
+                        height: 300,
+                        borderRadius: '16px'
+                        }}>
+                        <Slider img={receta.images} />
+                    </Box>
                 </Grid>
 
                 <Grid item mt={3} xs={12} sm={6} md={6} xl={6} > 
@@ -59,13 +65,13 @@ export default function FullRecipie(props){
                         display: 'flex',
                         justifyItems: 'center',
                         alignItems: 'flex-start',
-                        height: 400,
+                        height: 300,
                         backgroundColor: `${ingColor}`,
                         borderRadius: '16px'
                         }}>
                         
                        <List >  
-                            <Typography variant='h5' color="common.white">&emsp;Ingredients: </Typography>
+                            <Typography mb={1} variant='h6' >&emsp;Ingredients: </Typography>
                             {ingredientItems}
 
                        </List>
@@ -80,11 +86,11 @@ export default function FullRecipie(props){
                         backgroundColor: `${prepColor}`,
                         borderRadius: '16px'
                         }}>
-                        <Typography variant='h5' color="common.white">&emsp;Preparation: </Typography>
-                        <Typography mt={2} variant='h6' color="common.white">
+                        <Typography variant='h5' >&emsp;Preparation: </Typography>
+                        <Typography fontSize={18} mt={2} variant='h6' >
                         &emsp; Difficulty: {receta.dificulty}
                         </Typography>
-                        <Typography mt={2} variant='h6' color="common.white">
+                        <Typography mt={2} variant='subtitle1' >
                         &emsp; {receta.preparation}
                         </Typography>
                     </Box>
