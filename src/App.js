@@ -12,7 +12,7 @@ import { useLocation } from 'react-router-dom';
 
 function App() {
   
-  const currentUser = users[1]
+  const currentUser = users[0]
 
   const userName = currentUser.firstName + ' ' + currentUser.lastName
   const userPic = currentUser.profPic

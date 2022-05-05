@@ -1,34 +1,54 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import CssBaseline from '@mui/material/CssBaseline';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Slide from '@mui/material/Slide';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 
-const settings = ['MyAccount', 'My Recipies', 'Logout'];
 
-const Navbar = (props) => {
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  const user = props.userName
-  const pic = props.pic
+function HideOnScroll(props) {
+  const { children } = props;
   
+  const trigger = useScrollTrigger();
+
   return (
-    <AppBar position="static">
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
+
+export default function Navbar2(props) {
+
+const settings = ['MyAccount', 'My Recipies', 'Logout'];
+const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+};
+  
+const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+};
+
+const user = props.userName
+const pic = props.pic
+
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <HideOnScroll>
+      <AppBar position="fixed" >
       <Container maxWidth="xxl">
         <Toolbar disableGutters style={{display:'flex', justifyContent:"space-between", width:'100%'}}>
           
@@ -91,6 +111,8 @@ const Navbar = (props) => {
         </Toolbar>
       </Container>
     </AppBar>
+      </HideOnScroll>
+      <Toolbar />
+    </React.Fragment>
   );
-};
-export default Navbar;
+}

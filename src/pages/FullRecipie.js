@@ -3,9 +3,9 @@ import React from 'react';
 import Navbar from '../components/Navbar'
 import Typography from '@mui/material/Typography';
 import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
-import {  grey } from '@mui/material/colors';
+import {  blueGrey } from '@mui/material/colors';
 import { Rating } from '@mui/material';
-
+import Footer from '../components/Footer'
 import Slider from '../components/Slider/Slider';
 
 export default function FullRecipie(props){
@@ -14,9 +14,8 @@ export default function FullRecipie(props){
     const pic = props.pic
     const receta = props.receta.item
 
-    const prepColor = grey[50]
-    const ingColor = grey[50]
-    const nameColor = grey[50]
+    const colorGrey = blueGrey[50]
+    
 
     const ingredientItems = receta.ingredients.map(item => {
         return (<ListItem key={item.id}>
@@ -38,7 +37,7 @@ export default function FullRecipie(props){
                         alignItems: 'center',
                         justifyContent: 'space-around',    
                         height: 50,
-                        backgroundColor: `${nameColor}`,
+                        backgroundColor: `${colorGrey}`,
                         borderRadius: '16px'
                         }}>
                         <Typography variant='h4'>
@@ -50,24 +49,28 @@ export default function FullRecipie(props){
                     </Box>
                 </Grid>
 
-                <Grid item mt={3} xs={12} sm={6} md={6} xl={6}  > 
-                    <Box boxShadow={3} sx={{  
-                        backgroundColor: `${nameColor}`,
-                        height: 300,
+                <Grid item mt={3} xs={10} sm={6} md={6} xl={6}  > 
+                    <Box alignItems="center" boxShadow={3} sx={{
+                        backgroundColor: `${colorGrey}`,
                         borderRadius: '16px'
                         }}>
+                       <Box sx={{py:3}}>
                         <Slider img={receta.images} />
+                        </Box>
+                        
                     </Box>
                 </Grid>
 
-                <Grid item mt={3} xs={12} sm={6} md={6} xl={6} > 
+                <Grid item  mt={3} xs={12} sm={6} md={6} xl={6} > 
                     <Box boxShadow={3} sx={{
                         display: 'flex',
                         justifyItems: 'center',
                         alignItems: 'flex-start',
                         height: 300,
-                        backgroundColor: `${ingColor}`,
-                        borderRadius: '16px'
+                        backgroundColor: `${colorGrey}`,
+                        borderRadius: '16px',
+                        overflow: "hidden",
+                        overflowY: "scroll" // added scroll
                         }}>
                         
                        <List >  
@@ -83,7 +86,7 @@ export default function FullRecipie(props){
                 <Grid mt={3} item xs={12}>
                     <Box boxShadow={3} sx={{
                         p: 2,    
-                        backgroundColor: `${prepColor}`,
+                        backgroundColor: `${colorGrey}`,
                         borderRadius: '16px'
                         }}>
                         <Typography variant='h5' >&emsp;Preparation: </Typography>
@@ -99,6 +102,7 @@ export default function FullRecipie(props){
 
             </Grid>
         </Container>
+        <Footer />
         </>
         );
     }

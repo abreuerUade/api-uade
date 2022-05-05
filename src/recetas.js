@@ -24,6 +24,26 @@ export default[
                 id: 4,
                 qty: "1",
                 type: "Onion"
+            },
+            {
+                id: 5,
+                qty: "1",
+                type: "Brioche Bread"
+            },
+            {
+                id: 6,
+                qty: "260 g",
+                type: "Grouded Beef"
+            },
+            {
+                id: 7,
+                qty: "50 g",
+                type: " Cheddar Cheese"
+            },
+            {
+                id: 8,
+                qty: "1",
+                type: "Onion"
             }
     
             ],
