@@ -30,7 +30,7 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/fullrecipie' element={<FullRecipie userName={userName} pic={userPic} receta={data}  />} />
-        <Route path='/MyAccount' element={<MyAccount userName={userName} pic={userPic} />} />
+        <Route path='/MyAccount' element={<MyAccount fullUser={currentUser} userName={userName} pic={userPic} />} />
         <Route path='/myrecipies' element={<MyRecipies />} />
         
 

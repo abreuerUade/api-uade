@@ -14,11 +14,9 @@ export default function ProfileInformation() {
   const [botonDesactivado, setBotonDesactivado] = useState(true);
   const [campoDesactivado, setCampoDesactivado] = useState(true);
 
-  const changeDisabled = (value) => {
-    setCampoDesactivado(!{value});
-    setBotonDesactivado(!{value});
-
-  
+  const changeDisabled = () => {
+    setCampoDesactivado(prevState => !prevState);
+    setBotonDesactivado(prevState => !prevState);
   }; 
 
   return (
@@ -30,7 +28,7 @@ export default function ProfileInformation() {
       variant="h5"
       color="text.primary"
       >
-        Profile Information >
+        Profile Information 
       </Typography>
       <div>
         <br></br>
@@ -97,25 +95,26 @@ export default function ProfileInformation() {
           
         </Grid>
         <br></br>
+        <Box sx={{display: 'flex', justifyContent: 'space-between' }}>
           <Button 
             id='modifybutton'
             variant="contained" 
-            onClick={() => changeDisabled(true)}     
+            onClick={changeDisabled}     
             disabled={!botonDesactivado} 
-            class="css-sghohy-MuiButtonBase-root-MuiButton-root btnLeft" 
-            item sm={8} md={8}>
+            className="css-sghohy-MuiButtonBase-root-MuiButton-root" 
+            sm={8} md={8}>
               Modify
             </Button>
           <Button 
             id='savebutton'
             variant="contained" 
-            onClick={() => changeDisabled(false)}    
+            onClick={changeDisabled}    
             disabled={botonDesactivado}          
-            class="css-sghohy-MuiButtonBase-root-MuiButton-root btnRight "  
-            item sm={8} md={8}>
+            className="css-sghohy-MuiButtonBase-root-MuiButton-root"  
+            sm={8} md={8}>
               Save
             </Button>
-
+          </Box>
       </Box>
 
     </Container>
