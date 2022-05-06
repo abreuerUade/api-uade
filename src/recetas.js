@@ -109,13 +109,13 @@ export default[
                 src: "chickenpasta.jpg"
             },
             {
-                src: "chickenpasta.jpg"
+                src: "chickenpasta2.jpg"
             },
             {
-                src: "chickenpasta.jpg"
+                src: "chickenpasta3.jpg"
             },
             {
-                src: "chickenpasta.jpg"
+                src: "chickenpasta4.jpg"
             },
         ] ,
         date: "September 14, 2020",

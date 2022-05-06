@@ -70,7 +70,8 @@ export default function FullRecipie(props){
                         backgroundColor: `${colorGrey}`,
                         borderRadius: '16px',
                         overflow: "hidden",
-                        overflowY: "scroll" // added scroll
+                        overflowY: "scroll",
+                        padding: 1
                         }}>
                         
                        <List >  

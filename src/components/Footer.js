@@ -2,22 +2,20 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
+
 
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary">
       {'Copyright © '}
-      <Link color="inherit" href="/home">
-        Your Website
-      </Link>{' '}
+      
       {new Date().getFullYear()}
       {'.'}
     </Typography>
   );
 }
 
-export default function StickyFooter() {
+export default function Footer() {
   return (
     
       
@@ -27,7 +25,7 @@ export default function StickyFooter() {
           py: 3,
           px: 2,
           mt: 10,
-          backgroundColor: '#10B5E8',
+          backgroundColor: '#FCFCFC',
         }}
       >
         <Container maxWidth="sm">
@@ -35,6 +33,11 @@ export default function StickyFooter() {
             My sticky footer can be found here.
           </Typography>
           <Copyright />
+        </Container>
+
+        <Container>
+
+          
         </Container>
       </Box>
     
