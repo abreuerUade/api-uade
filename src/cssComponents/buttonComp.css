@@ -1,0 +1,47 @@
+.btnLeft {
+    float:left;
+}
+.btnRight {
+    float:right;
+}
+
+
+/* https://stackoverflow.com/questions/42134731/css-change-button-style-after-click */
+
+
+
+.btnLeft:visited {
+    float:left;
+}
+.btnRight:visited {
+    float:right;
+}
+
+
+
+.btnLeft:focus {
+    float:left;
+}
+.btnRight:focus {
+    float:right;
+}
+
+
+.btnLeft:active {
+    float:left;
+}
+.btnRight:active {
+    float:right;
+}
+
+
+
+/* Pseudo-class*/
+/* Specify you want to style the selected elements, and only when they are in certain state */
+.btnLeft:hover{
+    transform: translateY(-3px);
+}
+
+.btnRight:hover{
+    transform: translateY(-3px);
+}
