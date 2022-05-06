@@ -13,6 +13,7 @@ import Paper from '@mui/material/Paper';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { mainListItems, secondaryListItems } from './listItems';
 import ProfileInformation from '../../pages/settings/ProfileInformation';
+import Security from '../../pages/settings/Security';
 
 const drawerWidth = 240;
 
@@ -99,7 +100,7 @@ function DashboardContent(props) {
               {/* Recent Orders */}
               <Grid item xs={12} md={8} lg={9}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <ProfileInformation user={currentUser} />
+                  <Security user={currentUser} />
                 </Paper>
               </Grid>
             </Grid>
