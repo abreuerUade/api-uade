@@ -8,8 +8,6 @@ import Button from '@mui/material/Button';
 import '../../cssComponents/buttonComp.css';
 import {useState} from 'react';
 
-
-
 export default function ProfileInformation(props) {
 
   const [botonDesactivado, setBotonDesactivado] = useState(true);
@@ -96,30 +94,25 @@ export default function ProfileInformation(props) {
           
         </Grid>
         <br></br>
-        <Box sx={{display: 'flex', justifyContent: 'space-between' }}>
-          <Button 
-            id='modifybutton'
-            variant="contained" 
-            onClick={changeDisabled}     
-            disabled={!botonDesactivado} 
-            className="css-sghohy-MuiButtonBase-root-MuiButton-root" 
-            sm={8} md={8}>
-              Modify
-            </Button>
-          <Button 
-            id='savebutton'
-            variant="contained" 
-            onClick={changeDisabled}    
-            disabled={botonDesactivado}          
-            className="css-sghohy-MuiButtonBase-root-MuiButton-root"  
-            sm={8} md={8}>
-              Save
-            </Button>
-          </Box>
-      </Box>
-
+        <Button 
+              id='modifybutton'
+              variant="contained" 
+              onClick={changeDisabled}     
+              disabled={!botonDesactivado} 
+              className="css-sghohy-MuiButtonBase-root-MuiButton-root btnLeft" 
+              sm={8} md={8}>
+                Modify
+        </Button>
+        <Button 
+              id='savebutton'
+              variant="contained" 
+              onClick={changeDisabled}    
+              disabled={botonDesactivado}          
+              className="css-sghohy-MuiButtonBase-root-MuiButton-root btnRight"  
+              sm={8} md={8}>
+                Save
+        </Button>
+      </Box>  
     </Container>
-
-
   );
 }
