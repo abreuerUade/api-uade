@@ -8,6 +8,8 @@ export default[
         mail: "donato@cucina.com",
         phone:"+54115555555",
         profPic: "donato.jpg",
+        password: "**********",
+        alternativeEmail: "donato@gmail.com",
     
     },
     {
@@ -18,6 +20,9 @@ export default[
         mail: "palacios@cucina.com",
         phone:"+54114445555",
         profPic: "palacios.jpg",
+        password: "**********",
+        alternativeEmail: "palacios@gmail.com",
+        
     
     }
 
