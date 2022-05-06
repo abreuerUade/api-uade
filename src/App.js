@@ -12,7 +12,7 @@ import { useLocation } from 'react-router-dom';
 
 function App() {
   
-  const currentUser = users[0]
+  const currentUser = users[1]
 
   const userName = currentUser.firstName + ' ' + currentUser.lastName
   const userPic = currentUser.profPic
@@ -30,7 +30,7 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/fullrecipie' element={<FullRecipie userName={userName} pic={userPic} receta={data}  />} />
-        <Route path='/MyAccount' element={<MyAccount fullUser={currentUser} userName={userName} pic={userPic} />} />
+        <Route path='/MyAccount' element={<MyAccount fullUser={currentUser} />} />
         <Route path='/myrecipies' element={<MyRecipies />} />
         
 

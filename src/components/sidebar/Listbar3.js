@@ -45,7 +45,12 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 
-function DashboardContent() {
+function DashboardContent(props) {
+
+  const currentUser = props.user
+
+  
+
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -94,7 +99,7 @@ function DashboardContent() {
               {/* Recent Orders */}
               <Grid item xs={12} md={8} lg={9}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <ProfileInformation />
+                  <ProfileInformation user={currentUser} />
                 </Paper>
               </Grid>
             </Grid>

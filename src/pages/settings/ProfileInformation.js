@@ -10,7 +10,8 @@ import {useState} from 'react';
 
 
 
-export default function ProfileInformation() {
+export default function ProfileInformation(props) {
+
   const [botonDesactivado, setBotonDesactivado] = useState(true);
   const [campoDesactivado, setCampoDesactivado] = useState(true);
 
@@ -38,7 +39,7 @@ export default function ProfileInformation() {
           <Grid item xs={4} sm={4} md={4} lg={4}>
             <TextField
                   disabled={campoDesactivado}
-                  defaultValue={"Gianfranco"}
+                  defaultValue={`${props.user.firstName}`}
                   required
                   label="Primary Name"
                   id="firstname"              
@@ -48,7 +49,7 @@ export default function ProfileInformation() {
           <Grid item xs={8} sm={8} md={8} lg={8}>
             <TextField
                   disabled={campoDesactivado}
-                  defaultValue={"Caneva"}
+                  defaultValue={`${props.user.lastName}`}
                   required
                   label="Last Name"
                   id="surname" 
@@ -58,7 +59,7 @@ export default function ProfileInformation() {
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <TextField
                   disabled={campoDesactivado}
-                  defaultValue={"gfocaneva"}
+                  defaultValue={`${props.user.userName}`}
                   required
                   label="Username"
                   id="username"
@@ -68,7 +69,7 @@ export default function ProfileInformation() {
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <TextField
                   disabled={campoDesactivado}
-                  defaultValue={"gfocaneva@gmail.com"}
+                  defaultValue={`${props.user.mail}`}
                   required
                   label="Email"
                   id="email"
