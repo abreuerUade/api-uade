@@ -28,12 +28,6 @@ export const mainListItems = (
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <LockIcon />
-      </ListItemIcon>
-      <ListItemText primary="Privacy" />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
         <SecurityIcon />
       </ListItemIcon>
       <ListItemText primary="Security" />
