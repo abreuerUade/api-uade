@@ -19,7 +19,6 @@ export default function ProfileInformation(props) {
   }; 
 
   return (
-    // <
     <Container maxWidth="sm">
       <Typography
       sx={{ display: 'inline' }}
