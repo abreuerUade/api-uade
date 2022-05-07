@@ -13,7 +13,8 @@ import Paper from '@mui/material/Paper';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { mainListItems, secondaryListItems } from './listItems';
 import ProfileInformation from '../../pages/settings/ProfileInformation';
-import Security from '../../pages/settings/Security';
+import About from '../../pages/settings/About';
+import Help from '../../pages/settings/Help';
 
 const drawerWidth = 240;
 
@@ -50,18 +51,11 @@ function DashboardContent(props) {
 
   const currentUser = props.user
 
-  
-
-  const [open, setOpen] = React.useState(true);
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
-
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <Drawer variant="permanent" open={open}>
+        <Drawer variant="permanent" open={"true"}>
           <Toolbar
             sx={{
               display: 'flex',
@@ -70,10 +64,7 @@ function DashboardContent(props) {
               px: [1],
             }}
           >
-              Account preferences
-            <IconButton onClick={toggleDrawer}>
-              <ChevronLeftIcon />
-            </IconButton>
+              <h3>Account preferences</h3>
           </Toolbar>
           <Divider />
           <List component="nav">
@@ -95,16 +86,9 @@ function DashboardContent(props) {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              {/* Recent Orders */}
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Security user={currentUser} />
-                </Paper>
-              </Grid>
-            </Grid>
-          </Container>
+
+        <Help user={currentUser} />
+
         </Box>
       </Box>
     </ThemeProvider>
