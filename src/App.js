@@ -1,13 +1,15 @@
 
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import FullRecipie from './pages/FullRecipie';
+import FullRecipe from './pages/FullRecipe';
 import Home from './pages/Home';
+import Welcome from './pages/Welcome';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import MyAccount from './pages/MyAccount';
-import MyRecipies from './pages/MyRecipies';
+import MyRecipes from './pages/MyRecipes';
 import users from './users';
+import recetas from './recetas.js';
 import { useLocation } from 'react-router-dom';
 
 function App() {
@@ -19,7 +21,8 @@ function App() {
   
   const location = useLocation()
   const data = location.state
-  
+  const item = recetas[0]
+  const receta = recetas[0]
 
   return (
    
@@ -29,9 +32,10 @@ function App() {
         <Route path='/home' element={<Home userName={userName} pic={userPic}  />} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
-        <Route path='/fullrecipie' element={<FullRecipie userName={userName} pic={userPic} receta={data}  />} />
+        <Route path='/fullrecipe' element={<FullRecipe userName={userName} pic={userPic} receta={item}  />} />
         <Route path='/MyAccount' element={<MyAccount fullUser={currentUser} />} />
-        <Route path='/myrecipies' element={<MyRecipies />} />
+        <Route path='/myrecipes' element={<MyRecipes />} />
+        <Route path='/Welcome' element={<Welcome fullUser={currentUser} />} />
         
 
       </Routes>

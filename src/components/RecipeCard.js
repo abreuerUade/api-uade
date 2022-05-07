@@ -43,7 +43,7 @@ export default function RecipeReviewCard(prop) {
         title={`${prop.item.name}`}
         subheader="September 14, 2016"
       />
-      <Link to='/fullrecipie' state={prop}>
+      <Link to='/fullrecipe' state={prop}>
       <CardMedia 
         component="img"
         height="194"

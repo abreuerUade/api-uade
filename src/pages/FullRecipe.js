@@ -8,11 +8,12 @@ import { Rating } from '@mui/material';
 import Footer from '../components/Footer'
 import Slider from '../components/Slider/Slider';
 
-export default function FullRecipie(props){
+export default function FullRecipe(props){
 
     const user = props.userName
     const pic = props.pic
-    const receta = props.receta.item
+    debugger
+    const receta = props.receta
 
     const colorGrey = blueGrey[50]
     

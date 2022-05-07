@@ -5,7 +5,6 @@ import ListBar from '../components/sidebar/Listbar';
 export default function MyAccount(props){
     const userName = props.fullUser.firstName + props.fullUser.lastName
     const userPic = props.fullUser.profPic
-
     const currentUser = props.fullUser
 
     return (
