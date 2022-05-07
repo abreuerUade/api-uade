@@ -6,15 +6,9 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { mainListItems, secondaryListItems } from './listItems';
 import ProfileInformation from '../../pages/settings/ProfileInformation';
-import About from '../../pages/settings/About';
-import Help from '../../pages/settings/Help';
+import Security from '../../pages/settings/Security';
 
 const drawerWidth = 240;
 
@@ -85,9 +79,7 @@ function DashboardContent(props) {
             overflow: 'auto',
           }}
         >
-          <Toolbar />
-
-        <Help user={currentUser} />
+          <Toolbar />   
 
         </Box>
       </Box>
