@@ -19,13 +19,13 @@ export default function Home(props){
     
     return (   
         <>
-        <Navbar text="HOME" userName={userName} pic={userPic}  />
+        <Navbar text="Home" userName={userName} pic={userPic}  />
         
         <Container sx={{ width: '100%', marginTop: "15px" }}>
             <Filterbar />
             <Grid container justifyContent="space-evenly"
                   alignItems="center" 
-                  spacing={{ xs: 2, md: 2 }} 
+                  spacing={{ xs: 2, md: 2, lg: 12, xl: 12}} 
                   columns={{ xs: 4, sm: 8, md: 12, lg: 12, xl:16 }}
                   >
                 

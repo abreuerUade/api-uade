@@ -23,7 +23,7 @@ const ResponsiveFilterBar = () => {
         
         <FilterListIcon sx={{marginTop:'10px'}} fontSize='large' color='primary' />
         
-        <TextField margin='dense' size='small' id="ingredientes" label="Ingretients" variant="outlined" />
+        <TextField margin='dense' size='small' id="ingredientes" label="Ingredients" variant="outlined" />
         
         <TextField margin='dense' size='small' id="categoria" label="Category" variant="outlined" />
         

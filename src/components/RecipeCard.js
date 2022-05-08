@@ -20,15 +20,14 @@ export default function RecipeReviewCard(prop) {
   const [isFav, setIsFav] = React.useState(false)
 
   let isHeart = isFav ? "red" : "grey"
+  const cardHeight= !!prop.height ? prop.height : 200 
 
   function toggleHeart() {
     setIsFav(prevHeart => !prevHeart)
   }
 
-  
-
   return (
-    <Card sx={{ maxWidth: 300, minWidth: 270}}>
+    <Card sx={{ maxWidth: 200, minWidth: 300, maxHeight:Number(`${cardHeight}`), minHeight:100}}>
       <CardHeader
         avatar={
           <Avatar src={process.env.PUBLIC_URL + `/images/${prop.item.creator.pic}`} />
