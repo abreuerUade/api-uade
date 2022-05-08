@@ -6,13 +6,12 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { mainListItems, secondaryListItems } from './listItems';
 import ProfileInformation from '../../pages/settings/ProfileInformation';
+import Notification from '../../pages/settings/Notification';
+import Security from '../../pages/settings/Security';
+import HelpSettings from '../../pages/settings/Help';
+import About from '../../pages/settings/About';
 
 const drawerWidth = 240;
 
@@ -45,22 +44,37 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 
-function DashboardContent(props) {
+function ListBar(props) {
 
   const currentUser = props.user
+  debugger
+  var settingsOption
+  switch (props.settingsOption) {
+    case 'ProfileInformation':
+      settingsOption = <ProfileInformation user={currentUser}></ProfileInformation>
+      break;
+    case 'Notification':
+      settingsOption = <Notification user={currentUser}></Notification>
+      break;
+    case 'Security':
+      settingsOption = <Security user={currentUser}></Security>
+      break;
+    case 'Help':
+      settingsOption = <HelpSettings></HelpSettings>
+      break;
+    case 'About':
+      settingsOption = <About></About>
+      break;
+    default:
+      // execute default code block
+  }
 
-  
-
-  const [open, setOpen] = React.useState(true);
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
 
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <Drawer variant="permanent" open={open}>
+        <Drawer variant="permanent" open={"true"}>
           <Toolbar
             sx={{
               display: 'flex',
@@ -69,10 +83,7 @@ function DashboardContent(props) {
               px: [1],
             }}
           >
-              Account preferences
-            <IconButton onClick={toggleDrawer}>
-              <ChevronLeftIcon />
-            </IconButton>
+              <h3>Account preferences</h3>
           </Toolbar>
           <Divider />
           <List component="nav">
@@ -93,21 +104,12 @@ function DashboardContent(props) {
             overflow: 'auto',
           }}
         >
-          <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              {/* Recent Orders */}
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <ProfileInformation user={currentUser} />
-                </Paper>
-              </Grid>
-            </Grid>
-          </Container>
+          <Toolbar />   
+          {settingsOption}
         </Box>
       </Box>
     </ThemeProvider>
   );
 }
 
-export default DashboardContent;
+export default ListBar;

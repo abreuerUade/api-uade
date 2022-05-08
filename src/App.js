@@ -1,14 +1,16 @@
-
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import FullRecipie from './pages/FullRecipie';
+import FullRecipe from './pages/FullRecipe';
 import Home from './pages/Home';
+import Welcome from './pages/Welcome';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import MyAccount from './pages/MyAccount';
-import MyRecipies from './pages/MyRecipies';
+import MyRecipes from './pages/MyRecipes';
 import users from './users';
-import { useLocation } from 'react-router-dom';
+import recetas from './recetas.js';
+import images from './images.js';
+// import { useLocation } from 'react-router-dom';
 
 function App() {
   
@@ -17,22 +19,28 @@ function App() {
   const userName = currentUser.firstName + ' ' + currentUser.lastName
   const userPic = currentUser.profPic
   
-  const location = useLocation()
-  const data = location.state
-  
+  // const location = useLocation()
+  // const data = location.state
+  const item = recetas[0]
+  const allImages= images[0]
 
   return (
    
       <Routes>
         
-        <Route path='/' element={<Home userName={userName} pic={userPic}/>} />
+        <Route path='/' element={<Welcome fullUser={currentUser} receta={item} images={allImages} />} />
         <Route path='/home' element={<Home userName={userName} pic={userPic}  />} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
-        <Route path='/fullrecipie' element={<FullRecipie userName={userName} pic={userPic} receta={data}  />} />
-        <Route path='/MyAccount' element={<MyAccount fullUser={currentUser} />} />
-        <Route path='/myrecipies' element={<MyRecipies />} />
-        
+        <Route path='/fullrecipe' element={<FullRecipe userName={userName} pic={userPic} receta={item}  />} />
+        <Route path='/myAccount' element={<MyAccount fullUser={currentUser} />} />
+        <Route path='/myrecipes' element={<MyRecipes />} />
+        <Route path='/welcome' element={<Welcome fullUser={currentUser} receta={item} images={allImages} />} />
+        <Route path='/profileinfo' element={<MyAccount fullUser={currentUser} settingsOption='ProfileInformation'/>} />
+        <Route path='/notification' element={<MyAccount fullUser={currentUser} settingsOption='Notification'/>} />
+        <Route path='/security' element={<MyAccount fullUser={currentUser} settingsOption='Security'/>} />
+        <Route path='/help' element={<MyAccount fullUser={currentUser} settingsOption='Help'/>} />
+        <Route path='/about' element={<MyAccount fullUser={currentUser} settingsOption='About'/>} />
 
       </Routes>
 

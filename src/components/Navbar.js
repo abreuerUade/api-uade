@@ -30,7 +30,7 @@ function HideOnScroll(props) {
 
 export default function Navbar2(props) {
 
-const settings = ['MyAccount', 'My Recipies', 'Logout'];
+const settings = ['MyAccount', 'My Recipes', 'Logout'];
 const [anchorElUser, setAnchorElUser] = React.useState(null);
 
 const handleOpenUserMenu = (event) => {
