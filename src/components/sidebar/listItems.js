@@ -31,13 +31,6 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Security" />
     </ListItem>
-    <ListItem Button href="/security">
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="My recipes" />
-    </ListItem>
-
   </React.Fragment>
 );
 
