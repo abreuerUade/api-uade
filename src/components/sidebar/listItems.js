@@ -6,7 +6,6 @@ import ListSubheader from '@mui/material/ListSubheader';
 import PersonIcon from '@mui/icons-material/Person';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SecurityIcon from '@mui/icons-material/Security';
-import AssignmentIcon from '@mui/icons-material/Assignment';
 import HelpIcon from '@mui/icons-material/Help';
 import InfoIcon from '@mui/icons-material/Info';
 

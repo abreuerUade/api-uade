@@ -1,12 +1,13 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
+
+
 
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary">
+    <Typography variant="body2" color="common.white">
       {'Copyright © '}
       
       {new Date().getFullYear()}
@@ -16,29 +17,58 @@ function Copyright() {
 }
 
 export default function Footer() {
+
+  
+  
+  const redes = {display:'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center'}
+
   return (
     
       
       <Box
         component="footer"
         sx={{
+          color:'common.white',
+          justifyContent: 'space-between',
+          display:'flex',
+          alignItems: 'center',
           py: 3,
           px: 2,
           mt: 10,
-          backgroundColor: '#FCFCFC',
+          backgroundColor: '#3E4450',
         }}
       >
-        <Container maxWidth="sm">
+        <Box maxWidth="sm">
           <Typography variant="body1">
             App-Etite! all rights reserved
           </Typography>
           <Copyright />
-        </Container>
+        </Box>
+        
+          <Typography  variant="body1">  ABOUT US  </Typography>
+        
+          <Typography  variant="body1">  CONTACT  </Typography>
 
-        <Container>
+          <Typography  variant="body1">  LEGALS  </Typography>
 
-          
-        </Container>
+        <Box sx={redes}>
+            <Box>
+              <Typography  variant="body1">
+                FOLLOW US!! <hr></hr>
+              </Typography>
+            </Box>
+            <Box>
+                <img src={process.env.PUBLIC_URL + "images/facebook.png"} alt="" width='35px' height='35px' />
+                <img src={process.env.PUBLIC_URL + "images/instagram.png"} alt="" width='35px' height='35px'/>
+                <img src={process.env.PUBLIC_URL + "images/tik-tok.png"} alt="" width='35px' height='35px' />
+                <img src={process.env.PUBLIC_URL + "images/twitter.png"} alt="" width='35px' height='35px' />
+                <img src={process.env.PUBLIC_URL + "images/whatsapp.png"} alt="" width='35px' height='35px' />
+                <img src={process.env.PUBLIC_URL + "images/youtube.png"} alt="" width='35px' height='35px' />
+          </Box>
+        </Box>
       </Box>
     
   );

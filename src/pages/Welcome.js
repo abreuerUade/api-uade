@@ -12,6 +12,7 @@ import HistoryIcon from '@mui/icons-material/History';
 import Button from '@mui/material/Button';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import '../cssComponents/buttonComp.css';
+import Footer from '../components/Footer';
 
 export default function Welcome(props){
     const userName = props.fullUser.firstName + props.fullUser.lastName
@@ -36,7 +37,7 @@ export default function Welcome(props){
 
     return (
                
-     
+        <>
         <Container maxWidth="lg" sx={{ mt: 8, mb: 8 }}>
             <Navbar text="Welcome" userName={userName} pic={userPic} />
             <Grid container spacing={3}>
@@ -104,6 +105,7 @@ export default function Welcome(props){
             </Box>
             
         </Container>
-        
+        <Footer />
+        </>
     );
 }
