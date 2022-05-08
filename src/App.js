@@ -33,7 +33,7 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/fullrecipe' element={<FullRecipe userName={userName} pic={userPic} receta={item}  />} />
-        <Route path='/myAccount' element={<MyAccount fullUser={currentUser} />} />
+        <Route path='/myAccount' element={<MyAccount settingsOption='ProfileInformation' fullUser={currentUser} />} />
         <Route path='/myrecipes' element={<MyRecipes />} />
         <Route path='/welcome' element={<Welcome fullUser={currentUser} receta={item} images={allImages} />} />
         <Route path='/profileinfo' element={<MyAccount fullUser={currentUser} settingsOption='ProfileInformation'/>} />
