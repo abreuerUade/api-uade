@@ -5,7 +5,7 @@ import '../../cssComponents/buttonComp.css';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 
-export default function Help(props) {
+export default function Help() {
 
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>

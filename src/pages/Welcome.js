@@ -10,7 +10,7 @@ import RecipeCard from '../components/RecipeCard'
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
 import HistoryIcon from '@mui/icons-material/History';
 import Button from '@mui/material/Button';
-import { height } from '@mui/system';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import '../cssComponents/buttonComp.css';
 
 export default function Welcome(props){
@@ -99,7 +99,7 @@ export default function Welcome(props){
             <br></br> 
             <Box textAlign='center'>
                 <Button className='btnCenter' variant="contained" href="/home">
-                    See more recipes
+                    See more recipes <ReceiptLongIcon></ReceiptLongIcon>
                 </Button>       
             </Box>
             

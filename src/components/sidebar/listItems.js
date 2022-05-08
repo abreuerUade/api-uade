@@ -15,25 +15,25 @@ import Security from '../../pages/settings/Security';
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItem Button>
+    <ListItem Button component="a" href='/profileinfo'>
       <ListItemIcon>
         <PersonIcon />
       </ListItemIcon>
       <ListItemText primary="Profile Information" />
     </ListItem>
-    <ListItem Button>
+    <ListItem Button Button component="a" href='/notification'>
       <ListItemIcon>
         <NotificationsIcon />
       </ListItemIcon>
       <ListItemText primary="Notification" />
     </ListItem>
-    <ListItem Button onClick={()=>(<Security/>)}>
+    <ListItem Button component="a" href='/security'>
       <ListItemIcon>
         <SecurityIcon />
       </ListItemIcon>
       <ListItemText primary="Security" />
     </ListItem>
-    <ListItem Button>
+    <ListItem Button href="/security">
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
@@ -48,17 +48,17 @@ export const secondaryListItems = (
     <ListSubheader component="div" inset>
       Others
     </ListSubheader>
-    <ListItemButton>
+    <ListItem Button component="a" href='/help'>
       <ListItemIcon>
         <HelpIcon />
       </ListItemIcon>
       <ListItemText primary="Help" />
-    </ListItemButton>
-    <ListItemButton>
+    </ListItem>
+    <ListItem Button component="a" href='/about'>
       <ListItemIcon>
         <InfoIcon />
       </ListItemIcon>
       <ListItemText primary="About" />
-    </ListItemButton>
+    </ListItem>
   </React.Fragment>
 );

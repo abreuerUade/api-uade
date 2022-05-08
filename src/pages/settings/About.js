@@ -5,7 +5,7 @@ import '../../cssComponents/buttonComp.css';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 
-export default function About(props) {
+export default function About() {
 
     return (
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
@@ -24,7 +24,7 @@ export default function About(props) {
                             >
                             <h1>About</h1>
                             <br></br>
-                            asdasd
+                 
                         </Box>
                     </Paper>
             </Grid>

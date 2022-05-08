@@ -88,7 +88,7 @@ export default function Security(props) {
                         
                         </Grid>
                         <br></br>
-                        <Switch text="Two-Factor Authentication (SFA)"></Switch>
+                        <Switch text="Two-Factor Authentication (SFA)" disabled={campoDesactivado}></Switch>
                         <br></br>
                         <br></br>
                         <Button 

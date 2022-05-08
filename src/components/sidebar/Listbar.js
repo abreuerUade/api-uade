@@ -8,7 +8,10 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import { mainListItems, secondaryListItems } from './listItems';
 import ProfileInformation from '../../pages/settings/ProfileInformation';
+import Notification from '../../pages/settings/Notification';
 import Security from '../../pages/settings/Security';
+import HelpSettings from '../../pages/settings/Help';
+import About from '../../pages/settings/About';
 
 const drawerWidth = 240;
 
@@ -41,9 +44,31 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 
-function DashboardContent(props) {
+function ListBar(props) {
 
   const currentUser = props.user
+  debugger
+  var settingsOption
+  switch (props.settingsOption) {
+    case 'ProfileInformation':
+      settingsOption = <ProfileInformation user={currentUser}></ProfileInformation>
+      break;
+    case 'Notification':
+      settingsOption = <Notification user={currentUser}></Notification>
+      break;
+    case 'Security':
+      settingsOption = <Security user={currentUser}></Security>
+      break;
+    case 'Help':
+      settingsOption = <HelpSettings></HelpSettings>
+      break;
+    case 'About':
+      settingsOption = <About></About>
+      break;
+    default:
+      // execute default code block
+  }
+
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -80,11 +105,11 @@ function DashboardContent(props) {
           }}
         >
           <Toolbar />   
-
+          {settingsOption}
         </Box>
       </Box>
     </ThemeProvider>
   );
 }
 
-export default DashboardContent;
+export default ListBar;

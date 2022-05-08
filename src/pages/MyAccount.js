@@ -11,7 +11,7 @@ export default function MyAccount(props){
         
         <>
             <Navbar text="Settings" userName={userName} pic={userPic} />
-            <ListBar user={currentUser}></ListBar>
+            <ListBar settingsOption={props.settingsOption} user={currentUser}></ListBar>
         </>
         );
     }

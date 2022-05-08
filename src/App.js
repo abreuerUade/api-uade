@@ -1,4 +1,3 @@
-
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import FullRecipe from './pages/FullRecipe';
@@ -11,6 +10,8 @@ import MyRecipes from './pages/MyRecipes';
 import users from './users';
 import recetas from './recetas.js';
 import images from './images.js';
+import Security from './pages/settings/Security';
+
 
 import { useLocation } from 'react-router-dom';
 
@@ -23,7 +24,6 @@ function App() {
   
   const location = useLocation()
   const data = location.state
-  debugger
   const item = recetas[0]
   const allImages= images[0]
 
@@ -31,7 +31,7 @@ function App() {
    
       <Routes>
         
-        <Route path='/' element={<Welcome  fullUser={currentUser} receta={item} images={allImages} />} />
+        <Route path='/' element={<Welcome fullUser={currentUser} receta={item} images={allImages} />} />
         <Route path='/home' element={<Home userName={userName} pic={userPic}  />} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
@@ -39,7 +39,11 @@ function App() {
         <Route path='/myAccount' element={<MyAccount fullUser={currentUser} />} />
         <Route path='/myrecipes' element={<MyRecipes />} />
         <Route path='/welcome' element={<Welcome fullUser={currentUser} receta={item} images={allImages} />} />
-        
+        <Route path='/profileinfo' element={<MyAccount fullUser={currentUser} settingsOption='ProfileInformation'/>} />
+        <Route path='/notification' element={<MyAccount fullUser={currentUser} settingsOption='Notification'/>} />
+        <Route path='/security' element={<MyAccount fullUser={currentUser} settingsOption='Security'/>} />
+        <Route path='/help' element={<MyAccount fullUser={currentUser} settingsOption='Help'/>} />
+        <Route path='/about' element={<MyAccount fullUser={currentUser} settingsOption='About'/>} />
 
       </Routes>
 

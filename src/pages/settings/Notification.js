@@ -10,8 +10,9 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '../../components/Switch'
 import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
-export default function Notification(props) {
+export default function Notification() {
 
   const [botonDesactivado, setBotonDesactivado] = useState(true);
   const [campoDesactivado, setCampoDesactivado] = useState(true);
