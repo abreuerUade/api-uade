@@ -12,7 +12,7 @@ export default[
     },
     {
         id:2,
-        firstName:"Arielo",
+        firstName:"Ariel",
         lastName: "Palacios",
         userName: "elpala2020s",
         mail: "palacios@cucina.com",
