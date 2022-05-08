@@ -19,6 +19,37 @@ export default function ProfileInformation(props) {
     setBotonDesactivado(prevState => !prevState);
   }; 
 
+  const validateFields = () => {
+    var mensajesError = [];
+    var firstName = document.getElementById('firstname');
+    var surname = document.getElementById('surname');
+    var username = document.getElementById('username');
+    var email = document.getElementById('email');
+
+    var horror = document.getElementById('horror');
+    if (firstName.value === null || firstName.value === ''){
+      mensajesError.push("Error. First name cannot be empty");
+    }
+    if (surname.value === null || surname.value === ''){
+      mensajesError.push("Error. Last name cannot be empty");
+    }
+    if (username.value === null || username.value === ''){
+      mensajesError.push("Error. Username cannot be empty");
+    }
+    if (email.value === null || email.value === ''){
+      mensajesError.push("Error. Email cannot be empty");
+    }
+
+    horror.innerHTML = mensajesError.join (', ')
+
+  };
+
+  const newF= () => {
+    validateFields();
+    changeDisabled();    
+  };
+
+
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
       <Grid container spacing={3}>
@@ -109,7 +140,7 @@ export default function ProfileInformation(props) {
               <Button 
                     id='savebutton'
                     variant="contained" 
-                    onClick={changeDisabled}    
+                    onClick= {newF}   
                     disabled={botonDesactivado}          
                     className="css-sghohy-MuiButtonBase-root-MuiButton-root btnRight"  
                     sm={8} md={8}>
@@ -119,6 +150,7 @@ export default function ProfileInformation(props) {
           </Paper>
         </Grid>
       </Grid>
+      <div id= 'horror'></div>
   </Container>
   );
 }

@@ -1,17 +1,15 @@
 import * as React from 'react';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItem from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import PersonIcon from '@mui/icons-material/Person';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-
 import SecurityIcon from '@mui/icons-material/Security';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import HelpIcon from '@mui/icons-material/Help';
 import InfoIcon from '@mui/icons-material/Info';
-import Security from '../../pages/settings/Security';
+
 
 export const mainListItems = (
   <React.Fragment>
@@ -21,7 +19,7 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Profile Information" />
     </ListItem>
-    <ListItem Button Button component="a" href='/notification'>
+    <ListItem Button component="a" href='/notification'>
       <ListItemIcon>
         <NotificationsIcon />
       </ListItemIcon>

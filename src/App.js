@@ -10,10 +10,7 @@ import MyRecipes from './pages/MyRecipes';
 import users from './users';
 import recetas from './recetas.js';
 import images from './images.js';
-import Security from './pages/settings/Security';
-
-
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 function App() {
   
@@ -22,8 +19,8 @@ function App() {
   const userName = currentUser.firstName + ' ' + currentUser.lastName
   const userPic = currentUser.profPic
   
-  const location = useLocation()
-  const data = location.state
+  // const location = useLocation()
+  // const data = location.state
   const item = recetas[0]
   const allImages= images[0]
 
