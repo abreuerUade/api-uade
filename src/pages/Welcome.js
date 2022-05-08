@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import NavbarWelcome from '../components/NavbarWelcome';
 import Slider from '../components/Slider/Slider';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -15,8 +15,7 @@ import '../cssComponents/buttonComp.css';
 import Footer from '../components/Footer';
 
 export default function Welcome(props){
-    const userName = props.fullUser.firstName + props.fullUser.lastName
-    const userPic = props.fullUser.profPic
+    
     const images = props.images.images
 
     
@@ -39,7 +38,7 @@ export default function Welcome(props){
                
         <>
         <Container maxWidth="lg" sx={{ mt: 8, mb: 8 }}>
-            <Navbar text="Welcome" userName={userName} pic={userPic} />
+            <NavbarWelcome />
             <Grid container spacing={3}>
                 <Grid item xs={12} md={12} lg={12}>
                     <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', maxWidth:"800" }}>

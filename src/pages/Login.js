@@ -29,7 +29,10 @@ export default function SignIn() {
   return (
     
       <ThemeProvider theme={theme}>
-      <Container  component="main" maxWidth="xs">
+      <Container sx={{backgroundColor:'white',
+                      borderRadius:'15px'
+                      }}  
+                      component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
@@ -93,8 +96,7 @@ export default function SignIn() {
             </Grid>
           </Box>
         </Box>
-      </Container>
-      <Box sx={{
+        <Box sx={{
             marginTop: 2,
             display: 'flex',
             flexDirection: 'column',
@@ -103,6 +105,8 @@ export default function SignIn() {
           <img  src={process.env.PUBLIC_URL + "/images/logo_large.png"} alt="" 
             width={"200px"} />
       </Box>
+      </Container>
+      
     </ThemeProvider>
     
     
