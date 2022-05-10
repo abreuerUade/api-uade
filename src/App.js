@@ -28,14 +28,14 @@ function App() {
    
       <Routes>
         
-        <Route path='/' element={<Welcome fullUser={currentUser} receta={item} images={allImages} />} />
+        <Route path='/' element={<Welcome fullUser={currentUser} images={allImages} />} />
         <Route path='/home' element={<Home userName={userName} pic={userPic}  />} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/fullrecipe' element={<FullRecipe userName={userName} pic={userPic} receta={item}  />} />
         <Route path='/myAccount' element={<MyAccount settingsOption='ProfileInformation' fullUser={currentUser} />} />
         <Route path='/myrecipes' element={<MyRecipes />} />
-        <Route path='/welcome' element={<Welcome fullUser={currentUser} receta={item} images={allImages} />} />
+        <Route path='/welcome' element={<Welcome fullUser={currentUser} images={allImages} />} />
         <Route path='/profileinfo' element={<MyAccount fullUser={currentUser} settingsOption='ProfileInformation'/>} />
         <Route path='/notification' element={<MyAccount fullUser={currentUser} settingsOption='Notification'/>} />
         <Route path='/security' element={<MyAccount fullUser={currentUser} settingsOption='Security'/>} />

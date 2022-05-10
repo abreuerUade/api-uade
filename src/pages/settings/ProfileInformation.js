@@ -8,9 +8,7 @@ import Button from '@mui/material/Button';
 import '../../cssComponents/buttonComp.css';
 import {useState, forwardRef} from 'react';
 import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import AlertTitle from '@mui/material/AlertTitle';
-import {Snackbar, Alert, AlertProps} from '@mui/material'
+import {Snackbar, Alert} from '@mui/material'
 
 export default function ProfileInformation(props) {
 
@@ -26,9 +24,7 @@ export default function ProfileInformation(props) {
       return <Alert elevation={6} ref={ref} {...props}></Alert>
     }
   )
-
   
-
   const changeDisabled = () => {
     setCampoDesactivado(prevState => !prevState);
     setBotonDesactivado(prevState => !prevState);
@@ -47,7 +43,6 @@ export default function ProfileInformation(props) {
     var country = document.getElementById('country');
     var city = document.getElementById('city');
 
-    var ErrorList = document.getElementById('ErrorList');
     if (firstName.value === null || firstName.value === ''){
       mensajesError.push("Error. First name cannot be empty");
     }
@@ -82,7 +77,6 @@ export default function ProfileInformation(props) {
     debugger      
     if (numberOfErrors){
       //There are no errors    
-      // var alertPlace = document.getElementById('alertsite') 
       setOpen(true)
       changeDisabled();
       //pop up exitoso   
