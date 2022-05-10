@@ -40,9 +40,8 @@ export default function Security(props) {
     var password = document.getElementById('password');
     var alternativeemail = document.getElementById('alternativeemail');
     var phone = document.getElementById('phone');
-    debugger   
-    const a = phone.value.split("")     
-    if (!a.every(x=>phonenumbersCondition.includes(x))) {
+    const phoneNumberDigits= phone.value.split("")     
+    if (!phoneNumberDigits.every( digit=>phonenumbersCondition.includes(digit))) {
         mensajesError.push("Error. Please enter a valid phone number");
     }
 

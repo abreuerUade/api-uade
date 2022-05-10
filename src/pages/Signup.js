@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState, forwardRef} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,11 +11,121 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import {Snackbar, Alert} from '@mui/material'
 
 const theme = createTheme();
 
 export default function SignUp() {
+const [open, setOpen] = useState(false);
+const [openError, setOpenError] = useState(false);
+const [errors, setErrors] = useState([]);
+
+
+const SnackbarAlert = forwardRef(
+  function SnackbarAlert(props, ref){
+    return <Alert elevation={6} ref={ref} {...props}></Alert>
+  }
+)
+
+const validateFields = () => {
+  const numbersCondition= ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+"];
+  const atString = ["@"];
+  var mensajesError = [];
+  var firstName = document.getElementById('firstName');
+  var surname = document.getElementById('lastName');
+  var username = document.getElementById('username');
+  var email = document.getElementById('email');
+  var password = document.getElementById('password');
+  var confirmPassword = document.getElementById('confirmPassword');
+  var phone = document.getElementById('phone');
+  var country = document.getElementById('country');
+  var city = document.getElementById('city');
+
+
+    //Validating that required fields are not null or empty
+  if (firstName.value === null || firstName.value === ''){
+    mensajesError.push("Error. First name cannot be empty");
+  }
+  if (surname.value === null || surname.value === ''){
+    mensajesError.push("Error. Last name cannot be empty");
+  }
+  if (username.value === null || username.value === ''){
+    mensajesError.push("Error. Username cannot be empty");
+  }
+  if (email.value === null || email.value === ''){
+    mensajesError.push("Error. Email address cannot be empty");
+  }
+
+  if (password.value === null || password.value === ''){
+    mensajesError.push("Error. Password cannot be empty");
+  }
+
+  if (confirmPassword.value === null || confirmPassword.value === ''){
+    mensajesError.push("Error. Please confirm password. It cannot be empty");
+  }
+  if (password.value !== confirmPassword.value){
+    mensajesError.push("Error. Passwords are not the same");
+  }
+  
+  if (numbersCondition.some(x => firstName.value.includes(x)) ||
+       numbersCondition.some(x => surname.value.includes(x))       
+       ) {
+    mensajesError.push("Error. Numbers are not allowed as first or last name");
+  }
+
+  if (numbersCondition.some(x => country.value.includes(x))||
+      numbersCondition.some(x => city.value.includes(x))         
+  ) {
+    mensajesError.push("Error. Numbers are not allowed as location");
+    }
+
+  if (!atString.some(x => email.value.includes(x))) {
+    mensajesError.push("Error. Email should has a valid format");
+  }
+
+  const phoneNumberDigits= phone.value.split("")     
+  if (!phoneNumberDigits.every( digit => numbersCondition.includes(digit))) {
+      mensajesError.push("Error. Please enter a valid phone number");
+  }
+
+
+  return mensajesError
+
+};
+
+  const validateFunction = () => {
+    var listOfErrors= validateFields();
+    var numberOfErrors = listOfErrors.length === 0
+    debugger      
+    if (numberOfErrors){
+      //There are no errors    
+      setOpen(true)
+      //pop up exitoso   
+      //Go to welcome
+    }
+    else {
+      setOpenError(true)
+      setErrors(listOfErrors)
+      //changeDisabled(); is not executed
+    }
+
+    };
+
+  const handleClose = ( Event, reason) => {
+    if (reason === 'clickaway'){
+    return
+  }
+  setOpen(false)
+  }
+
+  const handleErrorClose = ( Event, reason) => {
+    if (reason === 'clickaway'){
+    return
+  }
+  setOpenError(false)
+  }
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -26,7 +137,26 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+        <Container style={{width:'50%'}}>
+              
+              {/* DONT DELETE. TAKED AS REFERENCE. THIS IS STANDAR SNACKBAR
+              <div id="alertsite">
+                <Snackbar message= "The information has been updated successfully!" autoHideDuration={4000} open={open} onClose={handleClose} 
+                anchorOrigin={{vertical: 'top', horizontal: 'center'}}></Snackbar>
+              </div> */}
+            <Snackbar open={open} autoHideDuration={4000} onClose={handleClose} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
+              <SnackbarAlert onClose={handleClose} severity="success">
+                The information has been updated successfully!
+              </SnackbarAlert>
+              <Link to="/welcome" ></Link>
+            </Snackbar>
+            <Snackbar open={openError} autoHideDuration={4000} onClose={handleErrorClose} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
+              <SnackbarAlert onClose={handleErrorClose} severity="error">
+                {errors[0]}
+              </SnackbarAlert>
+            </Snackbar>
+          </Container>
+        <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
@@ -46,14 +176,14 @@ export default function SignUp() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
+                    autoComplete="given-name"
+                    name="firstName"
+                    required
+                    fullWidth
+                    id="firstName"
+                    label="First Name"
+                    autoFocus
+                  />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -63,6 +193,15 @@ export default function SignUp() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="username"
+                  label="Username"
+                  name="username"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -90,10 +229,37 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
+                  id="confirmPassword"
+                  label="Confirm password"
+                  name="confirmPassword"
+                  type="password"
+                  
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
                   name="phone"
                   label="Phone Number"
                   id="phone"
                   autoComplete="new-phone"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  name="country"
+                  fullWidth
+                  id="country"
+                  label="Country"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  fullWidth
+                  id="city"
+                  label="City"
+                  name="city"
                 />
               </Grid>
               
@@ -103,6 +269,7 @@ export default function SignUp() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={validateFunction}
             >
               Sign Up
             </Button>
