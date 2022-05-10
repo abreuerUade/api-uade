@@ -8,9 +8,7 @@ import Button from '@mui/material/Button';
 import '../../cssComponents/buttonComp.css';
 import {useState, forwardRef} from 'react';
 import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import AlertTitle from '@mui/material/AlertTitle';
-import {Snackbar, Alert, AlertProps} from '@mui/material'
+import {Snackbar, Alert} from '@mui/material'
 
 export default function ProfileInformation(props) {
 
@@ -26,9 +24,7 @@ export default function ProfileInformation(props) {
       return <Alert elevation={6} ref={ref} {...props}></Alert>
     }
   )
-
   
-
   const changeDisabled = () => {
     setCampoDesactivado(prevState => !prevState);
     setBotonDesactivado(prevState => !prevState);
@@ -47,7 +43,6 @@ export default function ProfileInformation(props) {
     var country = document.getElementById('country');
     var city = document.getElementById('city');
 
-    var ErrorList = document.getElementById('ErrorList');
     if (firstName.value === null || firstName.value === ''){
       mensajesError.push("Error. First name cannot be empty");
     }
@@ -82,7 +77,6 @@ export default function ProfileInformation(props) {
     debugger      
     if (numberOfErrors){
       //There are no errors    
-      // var alertPlace = document.getElementById('alertsite') 
       setOpen(true)
       changeDisabled();
       //pop up exitoso   
@@ -120,21 +114,21 @@ export default function ProfileInformation(props) {
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
             <Container style={{width:'50%'}}>
               
-              {/* DONT DELETE. TAKED AS REFERENCE. THIS IS STANDAR SNACKBAR
-               <div id="alertsite">
-                <Snackbar message= "The information has been updated successfully!" autoHideDuration={4000} open={open} onClose={handleClose} 
-                anchorOrigin={{vertical: 'top', horizontal: 'center'}}></Snackbar>
-              </div> */}
-            <Snackbar open={open} autoHideDuration={4000} onClose={handleClose} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
-              <SnackbarAlert onClose={handleClose} severity="success">
-                The information has been updated successfully!
-              </SnackbarAlert>
-            </Snackbar>
-            <Snackbar open={openError} autoHideDuration={4000} onClose={handleErrorClose} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
-              <SnackbarAlert onClose={handleErrorClose} severity="error">
-                {errors[0]}
-              </SnackbarAlert>
-            </Snackbar>
+                {/* DONT DELETE. TAKED AS REFERENCE. THIS IS STANDAR SNACKBAR
+                <div id="alertsite">
+                  <Snackbar message= "The information has been updated successfully!" autoHideDuration={4000} open={open} onClose={handleClose} 
+                  anchorOrigin={{vertical: 'top', horizontal: 'center'}}></Snackbar>
+                </div> */}
+              <Snackbar open={open} autoHideDuration={4000} onClose={handleClose} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
+                <SnackbarAlert onClose={handleClose} severity="success">
+                  The information has been updated successfully!
+                </SnackbarAlert>
+              </Snackbar>
+              <Snackbar open={openError} autoHideDuration={4000} onClose={handleErrorClose} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
+                <SnackbarAlert onClose={handleErrorClose} severity="error">
+                  {errors[0]}
+                </SnackbarAlert>
+              </Snackbar>
             </Container>
             <Typography
             sx={{ display: 'inline' }}
