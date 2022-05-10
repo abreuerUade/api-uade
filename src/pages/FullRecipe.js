@@ -12,8 +12,9 @@ export default function FullRecipe(props){
 
     const user = props.userName
     const pic = props.pic
-    const receta = props.receta
-
+    const receta = props.receta.item
+    
+    
     const colorGrey = blueGrey[50]
     
 

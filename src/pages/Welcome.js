@@ -37,20 +37,13 @@ export default function Welcome(props){
     return (
                
         <>
-        <Container maxWidth="lg" sx={{ mt: 8, mb: 8 }}>
+        <Container maxWidth="lg" sx={{ mt: 6, mb: 8 }}>
             <NavbarWelcome />
             <Grid container spacing={3}>
                 <Grid item xs={12} md={12} lg={12}>
                     <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', maxWidth:"800" }}>
                         <Box
-                            sx={{
-                                display: 'flex',
-                                '& > :not(style)': {
-                                m: 1,
-                                width: 1200,
-                                height: 200,
-                                },
-                            }}
+                            
                             >
                             <Slider img={images} />
                         </Box>
@@ -63,7 +56,7 @@ export default function Welcome(props){
                                 '& > :not(style)': {
                                 m: 1,
                                 width: 1200,
-                                height: 120,
+                                height: 420,
                                 },
                             }}
                             >
@@ -83,7 +76,7 @@ export default function Welcome(props){
                                 '& > :not(style)': {
                                 m: 1,
                                 width: 1200,
-                                height: 120,
+                                height: 420,
                                 },
                             }}
                             >

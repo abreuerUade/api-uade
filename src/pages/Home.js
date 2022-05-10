@@ -23,10 +23,10 @@ export default function Home(props){
         
         <Container sx={{ width: '100%', marginTop: "15px" }}>
             <Filterbar />
-            <Grid container justifyContent="space-evenly"
-                  alignItems="center" 
-                  spacing={{ xs: 2, md: 2, lg: 12, xl: 12}} 
-                  columns={{ xs: 4, sm: 8, md: 12, lg: 12, xl:16 }}
+            <Grid container sx={{display: 'flex',justifyContent:"center",alignItems:"center"}} 
+                   
+                  spacing={{ xs: 2, md: 4}} 
+                  columns={{ xs: 5, sm: 8, md: 14, lg: 14, xl:14 }}
                   >
                 
                 {recipeElements}
