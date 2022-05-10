@@ -28,7 +28,7 @@ function HideOnScroll(props) {
 }
 
 
-export default function Navbar2(props) {
+export default function Navbar(props) {
 
 const settings = ['MyAccount', 'My Recipes', 'Logout'];
 const [anchorElUser, setAnchorElUser] = React.useState(null);

@@ -13,7 +13,7 @@ import { useLocation } from 'react-router-dom';
 
 function App() {
   
-  const currentUser = users[1]
+  const currentUser = users[0]
 
   const userName = currentUser.firstName + ' ' + currentUser.lastName
   const userPic = currentUser.profPic
@@ -21,6 +21,8 @@ function App() {
 
   const location = useLocation()
   const data = location.state
+  
+  const urlId = data===null ? "" : data.item.id
   
   
   const allImages= images[0]
@@ -33,7 +35,7 @@ function App() {
         <Route path='/home' element={<Home userName={userName} pic={userPic}  />} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
-        <Route path='/fullrecipe' element={<FullRecipe userName={userName} pic={userPic} receta={data}  />} />
+        <Route path={`/fullrecipeId=${urlId}`} element={<FullRecipe userName={userName} pic={userPic} receta={data}  />} />
         <Route path='/myAccount' element={<MyAccount settingsOption='ProfileInformation' fullUser={currentUser} />} />
         <Route path='/myrecipes' element={<MyRecipes />} />
         <Route path='/welcome' element={<Welcome fullUser={currentUser} images={allImages} />} />
