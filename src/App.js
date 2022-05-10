@@ -10,6 +10,7 @@ import MyRecipes from './pages/MyRecipes';
 import users from './users';
 import images from './images.js';
 import { useLocation } from 'react-router-dom';
+import RecipieManager from './pages/RecipieManager';
 
 function App() {
   
@@ -44,7 +45,7 @@ function App() {
         <Route path='/security' element={<MyAccount fullUser={currentUser} settingsOption='Security'/>} />
         <Route path='/help' element={<MyAccount fullUser={currentUser} settingsOption='Help'/>} />
         <Route path='/about' element={<MyAccount fullUser={currentUser} settingsOption='About'/>} />
-
+        <Route path='/recipeManager' element={<RecipieManager userName={userName} pic={userPic} />} />
       </Routes>
 
    
