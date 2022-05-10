@@ -56,7 +56,7 @@ export default function Welcome(props){
                                 '& > :not(style)': {
                                 m: 1,
                                 width: 1200,
-                                height: 420,
+                                height: 370,
                                 },
                             }}
                             >
@@ -76,7 +76,7 @@ export default function Welcome(props){
                                 '& > :not(style)': {
                                 m: 1,
                                 width: 1200,
-                                height: 420,
+                                height: 370,
                                 },
                             }}
                             >

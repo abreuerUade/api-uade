@@ -27,7 +27,7 @@ export default function RecipeReviewCard(prop) {
   }
 
   return (
-    <Card sx={{ maxWidth: 300, minWidth: 200}}>
+    <Card sx={{ maxWidth: 300, minWidth: 250}}>
       <CardHeader
         avatar={
           <Avatar src={process.env.PUBLIC_URL + `/images/${prop.item.creator.pic}`} />
