@@ -57,8 +57,9 @@ export default function Footer() {
         <Box sx={redes}>
             <Box>
               <Typography  variant="body1">
-                FOLLOW US!! <hr></hr>
+                FOLLOW US!! 
               </Typography>
+              <hr></hr>
             </Box>
             <Box>
                 <img src={process.env.PUBLIC_URL + "images/facebook.png"} alt="" width='35px' height='35px' />
