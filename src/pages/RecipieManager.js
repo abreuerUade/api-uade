@@ -8,6 +8,7 @@ import EditRecipie from '../components/EditRecipie'
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import { Container } from '@mui/material';
+import Published from '../components/Published'
 
 
 function TabPanel(props) {
@@ -73,7 +74,7 @@ export default function ReciepieManager(props) {
         Item Two
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <Published user={name} />
       </TabPanel>
     </Box>
     </Container>

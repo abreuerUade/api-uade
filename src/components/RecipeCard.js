@@ -6,11 +6,16 @@ import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import EditIcon from '@mui/icons-material/Edit';
+import PublishIcon from '@mui/icons-material/Publish';
 import ShareIcon from '@mui/icons-material/Share';
+import  DeleteIcon  from '@mui/icons-material/Delete';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Box, CardContent, Typography } from '@mui/material';
 import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
+import {  pink, yellow } from '@mui/material/colors';
+
 
 
 
@@ -57,7 +62,7 @@ export default function RecipeReviewCard(prop) {
             <Typography variant="caption">&nbsp;&nbsp;&nbsp;{`${prop.item.rate}`}</Typography>
           </Box>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions sx={{display: 'flex', justifyContent:"space-between",alignContent:'center'}} disableSpacing>
         <IconButton onClick={toggleHeart} aria-label="add to favorites">
           <FavoriteIcon  sx={{ color: `${isHeart}` } } /> 
         </IconButton>
@@ -67,6 +72,18 @@ export default function RecipeReviewCard(prop) {
         </IconButton>
 
         
+        {prop.editable && <CardContent>
+          <IconButton onClick={toggleHeart} aria-label="add to favorites">
+            <EditIcon  color= 'success' /> 
+          </IconButton>
+          <IconButton onClick={toggleHeart} aria-label="add to favorites">
+            <DeleteIcon  sx={{ color: pink[500] } } /> 
+          </IconButton>
+          <IconButton onClick={toggleHeart} aria-label="add to favorites">
+            <PublishIcon  sx={{ color: yellow[800] } } /> 
+          </IconButton>
+
+        </CardContent>}
         
       </CardActions>
     </Card>

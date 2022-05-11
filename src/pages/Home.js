@@ -26,7 +26,7 @@ export default function Home(props){
 
     const recipeElements = recetas.map(receta => {
         return (<Grid item xs={3} sm={4} key={receta.id} >
-                    <RecipeCard item={receta}   />            
+                    <RecipeCard item={receta} editable={false}  />            
                 </Grid>)
             }) 
     
@@ -39,7 +39,7 @@ export default function Home(props){
             <Grid container sx={{display: 'flex',justifyContent:"center",alignItems:"center"}} 
                    
                   spacing={{ xs: 2, md: 4}} 
-                  columns={{ xs: 5, sm: 8, md: 14, lg: 14, xl:14 }}
+                  columns={{ xs: 5, sm: 8, md: 14, lg: 14, xl:16 }}
                   >
                 
                 {recipeElements}
