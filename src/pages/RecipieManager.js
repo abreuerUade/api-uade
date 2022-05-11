@@ -56,7 +56,7 @@ export default function ReciepieManager(props) {
 
   return (
     <>
-    <Navbar text="Home" userName={name} pic={userPic} />
+    <Navbar text="" userName={name} pic={userPic} />
     <Container sx={{marginTop: "50px"}} >
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>

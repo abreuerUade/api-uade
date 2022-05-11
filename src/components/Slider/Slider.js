@@ -52,7 +52,8 @@ export default function Slider(props) {
 
             <div className="container-dots">
                 {Array.from({length: dataSlider.length}).map((item, index) => (
-                    <div 
+                    <div
+                    key={index} 
                     onClick={() => moveDot(index + 1)}
                     className={slideIndex === index + 1 ? "dot active" : "dot"}
                     ></div>
