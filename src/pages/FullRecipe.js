@@ -28,7 +28,7 @@ export default function FullRecipe(props){
 
     return (
         <>
-        <Navbar text="Full" userName={user} pic={pic}/>
+        <Navbar text="Full Recipe" userName={user} pic={pic}/>
 
         <Container sx={{marginTop: "50px"}}>
             <Grid container spacing={{ xs: 2, md: 2 }}>

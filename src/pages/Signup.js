@@ -16,7 +16,6 @@ import {Snackbar, Alert} from '@mui/material'
 const theme = createTheme();
 
 export default function SignUp() {
-const [open, setOpen] = useState(false);
 const [openError, setOpenError] = useState(false);
 const [errors, setErrors] = useState([]);
 
@@ -88,7 +87,6 @@ const validateFields = () => {
       mensajesError.push("Error. Please enter a valid phone number");
   }
 
-
   return mensajesError
 
 };
@@ -99,24 +97,16 @@ const validateFields = () => {
     debugger      
     if (numberOfErrors){
       //There are no errors    
-      setOpen(true)
-      //pop up exitoso   
-      //Go to welcome
+      window.location.href="/welcome";
+      //Goes to welcome
     }
     else {
       setOpenError(true)
       setErrors(listOfErrors)
-      //changeDisabled(); is not executed
+      //In this case changeDisabled(); is not executed
     }
 
     };
-
-  const handleClose = ( Event, reason) => {
-    if (reason === 'clickaway'){
-    return
-  }
-  setOpen(false)
-  }
 
   const handleErrorClose = ( Event, reason) => {
     if (reason === 'clickaway'){
@@ -138,18 +128,6 @@ const validateFields = () => {
   return (
     <ThemeProvider theme={theme}>
         <Container style={{width:'50%'}}>
-              
-              {/* DONT DELETE. TAKED AS REFERENCE. THIS IS STANDAR SNACKBAR
-              <div id="alertsite">
-                <Snackbar message= "The information has been updated successfully!" autoHideDuration={4000} open={open} onClose={handleClose} 
-                anchorOrigin={{vertical: 'top', horizontal: 'center'}}></Snackbar>
-              </div> */}
-            <Snackbar open={open} autoHideDuration={4000} onClose={handleClose} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
-              <SnackbarAlert onClose={handleClose} severity="success">
-                The information has been updated successfully!
-              </SnackbarAlert>
-              <Link to="/welcome" ></Link>
-            </Snackbar>
             <Snackbar open={openError} autoHideDuration={4000} onClose={handleErrorClose} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
               <SnackbarAlert onClose={handleErrorClose} severity="error">
                 {errors[0]}

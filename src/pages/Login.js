@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState, forwardRef} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,11 +13,15 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import {Snackbar, Alert} from '@mui/material'
 
 const theme = createTheme();
 
 export default function SignIn() {
+  const [openError, setOpenError] = useState(false);
+  const [errors, setErrors] = useState([]);
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -26,6 +31,59 @@ export default function SignIn() {
     });
   };
 
+
+  const SnackbarAlert = forwardRef(
+    function SnackbarAlert(props, ref){
+      return <Alert elevation={6} ref={ref} {...props}></Alert>
+    }
+  )
+
+  const validateFields = () => {
+    var mensajesError = [];
+    debugger
+    var username = document.getElementById('username');
+    var password = document.getElementById('password'); 
+  
+    //Validating that required fields are not null or empty
+    if (username.value === null || username.value === ''){
+      mensajesError.push("Error. Username cannot be null");
+    }
+    if (password.value === null || password.value === ''){
+      mensajesError.push("Please, enter your password");
+    }    
+  
+    return mensajesError
+  };
+  
+  
+  const validateFunction = () => {
+    var listOfErrors= validateFields();
+    var numberOfErrors = listOfErrors.length === 0
+    debugger
+    if (numberOfErrors){
+      //There are no errors  
+      debugger  
+      window.location.href="/welcome";
+      //Goes to welcome
+    }
+    else {
+      setOpenError(true)
+      setErrors(listOfErrors)
+      //In this case changeDisabled(); is not executed
+    }
+
+    };
+
+  const handleErrorClose = ( Event, reason) => {
+    if (reason === 'clickaway'){
+    return
+  }
+  setOpenError(false)
+  }
+
+
+
+
   return (
     
       <ThemeProvider theme={theme}>
@@ -33,6 +91,13 @@ export default function SignIn() {
                       borderRadius:'15px'
                       }}  
                       component="main" maxWidth="xs">
+        <Container style={{width:'50%'}}>            
+          <Snackbar open={openError} autoHideDuration={4000} onClose={handleErrorClose} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
+            <SnackbarAlert onClose={handleErrorClose} severity="error">
+              {errors[0]}
+            </SnackbarAlert>
+          </Snackbar>
+        </Container>
         <CssBaseline />
         <Box
           sx={{
@@ -53,10 +118,9 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
-              id="email"
+              id="username"
               label="Username"
               name="username"
-              autoComplete="email"
               autoFocus
             />
             <TextField
@@ -67,7 +131,6 @@ export default function SignIn() {
               label="Password"
               type="password"
               id="password"
-              autoComplete="current-password"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -78,7 +141,7 @@ export default function SignIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              href="/home"
+              onClick={validateFunction}
             >
               Sign In
             </Button>
