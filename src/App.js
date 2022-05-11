@@ -11,6 +11,7 @@ import images from './images.js';
 import { useLocation } from 'react-router-dom';
 import RecipieManager from './pages/RecipieManager';
 import ForgotPassword from './pages/ForgotPassword';
+import ForgotPasswordSuccess from './pages/ForgotPasswordSuccess';
 
 function App() {
   
@@ -45,7 +46,8 @@ function App() {
         <Route path='/help' element={<MyAccount fullUser={currentUser} settingsOption='Help'/>} />
         <Route path='/about' element={<MyAccount fullUser={currentUser} settingsOption='About'/>} />
         <Route path='/recipeManager' element={<RecipieManager userName={userName} pic={userPic} />} />
-        <Route path='/forgotpassword' element={<ForgotPassword userName={userName} pic={userPic} />} />
+        <Route path='/forgotpassword' element={<ForgotPassword />} />
+        <Route path='/forgotpasswordsuccess' element={<ForgotPasswordSuccess />} />
       </Routes>
 
    

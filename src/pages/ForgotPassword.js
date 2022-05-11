@@ -16,7 +16,7 @@ import NavbarWelcome from '../components/NavbarWelcome';
 
 const theme = createTheme();
 
-export default function SignUp() {
+export default function ForgotPassword() {
 const [openError, setOpenError] = useState(false);
 const [errors, setErrors] = useState([]);
 
@@ -51,7 +51,7 @@ const validateFields = () => {
     debugger      
     if (numberOfErrors){
       //There are no errors    
-      
+      window.location.href="/forgotpasswordsuccess";
       //Goes to welcome
     }
     else {
