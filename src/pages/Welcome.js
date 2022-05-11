@@ -23,12 +23,12 @@ export default function Welcome(props){
     const recetasNew= recetas.slice(3,6)
     const recipeHistoryElements = recetasHistory.map(receta => {
         return (<Grid item xs={3} sm={4} key={receta.id} >
-                    <RecipeCard item={receta} height={130}  />            
+                    <RecipeCard item={receta} height={130} editable={false}  />            
                 </Grid>)
             }) 
     const recipeNewElements = recetasNew.map(receta => {
         return (<Grid item xs={3} sm={4} key={receta.id} >
-                    <RecipeCard item={receta} height={130}   />            
+                    <RecipeCard item={receta} height={130} editable={false}   />            
                 </Grid>)
             }) 
 

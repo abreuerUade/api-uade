@@ -6,7 +6,6 @@ import Welcome from './pages/Welcome';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import MyAccount from './pages/MyAccount';
-import MyRecipes from './pages/MyRecipes';
 import users from './users';
 import images from './images.js';
 import { useLocation } from 'react-router-dom';
@@ -38,8 +37,7 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path={`/fullrecipeId=${urlId}`} element={<FullRecipe userName={userName} pic={userPic} receta={data}  />} />
-        <Route path='/myAccount' element={<MyAccount settingsOption='ProfileInformation' fullUser={currentUser} />} />
-        <Route path='/myrecipes' element={<MyRecipes />} />
+        <Route path='/myAccount' element={<MyAccount settingsOption='ProfileInformation' fullUser={currentUser} />} /> 
         <Route path='/welcome' element={<Welcome fullUser={currentUser} images={allImages} />} />
         <Route path='/profileinfo' element={<MyAccount fullUser={currentUser} settingsOption='ProfileInformation'/>} />
         <Route path='/notification' element={<MyAccount fullUser={currentUser} settingsOption='Notification'/>} />
