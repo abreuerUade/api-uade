@@ -37,9 +37,7 @@ export default function NavbarWelcome() {
       <AppBar position="fixed" >
       <Container maxWidth="xxl">
         <Toolbar disableGutters style={{display:'flex', justifyContent:"space-between", width:'100%'}}>
-            
-                <Typography onClick={handleOpen} variant="button"> LOG IN </Typography>
-    
+              
                 <Box onClick={handleOpen} sx={{display: 'inline-flex', alignItems: 'center' }} >
                 
                     <img  src={process.env.PUBLIC_URL + "images/only_logo_white_large.png"} alt="" 

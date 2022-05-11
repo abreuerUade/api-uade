@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {Snackbar, Alert} from '@mui/material'
+import NavbarWelcome from '../components/NavbarWelcome';
 
 const theme = createTheme();
 
@@ -127,6 +128,7 @@ const validateFields = () => {
 
   return (
     <ThemeProvider theme={theme}>
+        <NavbarWelcome />
         <Container style={{width:'50%'}}>
             <Snackbar open={openError} autoHideDuration={4000} onClose={handleErrorClose} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
               <SnackbarAlert onClose={handleErrorClose} severity="error">
@@ -148,7 +150,7 @@ const validateFields = () => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            Sign up poenr mensaje de que se le va a enviar un codigo lam ail. QR?
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -229,7 +231,6 @@ const validateFields = () => {
                   fullWidth
                   id="country"
                   label="Country"
-                  autoFocus
                 />
               </Grid>
               <Grid item xs={12} sm={6}>

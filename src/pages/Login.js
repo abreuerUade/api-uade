@@ -63,7 +63,7 @@ export default function SignIn() {
     if (numberOfErrors){
       //There are no errors  
       debugger  
-      window.location.href="/welcome";
+      window.location.href="/home";
       //Goes to welcome
     }
     else {
@@ -147,7 +147,7 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="/forgotpassword" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
