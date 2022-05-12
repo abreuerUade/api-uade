@@ -30,7 +30,7 @@ function HideOnScroll(props) {
 
 export default function Navbar(props) {
 
-const settings = ['MyAccount', 'My Recipes', 'Logout'];
+const settings = ['MyAccount', 'Logout'];
 const [anchorElUser, setAnchorElUser] = React.useState(null);
 
 const handleOpenUserMenu = (event) => {
@@ -96,9 +96,9 @@ const pic = props.pic
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">
-
+                
                     <Link style={{textDecoration: "none", color:"black" }} 
-                          to={setting === "Logout" ? `/login` : `/${setting}`}>
+                          to={setting === "Logout" ? `/welcome` : `/${setting}`}>
                           {setting}
                     </Link>
                         

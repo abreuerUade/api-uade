@@ -4,11 +4,14 @@ import Toolbar from '@mui/material/Toolbar';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
 import Slide from '@mui/material/Slide';
 import { Typography } from '@mui/material';
 import { Modal } from '@mui/material';
 import Login from '../pages/Login';
+import { Grid } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 
 
 function HideOnScroll(props) {
@@ -34,21 +37,35 @@ export default function NavbarWelcome() {
     <React.Fragment>
       <CssBaseline />
       <HideOnScroll>
-      <AppBar position="fixed" >
-      <Container maxWidth="xxl">
-        <Toolbar disableGutters style={{display:'flex', justifyContent:"space-between", width:'100%'}}>
-              
-                <Box onClick={handleOpen} sx={{display: 'inline-flex', alignItems: 'center' }} >
+      <AppBar position="fixed">
+        <Grid container alignItems={'center'}>
+          <Toolbar disableGutters style={{display:'flex',justifyContent:'space-between', width:'100%'}}> 
+                
+                <Grid item xs="" sx={{p:2}}><Typography onClick={handleOpen} variant="button"></Typography></Grid>
+                
+                <Grid item xs=""><Box sx={{p:1,display: 'inline-flex', alignItems: 'center' }} >
                 
                     <img  src={process.env.PUBLIC_URL + "images/only_logo_white_large.png"} alt="" 
                             width={"55px"} />
                     
                     <img  src={process.env.PUBLIC_URL + "images/logo_white_large_name.png"} alt="" 
                             width={"200px"} hspace={"50"}  />
-                </Box>         
-                
-                <Typography onClick={handleOpen} variant="button"> LOG IN </Typography>
 
+                    <img  src={process.env.PUBLIC_URL + "images/only_logo_white_large.png"} alt="" 
+                                            width={"55px"} />
+                     </Box>
+                </Grid>
+            
+                <Grid item xs=""sx={{p:2}}>
+                <Tooltip title="LOG IN">
+                  <IconButton onClick={handleOpen} sx={{ p: 0 }}>
+                    <Avatar alt="log in" 
+                        sx={{ width: 46, height: 46 }} 
+                    />
+                  </IconButton>
+                </Tooltip>
+                </Grid>
+            
                 <Modal
                     open={open}
                     onClose={handleClose}
@@ -57,10 +74,10 @@ export default function NavbarWelcome() {
                 >
                     <Login />
                 </Modal>
-        
-        </Toolbar>
-      </Container>
-    </AppBar>
+          </Toolbar>
+          </Grid>
+           
+      </AppBar>
       </HideOnScroll>
       <Toolbar />
     </React.Fragment>
