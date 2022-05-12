@@ -45,9 +45,6 @@ export default function NavbarWelcome() {
                     
                     <img  src={process.env.PUBLIC_URL + "images/logo_white_large_name.png"} alt="" 
                             width={"200px"} hspace={"50"}  />
-
-                    <img  src={process.env.PUBLIC_URL + "images/only_logo_white_large.png"} alt="" 
-                                            width={"55px"} />
                 </Box>         
                 
                 <Typography onClick={handleOpen} variant="button"> LOG IN </Typography>

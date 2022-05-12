@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useState, forwardRef} from 'react';
+import {useState, forwardRef, useRef} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,13 +14,26 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {Snackbar, Alert} from '@mui/material'
+import ReCAPTCHA from "react-google-recaptcha";
 
 const theme = createTheme();
 
 export default function SignIn() {
   const [openError, setOpenError] = useState(false);
   const [errors, setErrors] = useState([]);
+  const [captchaValid, setCaptchaValid] = useState(false);
 
+  const captcha = useRef(null);
+
+  const onChange = () => {
+    debugger
+    if (captcha.current.props.sitekey){
+      console.log("The user has been validated not as a bot");
+      setCaptchaValid(true);
+    }
+
+
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -50,7 +63,11 @@ export default function SignIn() {
     }
     if (password.value === null || password.value === ''){
       mensajesError.push("Please, enter your password");
-    }    
+    }
+    if (!captchaValid) {
+      mensajesError.push("Please, validate captcha");
+    }
+
   
     return mensajesError
   };
@@ -136,6 +153,16 @@ export default function SignIn() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
+            <div>
+              <ReCAPTCHA 
+                ref={captcha}
+                sitekey="6Lef8-EfAAAAANeSJlmWdzmQ29HC2TeR85FsiN4m" 
+                onChange={onChange}/>
+            </div>
+    
+            {captchaValid === false && <div>
+              Validate captcha  
+            </div>}
             <Button
               type="submit"
               fullWidth
