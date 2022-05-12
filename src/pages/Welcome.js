@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavbarWelcome from '../components/NavbarWelcome';
 import Slider from '../components/Slider/Slider';
 import Box from '@mui/material/Box';
@@ -13,12 +13,23 @@ import Button from '@mui/material/Button';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import '../cssComponents/buttonComp.css';
 import Footer from '../components/Footer';
+import { Card, Divider, Icon } from '@mui/material';
+import { Typography } from '@mui/material';
+import { CardContent } from '@mui/material';
+import MicrowaveIcon from '@mui/icons-material/Microwave';
+import { StepLabel, Stepper, Step } from '@mui/material';
+import { createTheme } from '@mui/system';
 
 export default function Welcome(props){
     
     const images = props.images.images
-
-    
+    const [seffect, setSeffect] = useState({boxShadow:0});
+    const steps = [
+        'Log-in or Create an account!',
+        'Search for recipes or create yor own',
+        'Customize your feed by rating recipes',
+        'Start cooking!',
+      ];
     const recetasHistory = recetas.slice(0,3)
     const recetasNew= recetas.slice(3,6)
     const recipeHistoryElements = recetasHistory.map(receta => {
@@ -32,14 +43,21 @@ export default function Welcome(props){
                 </Grid>)
             }) 
 
-            
+    function changebackground(e){
+        e.target.style.changebackground = 'red';
+    }
+    
+   
 
     return (
                
         <>
         <Container maxWidth="lg" sx={{ mt: 8, mb: 8 }}>
             <NavbarWelcome />
-            <Grid container spacing={3}>
+            
+            <Grid container spacing={2}>
+                
+                
                 <Grid item xs={12} md={12} lg={12}>
                     <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', maxWidth:"800" }}>
                         <Box
@@ -93,6 +111,32 @@ export default function Welcome(props){
 
                         </Box>
                     </Paper>
+                    <br></br>
+                    <Card sx={{p:2, display:'flex', flexDirection:'column', maxWidth:"800", boxShadow:3, borderRadius:2}} onMouseUp={changebackground} onMouseOut={() => setSeffect({boxShadow:0})}>
+                           <Card sx={{display: 'flex', bgcolor:'lightgreen', borderRadius:2, boxShadow:5}}>
+                              <CardContent>
+                                <Typography gutterBottom variant="h2" component="div" sx={{color:'white', display:'inline', fontWeight:'normal'}}>
+                                    Getting <b>started</b>
+                                </Typography>
+                
+                                <MicrowaveIcon sx={{color:'white', ml:78, alignContent:'center', fontSize:50}}/>
+
+                                <Typography gutterBottom variant="body1" color="white" sx={{fontWeight:'normal'}}>
+                                    How to use <b>App-Etite!</b> <Typography variant="body1" color="white"></Typography>
+                                </Typography>
+                                
+                                <Stepper sx={{mt:3}} activeStep={''} alternativeLabel>
+                                        {steps.map((label) => (
+                                            <Step key={label}>
+                                                <StepLabel sx={{boxShadow:1, pt:1, borderRadius:2}}>{label}</StepLabel>
+                                                <Divider sx={{display:'block'}}></Divider>
+                                            </Step>
+                                        ))}
+                                </Stepper>
+
+                              </CardContent>
+                           </Card>       
+                    </Card>
                 </Grid>
             </Grid>
             <br></br> 
