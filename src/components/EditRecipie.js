@@ -1,18 +1,92 @@
-import { Container, Grid, Box, List, TextField, Button } from '@mui/material';
+import { Container, Grid, Box, List, ListItem, TextField, Button } from '@mui/material';
 import React from 'react';
 import Typography from '@mui/material/Typography';
 import {  blueGrey } from '@mui/material/colors';
 import PhotoUpload from './PhotoUpload'
+import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
+import {  pink } from '@mui/material/colors';
+import  DeleteIcon  from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import UnitsMenu from '../components/UnitsMenu'
+
 
 export default function EditRecipie(){
     
     const colorGrey = blueGrey[50]
-
-    //const newRecipie = {};
     
+    var newRecipe = {}
+    var newRecipeArray = []
+
+    const [name, setName] = React.useState("")
+    const [ingredients, setIngredients] = React.useState("")
+    const [qty, setQty] = React.useState("")
+    const [ingArray, setIngArray] = React.useState([])
+    const [difficulty, setDifficulty] = React.useState(0)
+    const [description, setDescription] = React.useState("")
+
+    function handleName (event) {
+        setName(event.target.value )
+    }
+
+    function handleIngredients (event) {
+        setIngredients(event.target.value )
+    }
+
+    function handleQty (event) {
+        setQty(event.target.value )
+    }
+
+    function handleAddIng () {
+        setIngArray(prevArray => [...prevArray, ingredients])
+        setIngredients("")
+    }
+
+    function handleDifficulty (event) {
+        setDifficulty(event.target.value)
+    }
+    function handleDescription (event) {
+        setDescription(event.target.value)
+    }
+
+    const ingArrayElements = ingArray.map((item) => {
+        return (<ListItem key={item.id}>
+                <DinnerDiningIcon color='white'/>&nbsp;&nbsp;&nbsp;
+                <Typography variant='subtitle1'>{item}</Typography>
+                <IconButton aria-label="delete item">
+                    <DeleteIcon  sx={{ color: pink[800] } } /> 
+                </IconButton>
+            </ListItem>
+    )})
+
+    function handleSave () {
+
+        newRecipe.name = name
+        newRecipe.ingredients = ingArray
+        newRecipe.difficulty = difficulty
+        newRecipe.description = description
+        
+        newRecipeArray.push(newRecipe)
+        
+        setName("")
+        setIngArray([])
+        setDifficulty(0)
+        setDescription("")
+
+
+    }
+
+    function handleDischarge() {
+
+        setName("")
+        setIngArray([])
+        setDifficulty(0)
+        setDescription("")
+
+    }
 
     return (
         <>
+        
         <Container sx={{marginTop: "50px"}}>
             <Grid container spacing={{ xs: 2, md: 2 }}>
                 <Grid item xs={12}>
@@ -28,7 +102,9 @@ export default function EditRecipie(){
                             sx={{ backgroundColor: 'white' }} 
                             id="outlined-basic" 
                             label="Recipe Name" 
-                            variant="outlined" 
+                            variant="outlined"
+                            onChange={handleName}
+                            value={name} 
                             />
                     </Box>
                 </Grid>
@@ -65,14 +141,29 @@ export default function EditRecipie(){
                         <List > 
                             <Typography mb={1} variant='h6' >&emsp;Ingredients: </Typography>
                             <TextField
-                            sx={{ backgroundColor: 'white', maxWidth:'200px', marginLeft:'20px', marginRight:'20px' }} 
+                            sx={{ backgroundColor: 'white', maxWidth:'150px', marginLeft:'20px', marginRight:'10px' }} 
                             id="outlined-basic" 
                             label="Add Item" 
                             variant="outlined"
-                            size="small" 
+                            size="small"
+                            onChange={handleIngredients}
+                            value={ingredients} 
                             />
-                            <Button variant="contained">ADD</Button>
-                        
+                            <TextField
+                            sx={{ backgroundColor: 'white', maxWidth:'80px', marginRight:'10px' }} 
+                            id="outlined-basic" 
+                            label="Qty"
+                            type="number"
+                            InputProps={{ inputProps: { min: 0 } }}
+                            step={0.5} 
+                            variant="outlined"
+                            size="small"
+                            onChange={handleQty}
+                            value={qty} 
+                            />
+                            <UnitsMenu />
+                            <Button sx={{marginLeft:'10px'}} onClick={handleAddIng} variant="contained">ADD</Button>
+                        {ingArrayElements}
                        </List>
                     </Box>
                 </Grid>
@@ -100,6 +191,8 @@ export default function EditRecipie(){
                                 InputLabelProps={{
                                 shrink: true,
                                 }}
+                                onChange={handleDifficulty}
+                                value={difficulty}
                                 />
                         </Box>
 
@@ -110,6 +203,8 @@ export default function EditRecipie(){
                             placeholder="Description"
                             multiline
                             fullWidth
+                            onChange={handleDescription}
+                            value={description}
                             />               
                         
                     </Box>
@@ -127,10 +222,10 @@ export default function EditRecipie(){
                         padding: 1
                         }}>
 
-                        <Button variant="contained" color="error">
+                        <Button onClick={handleDischarge} variant="contained" color="error">
                             Discharge
                         </Button>
-                        <Button variant="contained" color="success">
+                        <Button onClick={handleSave} variant="contained" color="success">
                             Save Changes
                         </Button>
                     </Box>
