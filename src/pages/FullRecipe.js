@@ -12,8 +12,9 @@ export default function FullRecipe(props){
 
     const user = props.userName
     const pic = props.pic
-    const receta = props.receta
-
+    const receta = props.receta.item
+    
+    
     const colorGrey = blueGrey[50]
     
 
@@ -27,7 +28,7 @@ export default function FullRecipe(props){
 
     return (
         <>
-        <Navbar text="" userName={user} pic={pic}/>
+        <Navbar text="Full Recipe" userName={user} pic={pic}/>
 
         <Container sx={{marginTop: "50px"}}>
             <Grid container spacing={{ xs: 2, md: 2 }}>

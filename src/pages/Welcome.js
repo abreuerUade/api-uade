@@ -34,12 +34,12 @@ export default function Welcome(props){
     const recetasNew= recetas.slice(3,6)
     const recipeHistoryElements = recetasHistory.map(receta => {
         return (<Grid item xs={3} sm={4} key={receta.id} >
-                    <RecipeCard item={receta} height={130}  />            
+                    <RecipeCard item={receta} height={130} editable={false}  />            
                 </Grid>)
             }) 
     const recipeNewElements = recetasNew.map(receta => {
         return (<Grid item xs={3} sm={4} key={receta.id} >
-                    <RecipeCard item={receta} height={130}   />            
+                    <RecipeCard item={receta} height={130} editable={false}   />            
                 </Grid>)
             }) 
 
@@ -52,7 +52,7 @@ export default function Welcome(props){
     return (
                
         <>
-        <Container maxWidth="lg" sx={{ mt: 8, mb: 8 }}>
+        <Container maxWidth="lg" sx={{ mt: 6, mb: 8 }}>
             <NavbarWelcome />
             
             <Grid container spacing={2}>
@@ -61,14 +61,7 @@ export default function Welcome(props){
                 <Grid item xs={12} md={12} lg={12}>
                     <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', maxWidth:"800" }}>
                         <Box
-                            sx={{
-                                display: 'flex',
-                                '& > :not(style)': {
-                                m: 1,
-                                width: 1200,
-                                height: 200,
-                                },
-                            }}
+                            
                             >
                             <Slider img={images} />
                         </Box>
@@ -81,7 +74,7 @@ export default function Welcome(props){
                                 '& > :not(style)': {
                                 m: 1,
                                 width: 1200,
-                                height: 120,
+                                height: 370,
                                 },
                             }}
                             >
@@ -101,7 +94,7 @@ export default function Welcome(props){
                                 '& > :not(style)': {
                                 m: 1,
                                 width: 1200,
-                                height: 120,
+                                height: 370,
                                 },
                             }}
                             >
@@ -141,11 +134,15 @@ export default function Welcome(props){
             </Grid>
             <br></br> 
             <br></br> 
-            <Box textAlign='center'>
+            
+            {/* <Box textAlign='center'>
                 <Button className='btnCenter' variant="contained" href="/home">
                     See more recipes <ReceiptLongIcon></ReceiptLongIcon>
                 </Button>       
-            </Box>
+            </Box> 
+            THIS BUTTON WILL BE ADDED IN A SECOND MVP AND THE FUNCTION WILL BE ENTER WITHOUT BEING LOGGED IN.
+            BUT FOR THAT WE NEED A NAVBAR FOR VISITORS AND BLOCK FUNCITIONALITIES SUCH AS MY RECIPES, CREATE NEW RECIPES, MY ACCOUNT SETTINGS, SO ON AND SO FORTH
+            */}
             
         </Container>
         <Footer />

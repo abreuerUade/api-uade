@@ -6,11 +6,16 @@ import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import EditIcon from '@mui/icons-material/Edit';
+import PublishIcon from '@mui/icons-material/Publish';
 import ShareIcon from '@mui/icons-material/Share';
+import  DeleteIcon  from '@mui/icons-material/Delete';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Box, CardContent, Typography } from '@mui/material';
 import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
+import {  pink, yellow } from '@mui/material/colors';
+
 
 
 
@@ -20,14 +25,14 @@ export default function RecipeReviewCard(prop) {
   const [isFav, setIsFav] = React.useState(false)
 
   let isHeart = isFav ? "red" : "grey"
-  const cardHeight= !!prop.height ? prop.height : 200 
+  //const cardHeight= !!prop.height ? prop.height : 200 
 
   function toggleHeart() {
     setIsFav(prevHeart => !prevHeart)
   }
 
   return (
-    <Card sx={{ maxWidth: 200, minWidth: 300, maxHeight:Number(`${cardHeight}`), minHeight:100}}>
+    <Card sx={{ maxWidth: 300, minWidth: 250}}>
       <CardHeader
         avatar={
           <Avatar src={process.env.PUBLIC_URL + `/images/${prop.item.creator.pic}`} />
@@ -42,7 +47,7 @@ export default function RecipeReviewCard(prop) {
         title={`${prop.item.name}`}
         subheader="September 14, 2016"
       />
-      <Link to='/fullrecipe' state={prop}>
+      <Link to={`/fullrecipeId=${prop.item.id}`} state={prop}>
       <CardMedia 
         component="img"
         height="194"
@@ -57,7 +62,7 @@ export default function RecipeReviewCard(prop) {
             <Typography variant="caption">&nbsp;&nbsp;&nbsp;{`${prop.item.rate}`}</Typography>
           </Box>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions sx={{display: 'flex', justifyContent:"space-between",alignContent:'center'}} disableSpacing>
         <IconButton onClick={toggleHeart} aria-label="add to favorites">
           <FavoriteIcon  sx={{ color: `${isHeart}` } } /> 
         </IconButton>
@@ -67,6 +72,18 @@ export default function RecipeReviewCard(prop) {
         </IconButton>
 
         
+        {prop.editable && <CardContent>
+          <IconButton onClick={toggleHeart} aria-label="add to favorites">
+            <EditIcon  color= 'success' /> 
+          </IconButton>
+          <IconButton onClick={toggleHeart} aria-label="add to favorites">
+            <DeleteIcon  sx={{ color: pink[500] } } /> 
+          </IconButton>
+          <IconButton onClick={toggleHeart} aria-label="add to favorites">
+            <PublishIcon  sx={{ color: yellow[800] } } /> 
+          </IconButton>
+
+        </CardContent>}
         
       </CardActions>
     </Card>
