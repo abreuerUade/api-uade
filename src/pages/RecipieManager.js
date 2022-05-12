@@ -7,8 +7,9 @@ import Box from '@mui/material/Box';
 import EditRecipie from '../components/EditRecipie'
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import { Container } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import Published from '../components/Published'
+import RecipeCard from '../components/RecipeCard'
 
 
 function TabPanel(props) {
@@ -55,6 +56,17 @@ export default function ReciepieManager(props) {
     setValue(newValue);
   };
 
+  if (JSON.parse(localStorage.getItem("localRecipes")) === null) {
+    localStorage.setItem("localRecipes", JSON.stringify([]))
+}
+
+  const tempRecipes = JSON.parse(localStorage.getItem("localRecipes"))
+   
+  const tempRecipeElements = tempRecipes.map(recipe => 
+    {return <Grid item xs={3} sm={4} key={recipe.id} >
+        <RecipeCard item={recipe} editable={true}  /> </Grid>} )
+  
+    //console.log(tempRecipeElements);
   return (
     <>
     <Navbar text="" userName={name} pic={userPic} />
@@ -71,7 +83,15 @@ export default function ReciepieManager(props) {
         <EditRecipie userName={name} userPic={userPic} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+          
+            <Grid container sx={{display: 'flex',justifyContent:"center",alignItems:"center"}} 
+                  spacing={{ xs: 2, md: 4}} 
+                  columns={{ xs: 5, sm: 8, md: 14, lg: 14, xl:16 }}
+                  >
+                 
+              {tempRecipeElements}   
+        
+             </Grid>
       </TabPanel>
       <TabPanel value={value} index={2}>
         <Published user={name} />

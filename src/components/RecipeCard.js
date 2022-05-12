@@ -45,7 +45,7 @@ export default function RecipeReviewCard(prop) {
           </IconButton>
         }
         title={`${prop.item.name}`}
-        subheader="September 14, 2016"
+        subheader={`${prop.item.date}`}
       />
       <Link to={`/fullrecipeId=${prop.item.id}`} state={prop}>
       <CardMedia 
@@ -56,7 +56,7 @@ export default function RecipeReviewCard(prop) {
       />
       </Link>
       <CardContent sx={{display: 'flex', justifyContent:"space-between",alignContent:'center'}}>
-          <Typography variant="Subtitle2">Difficulty: {`${prop.item.dificulty}`}</Typography>
+          <Typography variant="Subtitle2">Difficulty: {`${prop.item.difficulty}`}</Typography>
           <Box sx={{display: 'flex', alignContent:'center'}} >
             <Rating size='small' name="half-rating-read" value={prop.item.rate} precision={0.1} readOnly />
             <Typography variant="caption">&nbsp;&nbsp;&nbsp;{`${prop.item.rate}`}</Typography>

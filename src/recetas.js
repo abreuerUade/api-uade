@@ -47,7 +47,7 @@ export default[
             }
     
             ],
-        dificulty: "5",
+        difficulty: "5",
         images:[
             {
                 id:1 ,
@@ -103,7 +103,7 @@ export default[
             }
     
             ],
-        dificulty: "6",
+        difficulty: "6",
         images:[
             {
                 src: "chickenpasta.jpg"
@@ -133,7 +133,7 @@ export default[
         name: "Onion Soup",
         category:"Soups",
         ingredients: "Onions, Butter, Cheese",
-        dificulty: "4",
+        difficulty: "4",
         images:[
             {
                 src: "onionsoup.jpg"
@@ -161,7 +161,7 @@ export default[
         name: "Quesadilla",
         category:"Mexican",
         ingredients: "Tortilla, Cheese",
-        dificulty: "3",
+        difficulty: "3",
         images:[
             {
                 src: "quesadilla.jpg"
@@ -187,9 +187,9 @@ export default[
     {
         id: 5,
         name: "Cesar Salad",
-        category:"Salads",
+        category:"Salad",
         ingredients: "Chicken, letuce",
-        dificulty: "6",
+        difficulty: "6",
         images:[
             {
                 src: "cesar.jpg"
@@ -216,7 +216,7 @@ export default[
         name: "Bannana Muffins",
         category:"Bakery",
         ingredients: "Muffins, Bannana",
-        dificulty: "7",
+        difficulty: "7",
         images:[
             {
                 src: "muffins.jpg"
@@ -243,7 +243,7 @@ export default[
         name: "Ramen",
         category:"Japanese",
         ingredients: "Onions, Butter, Cheese",
-        dificulty: "9",
+        difficulty: "9",
         images:[
             {
                 src: "ramen.jpg"
@@ -270,7 +270,7 @@ export default[
         name: "Falafel",
         category:"Arabic",
         ingredients: "Onions, Butter, Cheese",
-        dificulty: "7",
+        difficulty: "7",
         images:[
             {
                 

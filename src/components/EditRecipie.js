@@ -22,18 +22,19 @@ export default function EditRecipie(props){
     "Middle East", "Deserts", "Mexican", "Pizza", "Pasta", "Vegetarian"].sort()
 
     const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-    ];
+  "July", "August", "September", "October", "November", "December" ];
     const date = new Date()
-    const today = `${monthNames[date.getMonth()+1]} ${date.getDay()}, ${date.getFullYear()}`
+    const today = `${monthNames[date.getMonth()]} ${date.getDay()}, ${date.getFullYear()}`
     
-    var newRecipe = {
-        rate: 0,
+    var newRecipe =  {    
         creator: {
-            name: userName,
-            pic:userPic
-        }
-        
+            
+        },
+        images: [{
+            id: 1,
+            src: "defaultPhoto.png"
+
+        }]
     }
 
     
@@ -47,8 +48,9 @@ export default function EditRecipie(props){
     const [difficulty, setDifficulty] = React.useState(0)
     const [description, setDescription] = React.useState("")
     const [newRecipeArray, setnewRecipeArray] = React.useState([])
-
-
+    
+    
+ 
     function handleName (event) {
         setName(event.target.value )
     }
@@ -76,6 +78,7 @@ export default function EditRecipie(props){
             type: ingredients
 
         }
+        setIngredients(newIngredient)
         setIngArray(prevArray => [...prevArray, newIngredient])
         setIngredients("")
         setQty(0)
@@ -102,12 +105,19 @@ export default function EditRecipie(props){
     function handleSave () {
         newRecipe.id = newRecipeArray.length + 1
         newRecipe.name = name
+        newRecipe.category = category
         newRecipe.ingredients = ingArray
         newRecipe.difficulty = difficulty
-        newRecipe.description = description
+        newRecipe.preparation = description
         newRecipe.date = today
-        
+        newRecipe.rate = 0
+        newRecipe.creator.id = 1
+        newRecipe.creator.name = userName
+        newRecipe.creator.pic = userPic
+
         setnewRecipeArray(prevArray => [...prevArray, newRecipe])
+
+        localStorage.setItem("localRecipes", JSON.stringify(newRecipeArray))
         
         setName("")
         setIngArray([])
@@ -234,7 +244,7 @@ export default function EditRecipie(props){
                                 </Select>
                             </FormControl>
                             
-                            <Button sx={{marginLeft:'10px'}} onClick={handleAddIng} variant="contained">ADD</Button>
+                            <Button sx={{marginLeft:'10px', marginBottom:'10px'}} onClick={handleAddIng} variant="contained">ADD</Button>
                         {ingArrayElements}
                        </List>
                     </Box>
