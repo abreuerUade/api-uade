@@ -68,7 +68,7 @@ export default function ReciepieManager(props) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <EditRecipie />
+        <EditRecipie userName={name} userPic={userPic} />
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two

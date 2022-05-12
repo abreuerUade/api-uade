@@ -131,7 +131,7 @@ export default[
     {
         id: 3,
         name: "Onion Soup",
-        category:"Soup",
+        category:"Soups",
         ingredients: "Onions, Butter, Cheese",
         dificulty: "4",
         images:[
@@ -187,7 +187,7 @@ export default[
     {
         id: 5,
         name: "Cesar Salad",
-        category:"Salad",
+        category:"Salads",
         ingredients: "Chicken, letuce",
         dificulty: "6",
         images:[
