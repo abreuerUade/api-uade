@@ -64,7 +64,7 @@ export default function ReciepieManager(props) {
    
   const tempRecipeElements = tempRecipes.map(recipe => 
     {return <Grid item xs={3} sm={4} key={recipe.id} >
-        <RecipeCard item={recipe} editable={true}  /> </Grid>} )
+        <RecipeCard item={recipe} state={'modify'}   /> </Grid>} )
   
     //console.log(tempRecipeElements);
   return (

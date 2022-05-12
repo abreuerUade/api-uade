@@ -26,7 +26,7 @@ export default function Home(props){
 
     const recipeElements = recetas.map(receta => {
         return (<Grid item xs={3} sm={4} key={receta.id} >
-                    <RecipeCard item={receta} editable={false}  />            
+                    <RecipeCard item={receta} state={'online'}  />            
                 </Grid>)
             }) 
     
