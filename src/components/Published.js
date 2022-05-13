@@ -11,7 +11,7 @@ export default function Published(props){
 
     const recipeElements = recetas.map(receta => {
         return (receta.creator.name === userName && <Grid item xs={3} sm={4} key={receta.id} >
-                    <RecipeCard item={receta} editable={true}  />            
+                    <RecipeCard item={receta} state={'myRecipes'}   />            
                 </Grid>)
             }) 
 

@@ -56,7 +56,7 @@ export default function RecipeReviewCard(prop) {
       />
       </Link>
       <CardContent sx={{display: 'flex', justifyContent:"space-between",alignContent:'center'}}>
-          <Typography variant="Subtitle2">Difficulty: {`${prop.item.dificulty}`}</Typography>
+          <Typography variant="Subtitle2">Difficulty: {`${prop.item.difficulty}`}</Typography>
           <Box sx={{display: 'flex', alignContent:'center'}} >
             <Rating size='small' name="half-rating-read" value={prop.item.rate} precision={0.1} readOnly />
             <Typography variant="caption">&nbsp;&nbsp;&nbsp;{`${prop.item.rate}`}</Typography>
@@ -77,7 +77,7 @@ export default function RecipeReviewCard(prop) {
             <EditIcon  color= 'success' /> 
           </IconButton>
           <IconButton onClick={toggleHeart} aria-label="add to favorites">
-            <DeleteIcon  sx={{ color: pink[500] } } /> 
+            <DeleteIcon  sx={{ color: pink[800] } } /> 
           </IconButton>
           <IconButton onClick={toggleHeart} aria-label="add to favorites">
             <PublishIcon  sx={{ color: yellow[800] } } /> 

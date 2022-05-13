@@ -5,32 +5,31 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 export default function BasicSelect() {
+
+  const categorySetting = ["Fast Food", "Salads", "Soups", "Bakery", "Italian", "Chinese", "Japanese", 
+    "Middle East", "Deserts", "Mexican", "Pizza", "Pasta", "Vegetarian"].sort()
+
   const [units, setUnits] = React.useState('');
 
   const handleChange = (event) => {
     setUnits(event.target.value);
   };
 
-
-
   return (
     
-      <FormControl sx={{minWidth: '80px'}} >
-        <InputLabel  size='small' id="demo-simple-select-label">Units</InputLabel>
+      <FormControl sx={{minWidth: '200px'}} >
+        <InputLabel  id="demo-simple-select-label">Category</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={units}
-          label="Units"
+          label="Category"
           onChange={handleChange}
-          size='small'
         >
-          <MenuItem value={'u.'}>units</MenuItem>  
-          <MenuItem value={'gr.'}>grams</MenuItem>
-          <MenuItem value={'ml.'}>ml</MenuItem>
-          <MenuItem value={'spoons'}>spoons</MenuItem>
+           {categorySetting.map(cat => <MenuItem value={`${cat}`}>cat</MenuItem>  )} 
+          
         </Select>
       </FormControl>
-
+   
   );
 }

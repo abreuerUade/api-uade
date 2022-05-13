@@ -47,7 +47,7 @@ export default[
             }
     
             ],
-        dificulty: "5",
+        difficulty: "5",
         images:[
             {
                 id:1 ,
@@ -103,7 +103,7 @@ export default[
             }
     
             ],
-        dificulty: "6",
+        difficulty: "6",
         images:[
             {
                 src: "chickenpasta.jpg"
@@ -131,6 +131,7 @@ export default[
     {
         id: 3,
         name: "Onion Soup",
+<<<<<<< HEAD
         category:"Soup",
         ingredients:  [
             {   
@@ -150,6 +151,11 @@ export default[
             },
         ],
         dificulty: "4",
+=======
+        category:"Soups",
+        ingredients: "Onions, Butter, Cheese",
+        difficulty: "4",
+>>>>>>> a8e213bb42926624b4022edf87c0486041973cde
         images:[
             {
                 src: "onionsoup.jpg"
@@ -176,6 +182,7 @@ export default[
         id: 4,
         name: "Quesadilla",
         category:"Mexican",
+<<<<<<< HEAD
         ingredients:  [
             {   
                 id:1,
@@ -189,6 +196,10 @@ export default[
             },
         ],
         dificulty: "3",
+=======
+        ingredients: "Tortilla, Cheese",
+        difficulty: "3",
+>>>>>>> a8e213bb42926624b4022edf87c0486041973cde
         images:[
             {
                 src: "quesadilla.jpg"
@@ -215,6 +226,7 @@ export default[
         id: 5,
         name: "Cesar Salad",
         category:"Salad",
+<<<<<<< HEAD
         ingredients:  [
             {   
                 id:1,
@@ -238,6 +250,10 @@ export default[
             }
         ],
         dificulty: "6",
+=======
+        ingredients: "Chicken, letuce",
+        difficulty: "6",
+>>>>>>> a8e213bb42926624b4022edf87c0486041973cde
         images:[
             {
                 src: "cesar.jpg"
@@ -263,6 +279,7 @@ export default[
         id: 6,
         name: "Bannana Muffins",
         category:"Bakery",
+<<<<<<< HEAD
         ingredients:  [
             {   
                 id:1,
@@ -276,6 +293,10 @@ export default[
             },
         ],
         dificulty: "7",
+=======
+        ingredients: "Muffins, Bannana",
+        difficulty: "7",
+>>>>>>> a8e213bb42926624b4022edf87c0486041973cde
         images:[
             {
                 src: "muffins.jpg"
@@ -301,6 +322,7 @@ export default[
         id: 7,
         name: "Ramen",
         category:"Japanese",
+<<<<<<< HEAD
         ingredients:  [
             {   
                 id:1,
@@ -324,6 +346,10 @@ export default[
            },
         ],
         dificulty: "9",
+=======
+        ingredients: "Onions, Butter, Cheese",
+        difficulty: "9",
+>>>>>>> a8e213bb42926624b4022edf87c0486041973cde
         images:[
             {
                 src: "ramen.jpg"
@@ -349,6 +375,7 @@ export default[
         id: 8,
         name: "Falafel",
         category:"Arabic",
+<<<<<<< HEAD
         ingredients:  [
             {   
                 id:1,
@@ -367,6 +394,10 @@ export default[
            },
         ],
         dificulty: "7",
+=======
+        ingredients: "Onions, Butter, Cheese",
+        difficulty: "7",
+>>>>>>> a8e213bb42926624b4022edf87c0486041973cde
         images:[
             {
                 

@@ -93,7 +93,7 @@ export default function FullRecipe(props){
                         }}>
                         <Typography variant='h5' >&emsp;Preparation: </Typography>
                         <Typography fontSize={18} mt={2} variant='h6' >
-                        &emsp; Difficulty: {receta.dificulty}
+                        &emsp; Difficulty: {receta.difficulty}
                         </Typography>
                         <Typography mt={2} variant='subtitle1' >
                         &emsp; {receta.preparation}

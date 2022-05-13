@@ -9,16 +9,12 @@ import recetas from '../recetas.js';
 import RecipeCard from '../components/RecipeCard'
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
 import HistoryIcon from '@mui/icons-material/History';
-import Button from '@mui/material/Button';
-import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
-import '../cssComponents/buttonComp.css';
 import Footer from '../components/Footer';
-import { Card, Divider, Icon } from '@mui/material';
+import { Card, Divider } from '@mui/material';
 import { Typography } from '@mui/material';
 import { CardContent } from '@mui/material';
 import MicrowaveIcon from '@mui/icons-material/Microwave';
 import { StepLabel, Stepper, Step } from '@mui/material';
-import { createTheme } from '@mui/system';
 
 
 export default function Welcome(props){
@@ -35,12 +31,12 @@ export default function Welcome(props){
     const recetasNew= recetas.slice(3,6)
     const recipeHistoryElements = recetasHistory.map(receta => {
         return (<Grid item xs={3} sm={4} key={receta.id} >
-                    <RecipeCard item={receta} height={130} editable={false}  />            
+                    <RecipeCard item={receta} height={130} state={'online'}  />            
                 </Grid>)
             }) 
     const recipeNewElements = recetasNew.map(receta => {
         return (<Grid item xs={3} sm={4} key={receta.id} >
-                    <RecipeCard item={receta} height={130} editable={false}   />            
+                    <RecipeCard item={receta} height={130} state={'online'}    />            
                 </Grid>)
             }) 
 

@@ -1,4 +1,4 @@
-import { Container, Grid, Box, List, ListItem, TextField, Button } from '@mui/material';
+import { Container, Grid, Box, List, ListItem, TextField, Button, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import React from 'react';
 import Typography from '@mui/material/Typography';
 import {  blueGrey } from '@mui/material/colors';
@@ -7,23 +7,50 @@ import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 import {  pink } from '@mui/material/colors';
 import  DeleteIcon  from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
-import UnitsMenu from '../components/UnitsMenu'
 
 
-export default function EditRecipie(){
+
+export default function EditRecipie(props){
+
+    
+    const userName = props.userName
+    const userPic = props.userPic
     
     const colorGrey = blueGrey[50]
+
+    const categorySetting = ["Fast Food", "Salads", "Soups", "Bakery", "Italian", "Chinese", "Japanese", 
+    "Middle East", "Deserts", "Mexican", "Pizza", "Pasta", "Vegetarian"].sort()
+
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December" ];
+    const date = new Date()
+    const today = `${monthNames[date.getMonth()]} ${date.getDay()}, ${date.getFullYear()}`
     
-    var newRecipe = {}
-    var newRecipeArray = []
+    var newRecipe =  {    
+        creator: {
+            
+        },
+        images: [{
+            id: 1,
+            src: "defaultPhoto.png"
+
+        }]
+    }
+
+    
 
     const [name, setName] = React.useState("")
     const [ingredients, setIngredients] = React.useState("")
+    const [category, setCategory] = React.useState("")
     const [qty, setQty] = React.useState("")
+    const [qtyUnit, setQtyUnit] = React.useState("")
     const [ingArray, setIngArray] = React.useState([])
     const [difficulty, setDifficulty] = React.useState(0)
     const [description, setDescription] = React.useState("")
-
+    const [newRecipeArray, setnewRecipeArray] = React.useState([])
+    
+    
+ 
     function handleName (event) {
         setName(event.target.value )
     }
@@ -32,13 +59,30 @@ export default function EditRecipie(){
         setIngredients(event.target.value )
     }
 
+    function handleCategory (event) {
+        setCategory(event.target.value )
+    }
+
     function handleQty (event) {
         setQty(event.target.value )
     }
 
+    function handleQtyUnit (event) {
+        setQtyUnit(event.target.value )
+    }
+
     function handleAddIng () {
-        setIngArray(prevArray => [...prevArray, ingredients])
+        const newIngredient = {
+            id: (ingArray.length +1),
+            qty: `${qty} ${qtyUnit}`,
+            type: ingredients
+
+        }
+        setIngredients(newIngredient)
+        setIngArray(prevArray => [...prevArray, newIngredient])
         setIngredients("")
+        setQty(0)
+        setQtyUnit("")
     }
 
     function handleDifficulty (event) {
@@ -51,7 +95,7 @@ export default function EditRecipie(){
     const ingArrayElements = ingArray.map((item) => {
         return (<ListItem key={item.id}>
                 <DinnerDiningIcon color='white'/>&nbsp;&nbsp;&nbsp;
-                <Typography variant='subtitle1'>{item}</Typography>
+                <Typography variant='subtitle1'>{`${item.type} - ${item.qty}`}</Typography>
                 <IconButton aria-label="delete item">
                     <DeleteIcon  sx={{ color: pink[800] } } /> 
                 </IconButton>
@@ -59,13 +103,21 @@ export default function EditRecipie(){
     )})
 
     function handleSave () {
-
+        newRecipe.id = newRecipeArray.length + 1
         newRecipe.name = name
+        newRecipe.category = category
         newRecipe.ingredients = ingArray
         newRecipe.difficulty = difficulty
-        newRecipe.description = description
-        
-        newRecipeArray.push(newRecipe)
+        newRecipe.preparation = description
+        newRecipe.date = today
+        newRecipe.rate = 0
+        newRecipe.creator.id = 1
+        newRecipe.creator.name = userName
+        newRecipe.creator.pic = userPic
+
+        setnewRecipeArray(prevArray => [...prevArray, newRecipe])
+
+        localStorage.setItem("localRecipes", JSON.stringify(newRecipeArray))
         
         setName("")
         setIngArray([])
@@ -81,6 +133,7 @@ export default function EditRecipie(){
         setIngArray([])
         setDifficulty(0)
         setDescription("")
+        setCategory("")
 
     }
 
@@ -106,6 +159,19 @@ export default function EditRecipie(){
                             onChange={handleName}
                             value={name} 
                             />
+                        <FormControl  sx={{minWidth: '200px'}} >
+                            <InputLabel   id="demo-simple-select-label">Category</InputLabel>
+                            <Select sx={{ backgroundColor: 'white' }} 
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={category}
+                            label="Category"
+                            onChange={handleCategory}
+                            >
+                            {categorySetting.map(cat => <MenuItem value={cat}>{cat}</MenuItem>  )} 
+                            
+                            </Select>
+                        </FormControl>    
                     </Box>
                 </Grid>
 
@@ -161,8 +227,24 @@ export default function EditRecipie(){
                             onChange={handleQty}
                             value={qty} 
                             />
-                            <UnitsMenu />
-                            <Button sx={{marginLeft:'10px'}} onClick={handleAddIng} variant="contained">ADD</Button>
+                            <FormControl sx={{minWidth: '80px'}} >
+                                <InputLabel  size='small' id="demo-simple-select-label">Units</InputLabel>
+                                <Select sx={{ backgroundColor: 'white' }}
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={qtyUnit}
+                                label="Units"
+                                onChange={handleQtyUnit}
+                                size='small'
+                                >
+                                <MenuItem value={'u.'}>units</MenuItem>  
+                                <MenuItem value={'gr.'}>grams</MenuItem>
+                                <MenuItem value={'ml.'}>ml</MenuItem>
+                                <MenuItem value={'spoons'}>spoons</MenuItem>
+                                </Select>
+                            </FormControl>
+                            
+                            <Button sx={{marginLeft:'10px', marginBottom:'10px'}} onClick={handleAddIng} variant="contained">ADD</Button>
                         {ingArrayElements}
                        </List>
                     </Box>
