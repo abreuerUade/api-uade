@@ -20,6 +20,7 @@ import MicrowaveIcon from '@mui/icons-material/Microwave';
 import { StepLabel, Stepper, Step } from '@mui/material';
 import { createTheme } from '@mui/system';
 
+
 export default function Welcome(props){
     
     const images = props.images.images
@@ -105,7 +106,7 @@ export default function Welcome(props){
                         </Box>
                     </Paper>
                     <br></br>
-                    <Card sx={{p:2, display:'flex', flexDirection:'column', maxWidth:"800", boxShadow:3, borderRadius:2}} onMouseUp={changebackground} onMouseOut={() => setSeffect({boxShadow:0})}>
+                    <Card sx={{p:2, display:'flex', flexDirection:'column', maxWidth:"800", boxShadow:5, borderRadius:2}} onMouseUp={changebackground} onMouseOut={() => setSeffect({boxShadow:0})}>
                            <Card sx={{display: 'flex', bgcolor:'lightgreen', borderRadius:2, boxShadow:5}}>
                               <CardContent>
                                 <Typography gutterBottom variant="h2" component="div" sx={{color:'white', display:'inline', fontWeight:'normal'}}>

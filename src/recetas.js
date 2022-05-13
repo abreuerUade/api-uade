@@ -132,7 +132,23 @@ export default[
         id: 3,
         name: "Onion Soup",
         category:"Soup",
-        ingredients: "Onions, Butter, Cheese",
+        ingredients:  [
+            {   
+                id:1,
+                qty: "1",
+                type: "Onion"
+            },
+            {
+                id:2,
+                qty: "150 g",
+                type: "Butter"
+            },
+            {
+                id:3,
+                qty: "200 g",
+                type: "Cheese"
+            },
+        ],
         dificulty: "4",
         images:[
             {
@@ -160,7 +176,18 @@ export default[
         id: 4,
         name: "Quesadilla",
         category:"Mexican",
-        ingredients: "Tortilla, Cheese",
+        ingredients:  [
+            {   
+                id:1,
+                qty: "1",
+                type: "Tortilla"
+            },
+            {
+                id:2,
+                qty: "200 g",
+                type: "Cheese"
+            },
+        ],
         dificulty: "3",
         images:[
             {
@@ -188,7 +215,28 @@ export default[
         id: 5,
         name: "Cesar Salad",
         category:"Salad",
-        ingredients: "Chicken, letuce",
+        ingredients:  [
+            {   
+                id:1,
+                qty: "1",
+                type: "Chicken"
+            },
+            {
+                id:2,
+                qty: "2",
+                type: "Lettuce"
+            },
+            {
+                id:3,
+                qty: "200 g",
+                type: "Cheese"
+            },
+            {
+                id:4,
+                qty:'300 g',
+                type:"Crutons"
+            }
+        ],
         dificulty: "6",
         images:[
             {
@@ -215,7 +263,18 @@ export default[
         id: 6,
         name: "Bannana Muffins",
         category:"Bakery",
-        ingredients: "Muffins, Bannana",
+        ingredients:  [
+            {   
+                id:1,
+                qty: "1",
+                type: "Muffins"
+            },
+            {
+                id:2,
+                qty: "2",
+                type: "Banana"
+            },
+        ],
         dificulty: "7",
         images:[
             {
@@ -242,7 +301,28 @@ export default[
         id: 7,
         name: "Ramen",
         category:"Japanese",
-        ingredients: "Onions, Butter, Cheese",
+        ingredients:  [
+            {   
+                id:1,
+                qty: "1",
+                type: "Onion"
+            },
+            {
+                id:2,
+                qty: "150g",
+                type: "Butter"
+            },
+            {
+                id:3,
+                qty: "250 g",
+                type: "Cheese"
+           },
+           {
+            id:4,
+            qty: "250 g",
+            type: "Rice spaghetti"
+           },
+        ],
         dificulty: "9",
         images:[
             {
@@ -269,7 +349,23 @@ export default[
         id: 8,
         name: "Falafel",
         category:"Arabic",
-        ingredients: "Onions, Butter, Cheese",
+        ingredients:  [
+            {   
+                id:1,
+                qty: "1",
+                type: "Onion"
+            },
+            {
+                id:2,
+                qty: "150g",
+                type: "Butter"
+            },
+            {
+                id:3,
+                qty: "250 g",
+                type: "Cheese"
+           },
+        ],
         dificulty: "7",
         images:[
             {
