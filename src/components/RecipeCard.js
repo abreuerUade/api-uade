@@ -31,6 +31,14 @@ export default function RecipeReviewCard(prop) {
     setIsFav(prevHeart => !prevHeart)
   }
 
+  function handleDelete(){
+
+  }
+
+  function handleEdit() {
+
+  }
+
   return (
     <Card sx={{ maxWidth: 300, minWidth: 250}}>
       <CardHeader
@@ -45,7 +53,7 @@ export default function RecipeReviewCard(prop) {
           </IconButton>
         }
         title={`${prop.item.name}`}
-        subheader="September 14, 2016"
+        subheader={`${prop.item.date}`}
       />
       <Link to={`/fullrecipeId=${prop.item.id}`} state={prop}>
       <CardMedia 
@@ -61,31 +69,34 @@ export default function RecipeReviewCard(prop) {
             <Rating size='small' name="half-rating-read" value={prop.item.rate} precision={0.1} readOnly />
             <Typography variant="caption">&nbsp;&nbsp;&nbsp;{`${prop.item.rate}`}</Typography>
           </Box>
-      </CardContent>
-      <CardActions sx={{display: 'flex', justifyContent:"space-between",alignContent:'center'}} disableSpacing>
-        <IconButton onClick={toggleHeart} aria-label="add to favorites">
-          <FavoriteIcon  sx={{ color: `${isHeart}` } } /> 
-        </IconButton>
-        
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
 
-        
-        {prop.editable && <CardContent>
-          <IconButton onClick={toggleHeart} aria-label="add to favorites">
-            <EditIcon  color= 'success' /> 
-          </IconButton>
-          <IconButton onClick={toggleHeart} aria-label="add to favorites">
-            <DeleteIcon  sx={{ color: pink[800] } } /> 
-          </IconButton>
-          <IconButton onClick={toggleHeart} aria-label="add to favorites">
-            <PublishIcon  sx={{ color: yellow[800] } } /> 
-          </IconButton>
+        </CardContent>
+          <CardActions sx={{display: 'flex', justifyContent:"space-between",alignContent:'center'}} disableSpacing>
 
-        </CardContent>}
-        
-      </CardActions>
+          {prop.state !== 'modify' && <Box sx={{padding: '0px'}}>
+            <IconButton onClick={toggleHeart} aria-label="add to favorites">
+              <FavoriteIcon  sx={{ color: `${isHeart}` } } /> 
+            </IconButton>
+
+            <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+          </Box>}
+
+          {prop.state !== 'online' && <Box>
+            {prop.state === 'modify' &&<IconButton onClick={handleEdit} aria-label="add to favorites">
+              <EditIcon  color= 'success' /> 
+            </IconButton>}
+            <IconButton onClick={handleEdit} aria-label="add to favorites">
+              <DeleteIcon  sx={{ color: pink[500] } } /> 
+            </IconButton>
+            {prop.state === 'modify' && <IconButton onClick={handleDelete} aria-label="add to favorites">
+              <PublishIcon  sx={{ color: yellow[800] } } /> 
+            </IconButton>}
+
+          </Box>}
+
+          </CardActions>
     </Card>
   );
 }
