@@ -46,24 +46,23 @@ const mdTheme = createTheme();
 
 function ListBar(props) {
 
-  const currentUser = props.user
-  debugger
+  
   var settingsOption
   switch (props.settingsOption) {
     case 'ProfileInformation':
-      settingsOption = <ProfileInformation user={currentUser}></ProfileInformation>
+      settingsOption = <ProfileInformation />
       break;
     case 'Notification':
-      settingsOption = <Notification user={currentUser}></Notification>
+      settingsOption = <Notification />
       break;
     case 'Security':
-      settingsOption = <Security user={currentUser}></Security>
+      settingsOption = <Security />
       break;
     case 'Help':
-      settingsOption = <HelpSettings></HelpSettings>
+      settingsOption = <HelpSettings />
       break;
     case 'About':
-      settingsOption = <About></About>
+      settingsOption = <About />
       break;
     default:
       // execute default code block

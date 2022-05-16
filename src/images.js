@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 export default[
-    {
-        images:[
+    
+        
             {
                 id:1 ,
                 src: "Header1.jpg"
@@ -19,5 +19,4 @@ export default[
                 src: "Header4.jpg"
             },
         ]
-    }
-]
+    

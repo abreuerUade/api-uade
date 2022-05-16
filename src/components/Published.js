@@ -2,15 +2,17 @@ import React from 'react';
 import { Grid, Container} from '@mui/material';
 import RecipeCard from './RecipeCard'
 import recetas from '../recetas.js';
+import useAuth from '../auth/useAuth';
 
 
 
-export default function Published(props){
-    const userName = props.user
+export default function Published(){
+
+    const { user } = useAuth()
     
 
     const recipeElements = recetas.map(receta => {
-        return (receta.creator.name === userName && <Grid item xs={3} sm={4} key={receta.id} >
+        return (receta.creator.creatorId === user.id && <Grid item xs={3} sm={4} key={receta.id} >
                     <RecipeCard item={receta} state={'myRecipes'}   />            
                 </Grid>)
             }) 

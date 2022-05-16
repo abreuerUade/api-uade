@@ -13,6 +13,7 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
+import useAuth from '../auth/useAuth';
 
 
 function HideOnScroll(props) {
@@ -28,7 +29,10 @@ function HideOnScroll(props) {
 }
 
 
-export default function Navbar(props) {
+export default function Navbar() {
+
+const { user, isLogged } = useAuth()
+
 
 const settings = ['MyAccount', 'Logout'];
 const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -40,9 +44,6 @@ const handleOpenUserMenu = (event) => {
 const handleCloseUserMenu = () => {
     setAnchorElUser(null);
 };
-
-const user = props.userName
-const pic = props.pic
 
   return (
     <React.Fragment>
@@ -63,16 +64,14 @@ const pic = props.pic
             </Box>         
           </Link>
               
-        <Typography variant="h4">
-            {`${props.text}`}
-        </Typography>
 
           <Box sx={{display:'flex', alignContent:'center' }}>
-          <Typography marginTop={2} marginRight={2}>{user}</Typography>
+          <Typography marginTop={2} marginRight={2}>{
+          isLogged ? `${user.firstName} ${user.lastName}` : "Login"}</Typography>
            <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Donato" 
-                      src={process.env.PUBLIC_URL + `images/${pic}`} 
+                      src={isLogged() ? process.env.PUBLIC_URL + `images/${user.profPic}` : ""} 
                         sx={{ width: 56, height: 56 }} 
                 />
               </IconButton>

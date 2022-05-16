@@ -10,8 +10,11 @@ import {useState, forwardRef} from 'react';
 import Switch from '../../components/Switch'
 import Paper from '@mui/material/Paper';
 import {Snackbar, Alert} from '@mui/material'
+import useAuth from '../../auth/useAuth';
 
 export default function Security(props) {
+
+  const { user } = useAuth()
 
   const [botonDesactivado, setBotonDesactivado] = useState(true);
   const [campoDesactivado, setCampoDesactivado] = useState(true);
@@ -59,7 +62,7 @@ export default function Security(props) {
   const newF = () => {
     var listOfErrors= validateFields();
     var numberOfErrors = listOfErrors.length === 0
-    debugger      
+          
     if (numberOfErrors){
       //There are no errors    
       setOpen(true)
@@ -130,7 +133,7 @@ export default function Security(props) {
                         <Grid item xs={12} sm={12} md={12} lg={12}>
                             <TextField
                                 disabled={campoDesactivado}
-                                defaultValue={`${props.user.password}`}
+                                defaultValue={`${user.password}`}
                                 required
                                 label="Current Password"
                                 id="password"
@@ -158,7 +161,7 @@ export default function Security(props) {
                         <Grid item xs={12} sm={12} md={12} lg={12}>
                             <TextField
                                 disabled={campoDesactivado}
-                                defaultValue={`${props.user.alternativeEmail}`}
+                                defaultValue={`${user.alternativeEmail}`}
                                 label="Alternative Email"
                                 id="alternativeemail"
                                 fullWidth            
@@ -168,7 +171,7 @@ export default function Security(props) {
                         <Grid item xs={12} sm={12} md={12} lg={12}>
                             <TextField
                                 disabled={campoDesactivado}
-                                defaultValue={`${props.user.phone}`}
+                                defaultValue={`${user.phone}`}
                                 label="Phone Number"
                                 id="phone"
                                 fullWidth            

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import NavbarWelcome from '../components/NavbarWelcome';
 import Slider from '../components/Slider/Slider';
 import Box from '@mui/material/Box';
@@ -15,12 +15,16 @@ import { Typography } from '@mui/material';
 import { CardContent } from '@mui/material';
 import MicrowaveIcon from '@mui/icons-material/Microwave';
 import { StepLabel, Stepper, Step } from '@mui/material';
+import images from '../images'
 
 
-export default function Welcome(props){
+export default function Welcome(){
+
+    const allImages = images
     
-    const images = props.images.images
-    const [seffect, setSeffect] = useState({boxShadow:0});
+    console.log(images)
+    
+    
     const steps = [
         'Log-in or Create an account!',
         'Search for recipes or create yor own',
@@ -60,7 +64,7 @@ export default function Welcome(props){
                         <Box
                             
                             >
-                            <Slider img={images} />
+                            <Slider img={allImages} />
                         </Box>
                     </Paper>
                     <br></br>
@@ -102,7 +106,7 @@ export default function Welcome(props){
                         </Box>
                     </Paper>
                     <br></br>
-                    <Card sx={{p:2, display:'flex', flexDirection:'column', maxWidth:"800", boxShadow:5, borderRadius:2}} onMouseUp={changebackground} onMouseOut={() => setSeffect({boxShadow:0})}>
+                    <Card sx={{p:2, display:'flex', flexDirection:'column', maxWidth:"800", boxShadow:5, borderRadius:2}} onMouseUp={changebackground} >
                            <Card sx={{display: 'flex', bgcolor:'lightgreen', borderRadius:2, boxShadow:5}}>
                               <CardContent>
                                 <Typography gutterBottom variant="h2" component="div" sx={{color:'white', display:'inline', fontWeight:'normal'}}>

@@ -45,10 +45,8 @@ function a11yProps(index) {
   };
 }
 
-export default function ReciepieManager(props) {
+export default function ReciepieManager() {
 
-  const name = props.userName
-  const userPic = props.pic
 
   const [value, setValue] = React.useState(0);
 
@@ -69,7 +67,7 @@ export default function ReciepieManager(props) {
     //console.log(tempRecipeElements);
   return (
     <>
-    <Navbar text="" userName={name} pic={userPic} />
+    <Navbar />
     <Container sx={{marginTop: "50px"}} >
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -80,7 +78,7 @@ export default function ReciepieManager(props) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <EditRecipie userName={name} userPic={userPic} />
+        <EditRecipie />
       </TabPanel>
       <TabPanel value={value} index={1}>
           
@@ -94,7 +92,7 @@ export default function ReciepieManager(props) {
              </Grid>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Published user={name} />
+        <Published />
       </TabPanel>
     </Box>
     </Container>

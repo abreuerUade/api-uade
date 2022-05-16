@@ -7,14 +7,13 @@ import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 import {  pink } from '@mui/material/colors';
 import  DeleteIcon  from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
+import useAuth from '../auth/useAuth';
 
 
 
-export default function EditRecipie(props){
+export default function EditRecipie(){
 
-    
-    const userName = props.userName
-    const userPic = props.userPic
+    const { user } = useAuth()
     
     const colorGrey = blueGrey[50]
 
@@ -24,7 +23,7 @@ export default function EditRecipie(props){
     const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December" ];
     const date = new Date()
-    const today = `${monthNames[date.getMonth()]} ${date.getDay()}, ${date.getFullYear()}`
+    const today = `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
     
     var newRecipe =  {    
         creator: {
@@ -112,8 +111,8 @@ export default function EditRecipie(props){
         newRecipe.date = today
         newRecipe.rate = 0
         newRecipe.creator.id = 1
-        newRecipe.creator.name = userName
-        newRecipe.creator.pic = userPic
+        newRecipe.creator.name = user.firstName
+        newRecipe.creator.pic = user.profPic
 
         setnewRecipeArray(prevArray => [...prevArray, newRecipe])
 

@@ -10,9 +10,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { Link } from 'react-router-dom';
 
 
-export default function Home(props){
-    const userName = props.userName
-    const userPic = props.pic
+export default function Home(){
 
     const style = {
         marginBottom : 15,
@@ -32,7 +30,7 @@ export default function Home(props){
     
     return (   
         <>
-        <Navbar text="Home" userName={userName} pic={userPic}  />
+        <Navbar />
         
         <Container sx={{ width: '100%', marginTop: "15px" }}>
             <Filterbar />

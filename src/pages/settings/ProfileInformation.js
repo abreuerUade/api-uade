@@ -9,8 +9,11 @@ import '../../cssComponents/buttonComp.css';
 import {useState, forwardRef} from 'react';
 import Paper from '@mui/material/Paper';
 import {Snackbar, Alert} from '@mui/material'
+import useAuth from '../../auth/useAuth';
 
 export default function ProfileInformation(props) {
+
+  const { user } = useAuth()
 
   const [botonDesactivado, setBotonDesactivado] = useState(true);
   const [campoDesactivado, setCampoDesactivado] = useState(true);
@@ -146,7 +149,7 @@ export default function ProfileInformation(props) {
                 <Grid item xs={4} sm={4} md={4} lg={4}>
                   <TextField
                         disabled={campoDesactivado}
-                        defaultValue={`${props.user.firstName}`}
+                        defaultValue={`${user.firstName}`}
                         required
                         label="Primary Name"
                         id="firstname"              
@@ -156,7 +159,7 @@ export default function ProfileInformation(props) {
                 <Grid item xs={8} sm={8} md={8} lg={8}>
                   <TextField
                         disabled={campoDesactivado}
-                        defaultValue={`${props.user.lastName}`}
+                        defaultValue={`${user.lastName}`}
                         required
                         label="Last Name"
                         id="surname" 
@@ -166,7 +169,7 @@ export default function ProfileInformation(props) {
                 <Grid item xs={12} sm={12} md={12} lg={12}>
                   <TextField
                         disabled={campoDesactivado}
-                        defaultValue={`${props.user.userName}`}
+                        defaultValue={`${user.userName}`}
                         required
                         label="Username"
                         id="username"
@@ -176,7 +179,7 @@ export default function ProfileInformation(props) {
                 <Grid item xs={12} sm={12} md={12} lg={12}>
                   <TextField
                         disabled={campoDesactivado}
-                        defaultValue={`${props.user.mail}`}
+                        defaultValue={`${user.mail}`}
                         required
                         label="Email"
                         id="email"
