@@ -7,7 +7,7 @@ export const AuthContext = createContext()
 
 export default function AuthProvider({ children }) {
 
-    const [user, setUser] = React.useState(users[0])
+    const [user, setUser] = React.useState(null)
 
     const login = () => setUser(users[0])
     const logout = () => setUser(null)

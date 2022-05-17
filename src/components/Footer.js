@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 
 
 
@@ -42,10 +43,12 @@ export default function Footer() {
         }}
       >
         <Box maxWidth="sm">
-          <Typography variant="body1">
-            App-Etite! all rights reserved
-          </Typography>
-          <Copyright />
+          <Link to={'/'} style={{textDecoration: "none", color:"white" }}>
+            <Typography variant="body1">
+              App-Etite! all rights reserved
+            </Typography>
+            <Copyright />
+          </Link>
         </Box>
         
           <Typography  variant="body1">  ABOUT US  </Typography>

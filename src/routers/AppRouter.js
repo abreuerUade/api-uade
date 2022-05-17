@@ -9,6 +9,7 @@ import MyAccount from '../pages/MyAccount';
 import RecipieManager from '../pages/RecipieManager';
 import ForgotPassword from '../pages/ForgotPassword';
 import ForgotPasswordSuccess from '../pages/ForgotPasswordSuccess';
+import PrivateRoute from './PrivateRoute';
 
 function AppRouter() {
 
@@ -23,15 +24,17 @@ function AppRouter() {
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/fullrecipeId:recipieId' element={<FullRecipe receta={data}  />} />
-        <Route path='/myAccount' element={<MyAccount settingsOption='ProfileInformation'  />} /> 
-        <Route path='/profileinfo' element={<MyAccount  settingsOption='ProfileInformation'/>} />
-        <Route path='/notification' element={<MyAccount  settingsOption='Notification'/>} />
-        <Route path='/security' element={<MyAccount  settingsOption='Security'/>} />
-        <Route path='/help' element={<MyAccount  settingsOption='Help'/>} />
-        <Route path='/about' element={<MyAccount  settingsOption='About'/>} />
-        <Route path='/recipeManager' element={<RecipieManager />} />
-        <Route path='/forgotpassword' element={<ForgotPassword />} />
-        <Route path='/forgotpasswordsuccess' element={<ForgotPasswordSuccess />} />
+        <Route element={<PrivateRoute />}>
+          <Route path='/Account' element={<MyAccount settingsOption='ProfileInformation'  />} /> 
+          <Route path='/profileinfo' element={<MyAccount  settingsOption='ProfileInformation'/>} />
+          <Route path='/notification' element={<MyAccount  settingsOption='Notification'/>} />
+          <Route path='/security' element={<MyAccount  settingsOption='Security'/>} />
+          <Route path='/help' element={<MyAccount  settingsOption='Help'/>} />
+          <Route path='/about' element={<MyAccount  settingsOption='About'/>} />
+          <Route path='/recipeManager' element={<RecipieManager />} />
+          <Route path='/forgotpassword' element={<ForgotPassword />} />
+          <Route path='/forgotpasswordsuccess' element={<ForgotPasswordSuccess />} />
+        </Route>
       
       </Routes>
   )

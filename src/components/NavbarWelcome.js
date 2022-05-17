@@ -12,6 +12,7 @@ import Login from '../pages/Login';
 import { Grid } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
+import useAuth from '../auth/useAuth';
 
 
 function HideOnScroll(props) {
@@ -29,8 +30,12 @@ function HideOnScroll(props) {
 
 export default function NavbarWelcome() {
 
+  const { login } = useAuth()
+
     const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
+    const handleOpen = () => {
+      login()
+      setOpen(true)}
     const handleClose = () => setOpen(false);
 
   return (

@@ -14,6 +14,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import useAuth from '../auth/useAuth';
+import { Button } from '@mui/material';
 
 
 function HideOnScroll(props) {
@@ -31,10 +32,9 @@ function HideOnScroll(props) {
 
 export default function Navbar() {
 
-const { user, isLogged } = useAuth()
+const { user, isLogged, login, logout } = useAuth()
 
 
-const settings = ['MyAccount', 'Logout'];
 const [anchorElUser, setAnchorElUser] = React.useState(null);
 
 const handleOpenUserMenu = (event) => {
@@ -44,6 +44,11 @@ const handleOpenUserMenu = (event) => {
 const handleCloseUserMenu = () => {
     setAnchorElUser(null);
 };
+
+function handleLogout () {
+  handleCloseUserMenu()
+  logout()
+}
 
   return (
     <React.Fragment>
@@ -66,9 +71,10 @@ const handleCloseUserMenu = () => {
               
 
           <Box sx={{display:'flex', alignContent:'center' }}>
-          <Typography marginTop={2} marginRight={2}>{
-          isLogged ? `${user.firstName} ${user.lastName}` : "Login"}</Typography>
-           <Tooltip title="Open settings">
+            {isLogged() ? <Typography marginTop={2} marginRight={2}>{`${user.firstName} ${user.lastName}`}</Typography>
+            : <Button sx={{color: 'white'}} variant="text" onClick={() => login()}>LOGIN</Button> }
+
+           <Tooltip title="Login">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Donato" 
                       src={isLogged() ? process.env.PUBLIC_URL + `images/${user.profPic}` : ""} 
@@ -76,7 +82,7 @@ const handleCloseUserMenu = () => {
                 />
               </IconButton>
             </Tooltip>
-            <Menu
+            {isLogged() && <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -92,20 +98,21 @@ const handleCloseUserMenu = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+              
+              <MenuItem  onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">
                 
                     <Link style={{textDecoration: "none", color:"black" }} 
-                          to={setting === "Logout" ? `/welcome` : `/${setting}`}>
-                          {setting}
+                          to={'/Account'}>
                     </Link>
-                        
+                        Account
                       
                   </Typography>
                 </MenuItem>
-                 ))}
-            </Menu>
+                <MenuItem  onClick={handleLogout}>
+                  <Typography textAlign="center"> Logout </Typography>
+                </MenuItem>
+            </Menu>}
           </Box>
         </Toolbar>
       </Container>

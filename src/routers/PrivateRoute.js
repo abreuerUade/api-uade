@@ -1,16 +1,17 @@
 import React from 'react'
-import { Navigate, Route } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import useAuth from '../auth/useAuth'
+import Login from '../pages/Login'
 
 export default function PrivateRoute (props) {
 
     const { isLogged }= useAuth()
     
-    if (!isLogged()) return <Navigate to='/login' />
+    
 
   return (
 
-    <Route {...props} /> 
+    isLogged() ? <Outlet /> :  <Login />
 
   )
 }

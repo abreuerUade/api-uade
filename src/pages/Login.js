@@ -15,18 +15,21 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {Snackbar, Alert} from '@mui/material'
 import ReCAPTCHA from "react-google-recaptcha";
+import useAuth from '../auth/useAuth';
 
 const theme = createTheme();
 
-export default function SignIn() {
+export default function LogIn() {
   const [openError, setOpenError] = useState(false);
   const [errors, setErrors] = useState([]);
   const [captchaValid, setCaptchaValid] = useState(false);
 
   const captcha = useRef(null);
 
+  const { login } = useAuth()
+
   const onChange = () => {
-    debugger
+    
     if (captcha.current.props.sitekey){
       console.log("The user has been validated not as a bot");
       setCaptchaValid(true);
@@ -53,7 +56,7 @@ export default function SignIn() {
 
   const validateFields = () => {
     var mensajesError = [];
-    debugger
+    
     var username = document.getElementById('username');
     var password = document.getElementById('password'); 
   
@@ -76,11 +79,11 @@ export default function SignIn() {
   const validateFunction = () => {
     var listOfErrors= validateFields();
     var numberOfErrors = listOfErrors.length === 0
-    debugger
+    
     if (numberOfErrors){
       //There are no errors  
-      debugger  
-      window.location.href="/home";
+      login()  
+      //window.location.href="/home";
       //Goes to welcome
     }
     else {
@@ -128,7 +131,7 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Log in
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -170,7 +173,7 @@ export default function SignIn() {
               sx={{ mt: 3, mb: 2 }}
               onClick={validateFunction}
             >
-              Sign In
+              Log In
             </Button>
             <Grid container>
               <Grid item xs>

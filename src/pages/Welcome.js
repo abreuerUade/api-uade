@@ -18,12 +18,11 @@ import { StepLabel, Stepper, Step } from '@mui/material';
 import images from '../images'
 
 
-export default function Welcome(){
 
-    const allImages = images
+
+export default function Welcome(){  
     
-    console.log(images)
-    
+    const allImages = images    
     
     const steps = [
         'Log-in or Create an account!',
@@ -107,7 +106,7 @@ export default function Welcome(){
                     </Paper>
                     <br></br>
                     <Card sx={{p:2, display:'flex', flexDirection:'column', maxWidth:"800", boxShadow:5, borderRadius:2}} onMouseUp={changebackground} >
-                           <Card sx={{display: 'flex', bgcolor:'lightgreen', borderRadius:2, boxShadow:5}}>
+                           <Card sx={{display: 'flex', bgcolor:'#6AB9D9', borderRadius:2, boxShadow:5}}>
                               <CardContent>
                                 <Typography gutterBottom variant="h2" component="div" sx={{color:'white', display:'inline', fontWeight:'normal'}}>
                                     Getting <b>started</b>
@@ -119,10 +118,10 @@ export default function Welcome(){
                                     How to use <b>App-Etite!</b> <Typography variant="body1" color="white"></Typography>
                                 </Typography>
                                 
-                                <Stepper sx={{mt:3}} activeStep={''} alternativeLabel>
+                                <Stepper sx={{mt:3}} alternativeLabel>
                                         {steps.map((label) => (
                                             <Step key={label}>
-                                                <StepLabel sx={{boxShadow:1, pt:1, borderRadius:2}}>{label}</StepLabel>
+                                                <StepLabel sx={{boxShadow:1, pt:1, borderRadius:2, bgcolor:'white'}}>{label}</StepLabel>
                                                 <Divider sx={{display:'block'}}></Divider>
                                             </Step>
                                         ))}
