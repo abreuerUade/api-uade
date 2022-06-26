@@ -8,7 +8,7 @@ export default[
         mail: "donato@cucina.com",
         phone:"+54115555555",
         profPic: "donato.jpg",
-        password: "**********",
+        password: "1234",
         alternativeEmail: "donato@gmail.com",
     
     },

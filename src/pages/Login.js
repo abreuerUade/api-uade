@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {  Navigate } from 'react-router-dom';
 import {useState, forwardRef, useRef} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -28,6 +27,7 @@ export default function LogIn() {
   const captcha = useRef(null);
 
   const { login } = useAuth()
+  
 
   const onChange = () => {
     
@@ -84,8 +84,9 @@ export default function LogIn() {
     if (numberOfErrors){
       //There are no errors  
       
-      login();
-      <Navigate to="/home" />
+      // 
+      login(document.getElementById('username').value,document.getElementById('password').value);
+      
       //window.location.href="/home";
       //Goes to welcome
     }

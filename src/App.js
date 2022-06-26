@@ -4,7 +4,6 @@ import AuthProvider from './auth/AuthProvider'
 
 function App() {
 	 
-
 	return (
 	  	<AuthProvider>
 			<AppRouter />
