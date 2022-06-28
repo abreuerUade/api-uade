@@ -61,7 +61,7 @@ export default function ReciepieManager() {
   const tempRecipes = JSON.parse(localStorage.getItem("localRecipes"))
    
   const tempRecipeElements = tempRecipes.map(recipe => 
-    {return <Grid item xs={3} sm={4} key={recipe.id} >
+    {return <Grid item xs={3} sm={4} key={recipe.temp_id} >
         <RecipeCard item={recipe} state={'modify'}   /> </Grid>} )
   
     //console.log(tempRecipeElements);

@@ -4,15 +4,15 @@ import Toolbar from '@mui/material/Toolbar';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
 import Slide from '@mui/material/Slide';
-import { Typography } from '@mui/material';
-import { Modal } from '@mui/material';
-import Login from '../pages/Login';
+// import { Typography } from '@mui/material';
+// import Avatar from '@mui/material/Avatar';
+// import { Modal } from '@mui/material';
+// import Login from '../pages/Login';
+// import IconButton from '@mui/material/IconButton';
+// import Tooltip from '@mui/material/Tooltip';
+// import useAuth from '../auth/useAuth';
 import { Grid } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import useAuth from '../auth/useAuth';
 
 
 function HideOnScroll(props) {
@@ -30,13 +30,13 @@ function HideOnScroll(props) {
 
 export default function NavbarWelcome() {
 
-  const { login } = useAuth()
+  // const { login } = useAuth()
 
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => {
-      login()
-      setOpen(true)}
-    const handleClose = () => setOpen(false);
+    // const [open, setOpen] = React.useState(false);
+    // const handleOpen = () => {
+    //   login()
+    //   setOpen(true)}
+    // const handleClose = () => setOpen(false);
 
   return (
     <React.Fragment>
@@ -44,11 +44,11 @@ export default function NavbarWelcome() {
       <HideOnScroll>
       <AppBar position="fixed">
         <Grid container alignItems={'center'}>
-          <Toolbar disableGutters style={{display:'flex',justifyContent:'space-between', width:'100%'}}> 
+          <Toolbar disableGutters style={{display:'flex',justifyContent:'center', width:'100%'}}> 
                 
-                <Grid item xs="" sx={{p:2}}><Typography onClick={handleOpen} variant="button"></Typography></Grid>
+                {/* <Grid item xs="" sx={{p:2}}><Typography onClick={handleOpen} variant="button"></Typography></Grid> */}
                 
-                <Grid item xs=""><Box sx={{p:1,display: 'inline-flex', alignItems: 'center' }} >
+                <Grid item><Box sx={{p:1,display: 'inline-flex', alignItems: 'center' }} >
                 
                     <img  src={process.env.PUBLIC_URL + "images/only_logo_white_large.png"} alt="" 
                             width={"55px"} />
@@ -60,8 +60,8 @@ export default function NavbarWelcome() {
                                             width={"55px"} />
                      </Box>
                 </Grid>
-            
-                <Grid item xs=""sx={{p:2}}>
+                
+               {/* <Grid item xs=""sx={{p:2}}>
                 <Tooltip title="LOG IN">
                   <IconButton onClick={handleOpen} sx={{ p: 0 }}>
                     <Avatar alt="log in" 
@@ -69,7 +69,7 @@ export default function NavbarWelcome() {
                     />
                   </IconButton>
                 </Tooltip>
-                </Grid>
+                </Grid> 
             
                 <Modal
                     open={open}
@@ -78,7 +78,8 @@ export default function NavbarWelcome() {
                     aria-describedby="modal-modal-description"
                 >
                     <Login />
-                </Modal>
+                </Modal> */}
+                
           </Toolbar>
           </Grid>
            

@@ -3,9 +3,9 @@ const urlApi = "http://localhost:3500/";
 console.log("url",urlApi);
 
 const urlWebServices = {
-    login:urlApi +"auth",
+    login:urlApi + "auth",
     recetas: urlApi + "recetas",
-    signUpL: urlApi + "register",
+    register: urlApi + "register",
     // uploadFileImg: urlApi + "utils/uploadImg",
     // guardarImgUser: urlApi + "api/users/guardarImgUser",
     // getImgUser: urlApi + "api/users/imgUserByMail",

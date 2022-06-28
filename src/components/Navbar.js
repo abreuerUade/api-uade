@@ -32,7 +32,7 @@ function HideOnScroll(props) {
 
 export default function Navbar() {
 
-const { user, isLogged, login, logout } = useAuth()
+const { user, isLogged, logout } = useAuth()
 
 
 const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -72,12 +72,15 @@ function handleLogout () {
 
           <Box sx={{display:'flex', alignContent:'center' }}>
             {isLogged() ? <Typography marginTop={2} marginRight={2}>{`${user.firstName} ${user.lastName}`}</Typography>
-            : <Button sx={{color: 'white'}} variant="text" onClick={() => login()}>LOGIN</Button> }
+            : 
+            <Link style={{textDecoration: "none", color:"black" }} 
+                          to={'/Account'}>
+            <Button sx={{color: 'white'}} variant="text">LOGIN</Button></Link> }
 
            <Tooltip title="Login">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Donato" 
-                      src={isLogged() ? process.env.PUBLIC_URL + `images/${user.profPic}` : ""} 
+                      src={isLogged() ? `${user.profilePic}` : ""} 
                         sx={{ width: 56, height: 56 }} 
                 />
               </IconButton>
@@ -103,9 +106,9 @@ function handleLogout () {
                   <Typography textAlign="center">
                 
                     <Link style={{textDecoration: "none", color:"black" }} 
-                          to={'/Account'}>
+                          to={'/Account'}>Account
                     </Link>
-                        Account
+                        
                       
                   </Typography>
                 </MenuItem>

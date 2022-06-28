@@ -91,11 +91,15 @@ export default function EditRecipie(){
         setDescription(event.target.value)
     }
 
+    function handleDelete (id){
+        setIngArray(prevArray => prevArray.filter(item => item.id !== id))
+    }
+
     const ingArrayElements = ingArray.map((item) => {
         return (<ListItem key={item.id}>
                 <DinnerDiningIcon color='white'/>&nbsp;&nbsp;&nbsp;
                 <Typography variant='subtitle1'>{`${item.type} - ${item.qty}`}</Typography>
-                <IconButton aria-label="delete item">
+                <IconButton onClick={() => handleDelete(item.id)} aria-label="delete item">
                     <DeleteIcon  sx={{ color: pink[800] } } /> 
                 </IconButton>
             </ListItem>
@@ -110,9 +114,8 @@ export default function EditRecipie(){
         newRecipe.preparation = description
         newRecipe.date = today
         newRecipe.rate = 0
-        newRecipe.creator.id = 1
         newRecipe.creator.name = user.firstName
-        newRecipe.creator.pic = user.profPic
+        newRecipe.creator.pic = user.profilePic
 
         setnewRecipeArray(prevArray => [...prevArray, newRecipe])
 
@@ -167,7 +170,7 @@ export default function EditRecipie(){
                             label="Category"
                             onChange={handleCategory}
                             >
-                            {categorySetting.map(cat => <MenuItem value={cat}>{cat}</MenuItem>  )} 
+                            {categorySetting.map((cat, index )=> <MenuItem key={index} value={cat}>{cat}</MenuItem>  )} 
                             
                             </Select>
                         </FormControl>    
