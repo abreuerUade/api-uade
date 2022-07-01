@@ -11,16 +11,21 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {Snackbar, Alert} from '@mui/material'
+import {Snackbar, Alert, Input} from '@mui/material'
 import NavbarWelcome from '../components/NavbarWelcome';
 import urlWebServices from '../controllers/webServices'
 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const theme = createTheme();
 
+
+
 export default function SignUp() {
-	
+
+    const [previewSource, setPreviewSource] = useState('')
+	// const [fileInputState, setFileInputState] = useState('')
+	// const [selectedfile, setSelectedFile ] = useState('')
 	const [openError, setOpenError] = useState(false);
 	const [errors, setErrors] = useState([]);
 	let navigate = useNavigate();
@@ -32,6 +37,20 @@ export default function SignUp() {
 		"pwd": "",
 		"recipes": []
 	})
+
+    const handleFileInput = (e) => {
+        const file = e.target.files[0];
+        console.log("object");
+        previewPic(file) 
+    }
+
+    const previewPic = (file) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            setPreviewSource(reader.result);
+        }
+    }
 
 	function handleForm(event) {
 		setUserForm(prevForm => {
@@ -106,7 +125,7 @@ export default function SignUp() {
 	};
 
 	const createUser = async (userForm) => {
-		let url = urlWebServices.register;
+		const urlReg = urlWebServices.register;
 
 		const formData = new URLSearchParams();
 		formData.append('firstName', userForm.firstName);
@@ -116,9 +135,13 @@ export default function SignUp() {
 		formData.append('pwd', userForm.pwd);
 		formData.append('recipes', userForm.recipes);
 
+        let rtaUpload = await uploadImage(previewSource);
+        
+        formData.append('profilePic', rtaUpload.secure_url) 
+
 		try {
-			debugger;
-			let rta = await fetch(url,{
+			
+			let rta = await fetch(urlReg,{
 				method: 'POST', 
 				mode: "cors",
 				headers:{
@@ -129,7 +152,7 @@ export default function SignUp() {
 				body: formData,
 				
 			});
-			debugger;
+			
 			return rta;
 		} catch (error) {
 			console.log("error",error);
@@ -137,11 +160,35 @@ export default function SignUp() {
 		
 	}
 
+    const uploadImage = async (img) => {
+        if (!img) return;
+        
+
+        try {
+            let data = await fetch('http://localhost:3500/userImg',{
+				method: 'POST', 
+				mode: "cors",
+				headers:{
+					'Accept':'application/x-www-form-urlencoded',
+				   // 'x-access-token': WebToken.webToken,
+					'Origin':'http://localhost:3000',
+					'Content-Type': 'application/json'},
+				body: JSON.stringify({data: img}),
+				
+			}).then(res => res.json())
+            
+			console.log(data);
+			return data;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
 
 	const validateFunction = async () => {
 		var listOfErrors= validateFields();
 		var numberOfErrors = listOfErrors.length === 0
-		debugger      
+		     
 		if (numberOfErrors){
 		//There are no errors
 		
@@ -192,7 +239,34 @@ export default function SignUp() {
             Sign up
           </Typography>
           <Box component="form" noValidate sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} >
+            <Grid item xs={12} sm={6} sx={{
+            marginTop: 2,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+                
+                <label htmlFor="contained-button-file">
+                    <Input sx={{display:'none'}} accept="image/*" id="contained-button-file" multiple type="file" onChange={handleFileInput} />
+                    <Button  variant="contained" component="span">
+                    Profile Pic
+                    </Button>
+                </label>
+                
+                
+              </Grid>
+              <Grid item xs={12} sm={6} sx={{
+                    marginTop: 2,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}>
+                <Avatar alt="Profile Picture" 
+                       src={previewSource} 
+                        sx={{ width: 80, height: 80 }} 
+                />
+                </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
                     autoComplete="given-name"
@@ -202,7 +276,7 @@ export default function SignUp() {
                     id="firstName"
                     label="First Name"
                     autoFocus
-					onChange={handleForm}
+					          onChange={handleForm}
                   />
               </Grid>
               <Grid item xs={12} sm={6}>

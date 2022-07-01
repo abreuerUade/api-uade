@@ -6,7 +6,7 @@ const urlWebServices = {
     login:urlApi + "auth",
     recetas: urlApi + "recetas",
     register: urlApi + "register",
-    // uploadFileImg: urlApi + "utils/uploadImg",
+    uploadUserImg: urlApi + "userImg"
     // guardarImgUser: urlApi + "api/users/guardarImgUser",
     // getImgUser: urlApi + "api/users/imgUserByMail",
     // uploadFileImg: urlApi + "api/users/uploadImg",
