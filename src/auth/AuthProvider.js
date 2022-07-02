@@ -8,7 +8,7 @@ export const AuthContext = createContext()
 
 export default function AuthProvider({ children }) {
 
-    const [user, setUser] = React.useState(null)
+    const [user, setUser] = React.useState(!localStorage.getItem("user")? null : JSON.parse(localStorage.getItem("user")))
     let navigate = useNavigate();
 
     const login = async (mail, pwd) => {
@@ -43,6 +43,7 @@ export default function AuthProvider({ children }) {
                 {
                     //guardo token
                     localStorage.setItem("x",data[0].accessToken);
+                    localStorage.setItem("user",JSON.stringify(data[1].foundUser));
                     //guardo usuario logueado
                     setUser(data[1].foundUser)
                     console.log("El user es",user)
@@ -75,9 +76,17 @@ export default function AuthProvider({ children }) {
 
 
     }
-    const logout = () => setUser(null)
+    const logout = () => {
+        
+        localStorage.removeItem("user")
+        localStorage.removeItem("x")
+        setUser(null)
 
-    const isLogged = () => !!user
+    }
+
+    const isLogged = () => { 
+        return !!user
+    }
 
     const contextValue = { user,login, logout, isLogged }
 

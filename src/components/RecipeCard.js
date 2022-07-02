@@ -15,14 +15,15 @@ import { Box, CardContent, Typography } from '@mui/material';
 import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
 import {  pink, yellow } from '@mui/material/colors';
-
+import { useState } from 'react';
 
 
 
 
 export default function RecipeReviewCard(prop) {
 
-  const [isFav, setIsFav] = React.useState(false)
+
+  const [isFav, setIsFav] = useState(false)
 
   let isHeart = isFav ? "red" : "grey"
   //const cardHeight= !!prop.height ? prop.height : 200 
@@ -39,11 +40,16 @@ export default function RecipeReviewCard(prop) {
 
   }
 
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December" ];
+  const fechaRaw = new Date(prop.item.recipes.fechaCreacion)
+  const fecha = `${monthNames[fechaRaw.getMonth()]} ${fechaRaw.getDate()}, ${fechaRaw.getFullYear()}`
+
   return (
     <Card sx={{ maxWidth: 300, minWidth: 250}}>
       <CardHeader
         avatar={
-          <Avatar src={process.env.PUBLIC_URL + `/images/${prop.item.creator.pic}`} />
+          <Avatar src= {prop.item.profilePic} />
             
       
         }
@@ -52,22 +58,22 @@ export default function RecipeReviewCard(prop) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={`${prop.item.name}`}
-        subheader={`${prop.item.date}`}
+        title={`${prop.item.recipes.name}`}
+        subheader={fecha}
       />
-      <Link to={`/fullrecipeId=${prop.item.id}`} state={prop}>
+      <Link to={`/fullrecipeId=${prop.item._id}`} state={prop}>
       <CardMedia 
         component="img"
         height="194"
-        src={process.env.PUBLIC_URL + `/images/${prop.item.images[0].src}`} 
+        src={prop.item.recipes.images[0]}
         alt="Paella dish"
       />
       </Link>
       <CardContent sx={{display: 'flex', justifyContent:"space-between",alignContent:'center'}}>
-          <Typography variant="Subtitle2">Difficulty: {`${prop.item.difficulty}`}</Typography>
+          <Typography variant="Subtitle2">Difficulty: {`${prop.item.recipes.difficulty}`}</Typography>
           <Box sx={{display: 'flex', alignContent:'center'}} >
-            <Rating size='small' name="half-rating-read" value={prop.item.rate} precision={0.1} readOnly />
-            <Typography variant="caption">&nbsp;&nbsp;&nbsp;{`${prop.item.rate}`}</Typography>
+            <Rating size='small' name="half-rating-read" value={prop.item.recipes.puntaje} precision={0.1} readOnly />
+            <Typography variant="caption">&nbsp;&nbsp;&nbsp;{`${prop.item.recipes.puntaje}`}</Typography>
           </Box>
 
         </CardContent>

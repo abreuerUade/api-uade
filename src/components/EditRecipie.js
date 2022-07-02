@@ -1,5 +1,5 @@
 import { Container, Grid, Box, List, ListItem, TextField, Button, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Typography from '@mui/material/Typography';
 import {  blueGrey } from '@mui/material/colors';
 import PhotoUpload from './PhotoUpload'
@@ -13,31 +13,20 @@ import useAuth from '../auth/useAuth';
 
 export default function EditRecipie(){
 
+    
     const { user } = useAuth()
     
     const colorGrey = blueGrey[50]
-
+    
     const categorySetting = ["Fast Food", "Salads", "Soups", "Bakery", "Italian", "Chinese", "Japanese", 
     "Middle East", "Deserts", "Mexican", "Pizza", "Pasta", "Vegetarian"].sort()
-
+    
     const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December" ];
+    "July", "August", "September", "October", "November", "December" ];
     const date = new Date()
     const today = `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
     
-    var newRecipe =  {    
-        creator: {
-            
-        },
-        images: [{
-            id: 1,
-            src: "defaultPhoto.png"
-
-        }]
-    }
-
     
-
     const [name, setName] = React.useState("")
     const [ingredients, setIngredients] = React.useState("")
     const [category, setCategory] = React.useState("")
@@ -57,7 +46,7 @@ export default function EditRecipie(){
     function handleIngredients (event) {
         setIngredients(event.target.value )
     }
-
+    
     function handleCategory (event) {
         setCategory(event.target.value )
     }
@@ -65,7 +54,7 @@ export default function EditRecipie(){
     function handleQty (event) {
         setQty(event.target.value )
     }
-
+    
     function handleQtyUnit (event) {
         setQtyUnit(event.target.value )
     }
@@ -83,18 +72,18 @@ export default function EditRecipie(){
         setQty(0)
         setQtyUnit("")
     }
-
+    
     function handleDifficulty (event) {
         setDifficulty(event.target.value)
     }
     function handleDescription (event) {
         setDescription(event.target.value)
     }
-
+    
     function handleDelete (id){
         setIngArray(prevArray => prevArray.filter(item => item.id !== id))
     }
-
+    
     const ingArrayElements = ingArray.map((item) => {
         return (<ListItem key={item.id}>
                 <DinnerDiningIcon color='white'/>&nbsp;&nbsp;&nbsp;
@@ -104,31 +93,33 @@ export default function EditRecipie(){
                 </IconButton>
             </ListItem>
     )})
-
+    
     function handleSave () {
-        newRecipe.id = newRecipeArray.length + 1
-        newRecipe.name = name
-        newRecipe.category = category
-        newRecipe.ingredients = ingArray
-        newRecipe.difficulty = difficulty
-        newRecipe.preparation = description
-        newRecipe.date = today
-        newRecipe.rate = 0
-        newRecipe.creator.name = user.firstName
-        newRecipe.creator.pic = user.profilePic
-
-        setnewRecipeArray(prevArray => [...prevArray, newRecipe])
-
-        localStorage.setItem("localRecipes", JSON.stringify(newRecipeArray))
+        let newRecipe =  {
+            firstName: user.firstName,
+            lastName: user.lastName,  
+            temp_id: newRecipeArray.length + 1,
+            name: name, 
+            category: category, 
+            ingredients: ingArray,
+            difficulty: difficulty,
+            date: today,
+            description: description,
+            images: []
+        }
         
+        setnewRecipeArray(prevArray => [...prevArray, newRecipe])
         setName("")
         setIngArray([])
         setDifficulty(0)
         setDescription("")
-
-
+        console.log(newRecipe)
+               
     }
-
+    useEffect(() => {
+        localStorage.setItem(`${user.email}`, JSON.stringify(newRecipeArray))
+    },[newRecipeArray, user.email])
+    
     function handleDischarge() {
 
         setName("")
@@ -154,7 +145,8 @@ export default function EditRecipie(){
                         borderRadius: '16px'
                         }}>
                         <TextField
-                            sx={{ backgroundColor: 'white' }} 
+                            sx={{ backgroundColor: 'white' }}
+                            name="name" 
                             id="outlined-basic" 
                             label="Recipe Name" 
                             variant="outlined"
@@ -166,6 +158,7 @@ export default function EditRecipie(){
                             <Select sx={{ backgroundColor: 'white' }} 
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
+                            name="category"
                             value={category}
                             label="Category"
                             onChange={handleCategory}
@@ -252,8 +245,6 @@ export default function EditRecipie(){
                     </Box>
                 </Grid>
 
-                
-
                 <Grid mt={3} item xs={12}>
                     <Box boxShadow={3} sx={{
                         p: 2,    
@@ -275,6 +266,7 @@ export default function EditRecipie(){
                                 InputLabelProps={{
                                 shrink: true,
                                 }}
+                                name="difficulty"
                                 onChange={handleDifficulty}
                                 value={difficulty}
                                 />

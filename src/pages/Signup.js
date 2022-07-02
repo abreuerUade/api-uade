@@ -23,9 +23,8 @@ const theme = createTheme();
 
 export default function SignUp() {
 
-    const [previewSource, setPreviewSource] = useState('')
-	// const [fileInputState, setFileInputState] = useState('')
-	// const [selectedfile, setSelectedFile ] = useState('')
+  const [previewSource, setPreviewSource] = useState('')
+
 	const [openError, setOpenError] = useState(false);
 	const [errors, setErrors] = useState([]);
 	let navigate = useNavigate();
@@ -40,7 +39,6 @@ export default function SignUp() {
 
     const handleFileInput = (e) => {
         const file = e.target.files[0];
-        console.log("object");
         previewPic(file) 
     }
 
@@ -135,9 +133,8 @@ export default function SignUp() {
 		formData.append('pwd', userForm.pwd);
 		formData.append('recipes', userForm.recipes);
 
-        let rtaUpload = await uploadImage(previewSource);
-        
-        formData.append('profilePic', rtaUpload.secure_url) 
+    let rtaUpload = await uploadImage(previewSource);     
+    formData.append('profilePic', rtaUpload.secure_url) 
 
 		try {
 			
@@ -194,7 +191,6 @@ export default function SignUp() {
 		
 		await createUser(userForm);
 		navigate('/login');
-		//window.location.href="/welcome";
 		//Goes to welcome
 		}
 		else {

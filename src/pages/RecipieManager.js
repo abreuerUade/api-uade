@@ -10,10 +10,12 @@ import Navbar from '../components/Navbar';
 import { Container, Grid } from '@mui/material';
 import Published from '../components/Published'
 import RecipeCard from '../components/RecipeCard'
+import useAuth from '../auth/useAuth';
 
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
+  
 
   return (
     <div
@@ -47,18 +49,18 @@ function a11yProps(index) {
 
 export default function ReciepieManager() {
 
-
+  const { user } = useAuth();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  if (JSON.parse(localStorage.getItem("localRecipes")) === null) {
-    localStorage.setItem("localRecipes", JSON.stringify([]))
+  if (JSON.parse(localStorage.getItem(user.email)) === null) {
+    localStorage.setItem(user.email, JSON.stringify([]))
 }
 
-  const tempRecipes = JSON.parse(localStorage.getItem("localRecipes"))
+  const tempRecipes = JSON.parse(localStorage.getItem(user.email))
    
   const tempRecipeElements = tempRecipes.map(recipe => 
     {return <Grid item xs={3} sm={4} key={recipe.temp_id} >
