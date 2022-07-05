@@ -1,15 +1,13 @@
 const urlApi = "http://localhost:3500/";
-//const urlApi = "https://api-viernes.herokuapp.com/";
 
 
 const urlWebServices = {
     login:urlApi + "auth",
     recetas: urlApi + "recetas",
+    recetasGet: urlApi + "recetasGet",
     register: urlApi + "register",
-    uploadUserImg: urlApi + "userImg"
-    // guardarImgUser: urlApi + "api/users/guardarImgUser",
-    // getImgUser: urlApi + "api/users/imgUserByMail",
-    // uploadFileImg: urlApi + "api/users/uploadImg",
+    uploadUserImg: urlApi + "userImg",
+    uploadFileImg: urlApi + "recetaImg",
 }
 
 export default urlWebServices;

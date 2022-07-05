@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './Slider.css'
+import './SliderWelcome.css'
 import BtnSlider from './BtnSlider'
 
 
@@ -32,7 +32,7 @@ export default function Slider(props) {
     }
 
     return (
-        <div className="container-slider">
+        <div className="container-slider2">
             {dataSlider.map((obj, index) => {
                 return (
                     <div
@@ -41,7 +41,7 @@ export default function Slider(props) {
                     
                     >
                     <img 
-                        src={obj} 
+                        src={process.env.PUBLIC_URL + `/images/${obj.src}`} 
                         alt=""
                     />
                     </div>

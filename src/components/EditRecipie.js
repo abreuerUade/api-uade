@@ -1,32 +1,31 @@
-import { Container, Grid, Box, List, ListItem, TextField, Button, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
-import React, { useEffect } from 'react';
+import { Container, Grid, Box, List, ListItem, TextField, Button, MenuItem, Select, InputLabel, FormControl, Stack } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import Typography from '@mui/material/Typography';
 import {  blueGrey } from '@mui/material/colors';
-import PhotoUpload from './PhotoUpload'
 import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 import {  pink } from '@mui/material/colors';
 import  DeleteIcon  from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import useAuth from '../auth/useAuth';
-
-
+import { styled } from '@mui/material/styles';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import Slider from '../components/Slider/Slider.js';
 
 export default function EditRecipie(){
-
     
     const { user } = useAuth()
+
+    const [images, setImages] = useState([]);
     
     const colorGrey = blueGrey[50]
+
+    const Input = styled('input')({
+        display: 'none',
+      });
     
     const categorySetting = ["Fast Food", "Salads", "Soups", "Bakery", "Italian", "Chinese", "Japanese", 
     "Middle East", "Deserts", "Mexican", "Pizza", "Pasta", "Vegetarian"].sort()
-    
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December" ];
-    const date = new Date()
-    const today = `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
-    
-    
+
     const [name, setName] = React.useState("")
     const [ingredients, setIngredients] = React.useState("")
     const [category, setCategory] = React.useState("")
@@ -35,9 +34,34 @@ export default function EditRecipie(){
     const [ingArray, setIngArray] = React.useState([])
     const [difficulty, setDifficulty] = React.useState(0)
     const [description, setDescription] = React.useState("")
-    const [newRecipeArray, setnewRecipeArray] = React.useState([])
+    const [newRecipeArray, setnewRecipeArray] = React.useState(JSON.parse(localStorage.getItem(user.email)))
     
-    
+    const handleFileInput = (e) => {
+        const file = e.target.files[0];
+        previewPic(file) 
+    }
+
+    useEffect(() => {
+        
+    },[images])
+
+    const addToImageArray = (img) => {
+        if(images.length === 0){
+            setImages([img])
+
+        }else{
+            setImages(prev => [...prev, img])
+        }
+    }
+
+    const previewPic = (file) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        
+        reader.onloadend = () => {
+            addToImageArray(reader.result)
+        }
+    }
  
     function handleName (event) {
         setName(event.target.value )
@@ -95,25 +119,32 @@ export default function EditRecipie(){
     )})
     
     function handleSave () {
+        
+        const ingStringArray = ingArray.map(item =>`${item.type} - ${item.qty}`)
+        
         let newRecipe =  {
-            firstName: user.firstName,
-            lastName: user.lastName,  
-            temp_id: newRecipeArray.length + 1,
-            name: name, 
-            category: category, 
-            ingredients: ingArray,
-            difficulty: difficulty,
-            date: today,
-            description: description,
-            images: []
+
+            profilePic: user.profilePic,  
+            recipes: {
+                _id: newRecipeArray.length,
+                name: name, 
+                category: category, 
+                ingredients: ingStringArray,
+                difficulty: difficulty,
+                fechaCreacion: new Date(),
+                description: description,
+                images: images,
+                puntaje:0
+            }
         }
         
         setnewRecipeArray(prevArray => [...prevArray, newRecipe])
         setName("")
         setIngArray([])
+        setImages([])
         setDifficulty(0)
         setDescription("")
-        console.log(newRecipe)
+        
                
     }
     useEffect(() => {
@@ -179,9 +210,20 @@ export default function EditRecipie(){
                         borderRadius: '16px',
                         height: 300
                         }}>
-                        <Box sx={{py:3}}>
-                            <PhotoUpload />
+                        <Stack  sx={{ width: '100%' }}>
+                        <Box >
+                            <Slider img={images} />
                         </Box>
+
+                        <Box >
+                            <label htmlFor="contained-button-file">
+                                <Input sx={{display:'none'}} accept="image/*" id="contained-button-file" multiple type="file" onChange={handleFileInput} />
+                                <IconButton color="primary" aria-label="upload picture" component="span">
+                                    <PhotoCamera />
+                                </IconButton>
+                            </label>
+                        </Box>
+                        </Stack>
                         
                     </Box>
                 </Grid>

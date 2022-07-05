@@ -56,7 +56,7 @@ export default function ReciepieManager() {
     setValue(newValue);
   };
 
-  if (JSON.parse(localStorage.getItem(user.email)) === null) {
+  if (!localStorage.getItem(user.email)) {
     localStorage.setItem(user.email, JSON.stringify([]))
 }
 

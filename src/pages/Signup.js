@@ -160,9 +160,10 @@ export default function SignUp() {
     const uploadImage = async (img) => {
         if (!img) return;
         
+        const url = urlWebServices.uploadUserImg;
 
         try {
-            let data = await fetch('http://localhost:3500/userImg',{
+            let data = await fetch(url,{
 				method: 'POST', 
 				mode: "cors",
 				headers:{

@@ -1,11 +1,10 @@
 import React from 'react';
 import NavbarWelcome from '../components/NavbarWelcome';
-import Slider from '../components/Slider/Slider';
+import Slider from '../components/Slider/SliderWelcome';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import recetas from '../recetas.js';
 import RecipeCard from '../components/RecipeCard'
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
 import HistoryIcon from '@mui/icons-material/History';
@@ -16,11 +15,42 @@ import { CardContent } from '@mui/material';
 import MicrowaveIcon from '@mui/icons-material/Microwave';
 import { StepLabel, Stepper, Step } from '@mui/material';
 import images from '../images'
+import { useRef } from 'react';
+import { useState } from 'react';
+import urlWebServices from '../controllers/webServices'
+import { useEffect } from 'react';
 
 
 
 
-export default function Welcome(){  
+export default function Welcome(){
+    
+    const effectRan = useRef(false);     
+    const [recetas, setRecetas] = useState([]);
+    const urlRecetas = urlWebServices.recetasGet;
+
+    useEffect(() => {
+        
+        if(effectRan.current === false){
+            const fetchRecetas = async () => {
+                const rta = await fetch(urlRecetas,{
+                    method: 'GET', 
+                    mode: "cors",
+                    headers:{
+                        'Accept':'application/json',
+                        'Authorization': 'Bearer ' + localStorage.getItem("x"),
+                        'Origin':'http://localhost:3000',
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.json())
+                setRecetas(rta)
+            }
+
+            fetchRecetas();
+        }
+
+        return () => effectRan.current = true;
+    }, [urlRecetas])
     
     const allImages = images    
     
@@ -32,13 +62,13 @@ export default function Welcome(){
       ];
     const recetasHistory = recetas.slice(0,3)
     const recetasNew= recetas.slice(3,6)
-    const recipeHistoryElements = recetasHistory.map(receta => {
-        return (<Grid item xs={3} sm={4} key={receta.id} >
+    const recipeHistoryElements = recetasHistory.map((receta) => {
+        return (<Grid item xs={3} sm={4} key={receta.recipes._id} >
                     <RecipeCard item={receta} height={130} state={'online'}  />            
                 </Grid>)
             }) 
     const recipeNewElements = recetasNew.map(receta => {
-        return (<Grid item xs={3} sm={4} key={receta.id} >
+        return (<Grid item xs={3} sm={4} key={receta.recipes._id} >
                     <RecipeCard item={receta} height={130} state={'online'}    />            
                 </Grid>)
             }) 
@@ -119,8 +149,8 @@ export default function Welcome(){
                                 </Typography>
                                 
                                 <Stepper sx={{mt:3}} alternativeLabel>
-                                        {steps.map((label) => (
-                                            <Step key={label}>
+                                        {steps.map((label,index) => (
+                                            <Step key={index}>
                                                 <StepLabel sx={{boxShadow:1, pt:1, borderRadius:2, bgcolor:'white'}}>{label}</StepLabel>
                                                 <Divider sx={{display:'block'}}></Divider>
                                             </Step>

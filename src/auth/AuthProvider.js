@@ -31,7 +31,7 @@ export default function AuthProvider({ children }) {
                 'Content-Type': 'application/x-www-form-urlencoded'},
             body: formData,
             
-        });
+        }); 
 
         let rdo = response.status;
         console.log("response",response);
