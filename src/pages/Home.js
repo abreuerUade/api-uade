@@ -13,7 +13,7 @@ import urlWebServices from '../controllers/webServices'
 export default function Home(){
     const effectRan = useRef(false);     
     const [recetas, setRecetas] = useState([]);
-    const urlRecetas = urlWebServices.recetas;
+    const urlRecetas = urlWebServices.recetasGet;
     
     const style = {
         marginBottom : 15,
@@ -38,7 +38,8 @@ export default function Home(){
                         'Content-Type': 'application/json'
                     }
                 }).then(res => res.json())
-                setRecetas(rta)
+                const shuffledArray = rta.sort((a, b) => 0.5 - Math.random());
+                setRecetas(shuffledArray)
             }
 
             fetchRecetas();
@@ -46,6 +47,7 @@ export default function Home(){
 
         return () => effectRan.current = true;
     }, [urlRecetas])
+
     
     const recipeElements = recetas.map(receta => {
         return (<Grid item xs={3} sm={4} key={receta.recipes._id} >

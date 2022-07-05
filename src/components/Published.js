@@ -1,18 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Grid, Container} from '@mui/material';
 import RecipeCard from './RecipeCard'
-import recetas from '../recetas.js';
 import useAuth from '../auth/useAuth';
-
+import urlWebServices from '../controllers/webServices'
 
 
 export default function Published(){
 
     const { user } = useAuth()
+
+    const effectRan = useRef(false);     
+    const [recetas, setRecetas] = useState([]);
+    const urlRecetas = urlWebServices.recetasGet;
+
+    useEffect(() => {
+        
+        if(effectRan.current === false){
+            const fetchRecetas = async () => {
+                const rta = await fetch(urlRecetas,{
+                    method: 'GET', 
+                    mode: "cors",
+                    headers:{
+                        'Accept':'application/json',
+                        'Authorization': 'Bearer ' + localStorage.getItem("x"),
+                        'Origin':'http://localhost:3000',
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.json())
+                const shuffledArray = rta.sort((a, b) => 0.5 - Math.random());
+                setRecetas(shuffledArray)
+            }
+
+            fetchRecetas();
+        }
+
+        return () => effectRan.current = true;
+    }, [urlRecetas])
     
 
     const recipeElements = recetas.map(receta => {
-        return (receta.creator.creatorId === user.id && <Grid item xs={3} sm={4} key={receta.id} >
+        return (receta.email === user.email && <Grid item xs={3} sm={4} key={receta.recipes._id} >
                     <RecipeCard item={receta} state={'myRecipes'}   />            
                 </Grid>)
             }) 

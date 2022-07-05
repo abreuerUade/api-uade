@@ -9,26 +9,20 @@ import Footer from '../components/Footer'
 import Slider from '../components/Slider/Slider';
 
 export default function FullRecipe(props){
-
-    const user = props.userName
-    const pic = props.pic
-    const receta = props.receta.item
-    
-    
+      
     const colorGrey = blueGrey[50]
     
-
-    const ingredientItems = receta.ingredients.map(item => {
-        return (<ListItem key={item.id}>
+    const ingredientItems = props.receta.ingredients.map((item, index) => {
+        return (<ListItem key={index}>
                 <DinnerDiningIcon color='white'/>&nbsp;&nbsp;&nbsp;
-                <Typography variant='subtitle1'>{`${item.type} - ${item.qty} `}</Typography>
+                <Typography variant='subtitle1'>{item}</Typography>
             </ListItem>
     )})
 
 
     return (
         <>
-        <Navbar text="Full Recipe" userName={user} pic={pic}/>
+        <Navbar />
 
         <Container sx={{marginTop: "50px"}}>
             <Grid container spacing={{ xs: 2, md: 2 }}>
@@ -42,7 +36,7 @@ export default function FullRecipe(props){
                         borderRadius: '16px'
                         }}>
                         <Typography variant='h4'>
-                            {receta.name.toUpperCase()}
+                            {props.receta.name.toUpperCase()}
                         </Typography>
                         
                         <Rating name="size-large" defaultValue={2} size="large" />
@@ -55,8 +49,8 @@ export default function FullRecipe(props){
                         backgroundColor: `${colorGrey}`,
                         borderRadius: '16px'
                         }}>
-                       <Box sx={{py:3}}>
-                        <Slider img={receta.images} />
+                       <Box sx={{py:3}}> 
+                        <Slider img={props.receta.images} />
                         </Box>
                         
                     </Box>
@@ -93,10 +87,10 @@ export default function FullRecipe(props){
                         }}>
                         <Typography variant='h5' >&emsp;Preparation: </Typography>
                         <Typography fontSize={18} mt={2} variant='h6' >
-                        &emsp; Difficulty: {receta.difficulty}
+                        &emsp; Difficulty: {props.receta.difficulty}
                         </Typography>
                         <Typography mt={2} variant='subtitle1' >
-                        &emsp; {receta.preparation}
+                        &emsp; {props.receta.description}
                         </Typography>
                     </Box>
                 </Grid>
