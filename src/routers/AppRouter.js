@@ -9,6 +9,7 @@ import MyAccount from '../pages/MyAccount';
 import RecipieManager from '../pages/RecipieManager';
 import ForgotPassword from '../pages/ForgotPassword';
 import ForgotPasswordSuccess from '../pages/ForgotPasswordSuccess';
+import NewPassword from '../pages/NewPassword'
 import PrivateRoute from './PrivateRoute';
 
 function AppRouter() {
@@ -25,6 +26,7 @@ function AppRouter() {
         <Route path='/signup' element={<Signup/>} />
         <Route path='/forgotpassword' element={<ForgotPassword />} />
         <Route path='/forgotpasswordsuccess' element={<ForgotPasswordSuccess />} />
+        <Route path='/newPassword' element={<NewPassword />} />
         <Route path='/fullrecipeId:recipieId' element={<FullRecipe receta={data}  />} />
         <Route element={<PrivateRoute />}>
           <Route path='/Account' element={<MyAccount settingsOption='ProfileInformation'  />} /> 

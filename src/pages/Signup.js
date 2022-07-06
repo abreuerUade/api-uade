@@ -143,7 +143,6 @@ export default function SignUp() {
 				mode: "cors",
 				headers:{
 					'Accept':'application/x-www-form-urlencoded',
-				   // 'x-access-token': WebToken.webToken,
 					'Origin':'http://localhost:3000',
 					'Content-Type': 'application/x-www-form-urlencoded'},
 				body: formData,

@@ -8,6 +8,7 @@ const urlWebServices = {
     register: urlApi + "register",
     uploadUserImg: urlApi + "userImg",
     uploadFileImg: urlApi + "recetaImg",
+    resetPwd: urlApi + "resetPassword",
 }
 
 export default urlWebServices;
