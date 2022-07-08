@@ -23,7 +23,7 @@ const SnackbarAlert = forwardRef(
   return (
     <ThemeProvider theme={theme}>
         <NavbarWelcome />
-        <Container style={{width:'50%'}}>
+        <Container style={{width:'50%', mt: '20px'}}>
             <Snackbar open="true" autoHideDuration={4000} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
               <SnackbarAlert severity="success">
                 Email sent successfully
@@ -54,7 +54,7 @@ const SnackbarAlert = forwardRef(
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              href= "/welcome"
+              href= "/"
             >
               Return to welcome page
             </Button>

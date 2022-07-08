@@ -11,7 +11,11 @@ import { styled } from '@mui/material/styles';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Slider from '../components/Slider/Slider.js';
 
-export default function EditRecipie(){
+export default function EditRecipie(props){
+
+    if (props.edit) {
+        console.log(props);
+    }
     
     const { user } = useAuth()
 

@@ -85,7 +85,7 @@ export default function LogIn() {
       //There are no errors  
       
       // 
-      login(document.getElementById('username').value,document.getElementById('password').value);
+      const rta = login(document.getElementById('username').value,document.getElementById('password').value);
       
       //window.location.href="/home";
       //Goes to welcome

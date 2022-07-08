@@ -35,8 +35,7 @@ function AppRouter() {
           <Route path='/security' element={<MyAccount  settingsOption='Security'/>} />
           <Route path='/help' element={<MyAccount  settingsOption='Help'/>} />
           <Route path='/about' element={<MyAccount  settingsOption='About'/>} />
-          
-          <Route path='/recipeManager' element={<RecipieManager />} />
+          <Route path='/recipeManager' element={<RecipieManager receta={data} />} />
           
         </Route>
       

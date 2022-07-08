@@ -173,6 +173,8 @@ export default function SignUp() {
 				body: JSON.stringify({data: img}),
 				
 			}).then(res => res.json())
+
+      
             
 			console.log(data);
 			return data;

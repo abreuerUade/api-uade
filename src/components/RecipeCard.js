@@ -146,7 +146,10 @@ export default function RecipeReviewCard(prop) {
   }
 
   function handleEdit() {
-
+    let recetasUsuario = JSON.parse(localStorage.getItem(user.email))
+    let receta = recetasUsuario.filter(item => item !== prop.item.recipes._id)
+    
+    
   }
 
   function handleShare() {

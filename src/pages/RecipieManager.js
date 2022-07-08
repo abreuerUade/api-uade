@@ -47,7 +47,7 @@ function a11yProps(index) {
   };
 }
 
-export default function ReciepieManager() {
+export default function ReciepieManager(props) {
 
   const { user } = useAuth();
   const [value, setValue] = React.useState(0);
@@ -80,7 +80,7 @@ export default function ReciepieManager() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <EditRecipie />
+        <EditRecipie edit={JSON.stringify(props) === '{}' ? null : props.receta} />
       </TabPanel>
       <TabPanel value={value} index={1}>
           

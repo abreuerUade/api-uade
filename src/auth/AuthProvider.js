@@ -69,7 +69,7 @@ export default function AuthProvider({ children }) {
     }
     catch(error)
     {
-        console.log("error",error);
+        console.log("error",error);   
     };
 
     console.log(user)

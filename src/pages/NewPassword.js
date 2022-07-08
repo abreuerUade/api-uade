@@ -43,11 +43,13 @@ export default function NewPassword () {
 
         }).then(res => res.json())
         
+        navigate('/login')
     }
     
 
     return (
         <>
+
         </>
     )
 }
