@@ -73,9 +73,8 @@ function handleLogout () {
           <Box sx={{display:'flex', alignContent:'center' }}>
             {isLogged() ? <Typography marginTop={2} marginRight={2}>{`${user.firstName} ${user.lastName}`}</Typography>
             : 
-            <Link style={{textDecoration: "none", color:"black" }} 
-                          to={'/Account'}>
-            <Button sx={{color: 'white'}} variant="text">LOGIN</Button></Link> }
+            <Link style={{textDecoration: "none", color:"black" }} to={'/Account'}>
+            <Button sx={{color: 'white', alignContent:'center', lineHeight:'60px' }}  variant="text">LOGIN</Button></Link> }
 
            <Tooltip title="Login">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
