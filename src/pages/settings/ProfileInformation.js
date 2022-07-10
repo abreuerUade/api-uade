@@ -77,7 +77,7 @@ export default function ProfileInformation(props) {
   const newF = () => {
     var listOfErrors= validateFields();
     var numberOfErrors = listOfErrors.length === 0
-    debugger      
+         
     if (numberOfErrors){
       //There are no errors    
       setOpen(true)

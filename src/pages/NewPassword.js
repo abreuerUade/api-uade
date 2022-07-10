@@ -29,21 +29,21 @@ export default function NewPassword () {
         
         let url = urlWebServices.resetPwd;
 
-        const formData = new URLSearchParams()
-        formData.append('email', userForm.email)
-        formData.append('pwd', userForm.pass)
+        // const formData = new URLSearchParams()
+        // formData.append('email', userForm.email)
+        // formData.append('pwd', userForm.pass)
 
 
         let rta = await fetch(url, {
             method: 'POST',
             mode: 'cors',
             headers:{
-                'Accept':'application/x-www-form-urlencoded',
+                'Accept':'application/json',
                 'Origin':'http://localhost:3000',
-                'Content-Type': 'application/x-www-form-urlencoded'},
-            body: formData,
+                'Content-Type': 'application/json'},
+            body: JSON.stringify(userForm),
 
-        }).then(res => res.json())
+        }).then(res => res.json()).then(data => console.log(data))
         
         navigate('/login')
     }
@@ -85,7 +85,7 @@ export default function NewPassword () {
 		     
 		if (numberOfErrors){
 		//There are no errors
-		debugger
+		
 		await resetPwd(userForm);
 		navigate('/login');
 		//Goes to welcome

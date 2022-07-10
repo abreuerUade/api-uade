@@ -88,7 +88,7 @@ export default function LogIn() {
       //TODO: rta actualmente devuelve una promise. Tengo que buscar la forma de que devuelva el status y obtener el 401
       // const rta2 = 401
       const rta2 = 400
-      debugger
+      
       if (rta2 ==401){
         setOpenError(true);
         setErrors(["Please, enter a valid username"])
