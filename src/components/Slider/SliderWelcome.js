@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './SliderWelcome.css'
 import BtnSlider from './BtnSlider'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function Slider(props) {
@@ -8,6 +9,7 @@ export default function Slider(props) {
     const dataSlider = props.img
     
     const [slideIndex, setSlideIndex] = useState(1)
+    let navigate = useNavigate(); 
 
     const nextSlide = () => {
         if(slideIndex !== dataSlider.length){
@@ -18,6 +20,24 @@ export default function Slider(props) {
         }
     }
 
+    //TODO: se vuelve loco si pongo los dos, porque el interval se queda con un estado viejo del use state y el next toma otro. Se vuelve loco cuando pasas manualmente
+    // useEffect ( function(){
+    //     setSlideIndex(slideIndex)
+    // }, [slideIndex])
+
+    // setInterval(() =>  {
+    //     if (slideIndex === dataSlider.length){
+    //         setSlideIndex(1)
+    //     }else{
+    //         setSlideIndex(slideIndex + 1)
+    //     }
+
+    //   }, 3000);
+    
+    function stopPropagation(e) {
+        e.stopPropagation();
+     }
+     
     const prevSlide = () => {
         if(slideIndex !== 1){
             setSlideIndex(slideIndex - 1)
@@ -30,9 +50,14 @@ export default function Slider(props) {
     const moveDot = index => {
         setSlideIndex(index)
     }
+    const routeChange = () =>{ 
+        let path = `/home`; 
+        navigate(path);
+      }
 
     return (
-        <div className="container-slider2">
+        <div>
+        <div className="container-slider2" onClick={routeChange} >
             {dataSlider.map((obj, index) => {
                 return (
                     <div
@@ -47,10 +72,13 @@ export default function Slider(props) {
                     </div>
                 )
             })}
-            <BtnSlider moveSlide={nextSlide} direction={"next"} />
-            <BtnSlider moveSlide={prevSlide} direction={"prev"}/>
+            <div onClick={stopPropagation}>
+                <BtnSlider moveSlide={nextSlide} direction={"next"} />
+                <BtnSlider moveSlide={prevSlide} direction={"prev"}/>
+            </div>
+       
 
-            <div className="container-dots">
+            <div className="container-dots" >
                 {Array.from({length: dataSlider.length}).map((item, index) => (
                     <div
                     key={index} 
@@ -60,5 +88,8 @@ export default function Slider(props) {
                 ))}
             </div>
         </div>
+  
+        </div>
+        
     )
 }
