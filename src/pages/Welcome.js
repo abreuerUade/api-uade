@@ -19,6 +19,7 @@ import { useRef } from 'react';
 import { useState } from 'react';
 import urlWebServices from '../controllers/webServices'
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -28,6 +29,7 @@ export default function Welcome(){
     const effectRan = useRef(false);     
     const [recetas, setRecetas] = useState([]);
     const urlRecetas = urlWebServices.recetasGet;
+    let navigate = useNavigate(); 
 
     useEffect(() => {
         
@@ -77,6 +79,10 @@ export default function Welcome(){
         e.target.style.changebackground = 'red';
     }
     
+    const routeChange = () =>{ 
+        let path = `/login`; 
+        navigate(path);
+      }
    
 
     return (
@@ -135,7 +141,7 @@ export default function Welcome(){
                         </Box>
                     </Paper>
                     <br></br>
-                    <Card sx={{p:2, display:'flex', flexDirection:'column', maxWidth:"800", boxShadow:5, borderRadius:2}} onMouseUp={changebackground} >
+                    <Card sx={{p:2, display:'flex', flexDirection:'column', maxWidth:"800", boxShadow:5, borderRadius:2}} onMouseUp={changebackground} onClick={routeChange} >
                            <Card sx={{display: 'flex', bgcolor:'#6AB9D9', borderRadius:2, boxShadow:5}}>
                               <CardContent>
                                 <Typography gutterBottom variant="h2" component="div" sx={{color:'white', display:'inline', fontWeight:'normal'}}>
