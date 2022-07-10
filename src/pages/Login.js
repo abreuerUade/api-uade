@@ -86,7 +86,7 @@ export default function LogIn() {
       
       // 
       const rta = login(document.getElementById('username').value,document.getElementById('password').value);
-      
+      console.log(rta)
       //window.location.href="/home";
       //Goes to welcome
     }
