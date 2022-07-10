@@ -27,21 +27,50 @@ export default function RecipeReviewCard(prop) {
   const { user } = useAuth()
   let navigate = useNavigate();
   const [isFav, setIsFav] = useState(false)
+  
 
   let isHeart = isFav ? "red" : "grey"
-  //const cardHeight= !!prop.height ? prop.height : 200 
+
 
   function toggleHeart() {
     setIsFav(prevHeart => !prevHeart)
   }
 
-  function handleDelete(){
-    const recetasBorrador = JSON.parse(localStorage.getItem(user.email))
-    const recetasDelete = recetasBorrador.filter(item => item.recipes._id !== prop.item.recipes._id)
-    localStorage.removeItem(user.email)
-    localStorage.setItem(user.email,recetasDelete)
-    console.log(recetasBorrador);
-    navigate('/recipeManager');
+  async function handleDelete(){
+
+    if (prop.state === 'myRecipes'){
+      const url = urlWebServices.recetas
+
+      try {
+        
+        await fetch(url, {
+          method: 'DELETE',
+          mode: "cors",
+          headers:{
+            'Accept':'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem("x"),
+            'Origin':'http://localhost:3000',
+            'Content-Type': 'application/json'},
+          body: JSON.stringify({_id: prop.item.recipes._id}),
+        })
+        .then(res => console.log(res))
+        .then(document.location.reload(true))
+        
+
+      } catch (error) {
+        console.error(error)
+      }
+
+    }else {
+
+      const recetasBorrador = JSON.parse(localStorage.getItem(user.email))
+      const recetasDelete = recetasBorrador.filter(item => item.recipes._id !== prop.item.recipes._id)
+      localStorage.removeItem(user.email)
+      localStorage.setItem(user.email,recetasDelete)
+      console.log(recetasBorrador);
+      navigate('/recipeManager');
+    }
+    
   }
 
   // function uploadLocalImages(){
@@ -115,16 +144,13 @@ export default function RecipeReviewCard(prop) {
     const url = urlWebServices.recetas
     // uploadLocalImages()
     let uris = await uploadLocalImages2(prop.item.recipes.images)
-    // prop.item.recipes.images = uris
-    console.log('length', uris.length)
     for (let x = 0; x < uris.length; x++) {
       console.log('??', uris[x])
     }
     prop.item.recipes.images = uris
-    // console.log(JSON.stringify({images: prop.item.recipes.images}))
     try {
-      console.log("3d");
-      let data = await fetch(url,{
+      
+      await fetch(url,{
         method: 'POST', 
         mode: "cors",
         headers:{
@@ -135,8 +161,7 @@ export default function RecipeReviewCard(prop) {
           body: JSON.stringify(prop.item.recipes)
           
         })
-        console.log("4"); 
-        console.log(data);
+ 
       } catch (error) {
         console.error(error);
       }
@@ -148,7 +173,7 @@ export default function RecipeReviewCard(prop) {
   function handleEdit() {
     let recetasUsuario = JSON.parse(localStorage.getItem(user.email))
     let receta = recetasUsuario.filter(item => item !== prop.item.recipes._id)
-    
+    navigate('/recipeManager', {state: receta})
     
   }
 
@@ -177,7 +202,7 @@ export default function RecipeReviewCard(prop) {
         title={`${prop.item.recipes.name}`}
         subheader={fecha}
       />
-      <Link to={`/fullrecipeId=${prop.item._id}`} state={prop.item.recipes}>
+      <Link to={`/fullrecipeId=${prop.item.recipes._id}`} state={prop.item.recipes}>
       <CardMedia 
         component="img"
         height="194"

@@ -14,7 +14,8 @@ import Slider from '../components/Slider/Slider.js';
 export default function EditRecipie(props){
 
     if (props.edit) {
-        console.log(props);
+        console.log(props)
+        
     }
     
     const { user } = useAuth()

@@ -27,7 +27,7 @@ function AppRouter() {
         <Route path='/forgotpassword' element={<ForgotPassword />} />
         <Route path='/forgotpasswordsuccess' element={<ForgotPasswordSuccess />} />
         <Route path='/newPassword' element={<NewPassword />} />
-        <Route path='/fullrecipeId:recipieId' element={<FullRecipe receta={data}  />} />
+        <Route path='/fullrecipeId:recipieId' element={<FullRecipe />} />
         <Route element={<PrivateRoute />}>
           <Route path='/Account' element={<MyAccount settingsOption='ProfileInformation'  />} /> 
           <Route path='/profileinfo' element={<MyAccount  settingsOption='ProfileInformation'/>} />

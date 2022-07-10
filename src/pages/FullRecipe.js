@@ -7,17 +7,60 @@ import {  blueGrey } from '@mui/material/colors';
 import { Rating } from '@mui/material';
 import Footer from '../components/Footer'
 import Slider from '../components/Slider/Slider';
+import urlWebServices from '../controllers/webServices';
+import { useState, useEffect } from 'react';
 
-export default function FullRecipe(props){
-      
+export default function FullRecipe(){
+
+    const [props, setProps] = useState(
+        {
+            profilePic: "",  
+            recipes: {
+                name: "", 
+                category: "", 
+                ingredients: [],
+                difficulty: "",
+                description: "",
+                images: [],
+            }
+        }
+    )
+
+useEffect(() => {
+        console.log("first")
+        
+        const fetchReceta = async () => {
+            try {
+                
+                    const param = window.location.href.split('=')[1]
+                    const url = urlWebServices.recetasGet + '/' + param
+                    console.log(url)
+                    const rta = await fetch(url)
+                    const data = await rta.json()
+                    console.log(data)
+                    setProps(data[0])
+            }
+
+            catch (error) {
+                console.log(error)
+            }
+        }
+
+        fetchReceta()
+        return () => {
+            console.log("Algo")
+          }
+    },[])
+
+                
     const colorGrey = blueGrey[50]
-    
-    const ingredientItems = props.receta.ingredients.map((item, index) => {
-        return (<ListItem key={index}>
-                <DinnerDiningIcon color='white'/>&nbsp;&nbsp;&nbsp;
-                <Typography variant='subtitle1'>{item}</Typography>
-            </ListItem>
-    )})
+
+        const ingredientItems = props.recipes.ingredients.map((item, index) => {
+            return (<ListItem key={index}>
+                    <DinnerDiningIcon color='white'/>&nbsp;&nbsp;&nbsp;
+                    <Typography variant='subtitle1'>{item}</Typography>
+                </ListItem>
+        )})
 
 
     return (
@@ -36,7 +79,7 @@ export default function FullRecipe(props){
                         borderRadius: '16px'
                         }}>
                         <Typography variant='h4'>
-                            {props.receta.name.toUpperCase()}
+                            {props.recipes.name.toUpperCase()}
                         </Typography>
                         
                         <Rating name="size-large" defaultValue={2} size="large" />
@@ -50,7 +93,7 @@ export default function FullRecipe(props){
                         borderRadius: '16px'
                         }}>
                        <Box sx={{py:3}}> 
-                        <Slider img={props.receta.images} />
+                        <Slider img={props.recipes.images} />
                         </Box>
                         
                     </Box>
@@ -87,10 +130,10 @@ export default function FullRecipe(props){
                         }}>
                         <Typography variant='h5' >&emsp;Preparation: </Typography>
                         <Typography fontSize={18} mt={2} variant='h6' >
-                        &emsp; Difficulty: {props.receta.difficulty}
+                        &emsp; Difficulty: {props.recipes.difficulty}
                         </Typography>
                         <Typography mt={2} variant='subtitle1' >
-                        &emsp; {props.receta.description}
+                        &emsp; {props.recipes.description}
                         </Typography>
                     </Box>
                 </Grid>
