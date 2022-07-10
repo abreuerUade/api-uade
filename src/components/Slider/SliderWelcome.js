@@ -19,20 +19,6 @@ export default function Slider(props) {
             setSlideIndex(1)
         }
     }
-
-    //TODO: se vuelve loco si pongo los dos, porque el interval se queda con un estado viejo del use state y el next toma otro. Se vuelve loco cuando pasas manualmente
-    // useEffect ( function(){
-    //     setSlideIndex(slideIndex)
-    // }, [slideIndex])
-
-    // setInterval(() =>  {
-    //     if (slideIndex === dataSlider.length){
-    //         setSlideIndex(1)
-    //     }else{
-    //         setSlideIndex(slideIndex + 1)
-    //     }
-
-    //   }, 3000);
     
     function stopPropagation(e) {
         e.stopPropagation();
