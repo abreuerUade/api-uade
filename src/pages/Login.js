@@ -84,9 +84,16 @@ export default function LogIn() {
     if (numberOfErrors){
       //There are no errors  
       
-      // 
       const rta = login(document.getElementById('username').value,document.getElementById('password').value);
-      console.log(rta)
+      //TODO: rta actualmente devuelve una promise. Tengo que buscar la forma de que devuelva el status y obtener el 401
+      // const rta2 = 401
+      const rta2 = 400
+      debugger
+      if (rta2 ==401){
+        setOpenError(true);
+        setErrors(["Please, enter a valid username"])
+
+      }
       //window.location.href="/home";
       //Goes to welcome
     }
@@ -102,14 +109,10 @@ export default function LogIn() {
     if (reason === 'clickaway'){
     return
   }
-  setOpenError(false)
+  setOpenError(false);
   }
 
-
-
-
-  return (
-    
+  return (    
       <ThemeProvider theme={theme}>
       <Container sx={{backgroundColor:'white',
                       borderRadius:'15px'

@@ -32,11 +32,18 @@ export default function AuthProvider({ children }) {
             body: formData,
             
         }); 
-
+        debugger
         let rdo = response.status;
         console.log("response",response);
+        if (rdo==401){
+            //error password
+            debugger
+            return rdo;
+        }
+
         let data = await response.json();
         console.log("jsonresponse",data);
+        debugger
             switch(rdo)
             {
                 case 200:

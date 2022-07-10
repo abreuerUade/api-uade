@@ -78,8 +78,6 @@ export default function SignUp() {
 	var confirmPassword = document.getElementById('confirmPassword');
 	var phone = document.getElementById('phone');
 
-
-
 		//Validating that required fields are not null or empty
 	if (firstName.value === null || firstName.value === ''){
 		mensajesError.push("Error. First name cannot be empty");
@@ -221,153 +219,153 @@ export default function SignUp() {
             </Snackbar>
           </Container>
         <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 2,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
-          </Typography>
-          <Box component="form" noValidate sx={{ mt: 3 }}>
-            <Grid container spacing={2} >
-            <Grid item xs={12} sm={6} sx={{
-            marginTop: 2,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-                
-                <label htmlFor="contained-button-file">
-                    <Input sx={{display:'none'}} accept="image/*" id="contained-button-file" multiple type="file" onChange={handleFileInput} />
-                    <Button  variant="contained" component="span">
-                    Profile Pic
-                    </Button>
-                </label>
-                
-                
-              </Grid>
-              <Grid item xs={12} sm={6} sx={{
-                    marginTop: 2,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}>
-                <Avatar alt="Profile Picture" 
-                       src={previewSource} 
-                        sx={{ width: 80, height: 80 }} 
-                />
-                </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                    autoComplete="given-name"
-                    name="firstName"
-                    required
-                    fullWidth
-                    id="firstName"
-                    label="First Name"
-                    autoFocus
-					          onChange={handleForm}
-                  />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-				  onChange={handleForm}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-				  onChange={handleForm}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="pwd"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-				  onChange={handleForm}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="confirmPassword"
-                  label="Confirm password"
-                  name="confirmPassword"
-                  type="password"
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 2,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Sign up
+            </Typography>
+            <Box component="form" noValidate sx={{ mt: 3 }}>
+              <Grid container spacing={2} >
+                  <Grid item xs={12} sm={6} sx={{
+                  marginTop: 2,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  }}>
                   
-                />
+                    <label htmlFor="contained-button-file">
+                        <Input sx={{display:'none'}} accept="image/*" id="contained-button-file" multiple type="file" onChange={handleFileInput} />
+                        <Button  variant="contained" component="span">
+                        Profile Pic
+                        </Button>
+                    </label>
+                  
+                  
+                  </Grid>
+                  <Grid item xs={12} sm={6} sx={{
+                        marginTop: 2,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}>
+                    <Avatar alt="Profile Picture" 
+                          src={previewSource} 
+                            sx={{ width: 80, height: 80 }} 
+                    />
+                    </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                        autoComplete="given-name"
+                        name="firstName"
+                        required
+                        fullWidth
+                        id="firstName"
+                        label="First Name"
+                        autoFocus
+                        onChange={handleForm}
+                      />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      required
+                      fullWidth
+                      id="lastName"
+                      label="Last Name"
+                      name="lastName"
+                      autoComplete="family-name"
+                      onChange={handleForm}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      required
+                      fullWidth
+                      id="email"
+                      label="Email Address"
+                      name="email"
+                      autoComplete="email"
+                      onChange={handleForm}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      required
+                      fullWidth
+                      name="pwd"
+                      label="Password"
+                      type="password"
+                      id="password"
+                      autoComplete="new-password"
+                      onChange={handleForm}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      required
+                      fullWidth
+                      id="confirmPassword"
+                      label="Confirm password"
+                      name="confirmPassword"
+                      type="password"
+                      
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      name="phone"
+                      label="Phone Number"
+                      id="phone"
+                      autoComplete="new-phone"
+                      onChange={handleForm}
+                    />
+                  </Grid>
+                  {/* <Grid item xs={12} sm={6}>
+                    <TextField
+                      name="country"
+                      fullWidth
+                      id="country"
+                      label="Country"
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      fullWidth
+                      id="city"
+                      label="City"
+                      name="city"
+                    />
+                  </Grid> */}
+                  
               </Grid>
-              <Grid item xs={12}>
-                <TextField
+                <Button
+                  //type="submit"
                   fullWidth
-                  name="phone"
-                  label="Phone Number"
-                  id="phone"
-                  autoComplete="new-phone"
-				  onChange={handleForm}
-                />
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  onClick={validateFunction}
+                >
+                  Sign Up
+                </Button>
+                <Grid container justifyContent="flex-end">
+                  <Grid item>
+                    <Link href="/login" variant="body2">
+                      Already have an account? Sign in
+                    </Link>
+                  </Grid>
               </Grid>
-              {/* <Grid item xs={12} sm={6}>
-                <TextField
-                  name="country"
-                  fullWidth
-                  id="country"
-                  label="Country"
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  fullWidth
-                  id="city"
-                  label="City"
-                  name="city"
-                />
-              </Grid> */}
-              
-            </Grid>
-            <Button
-              //type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={validateFunction}
-            >
-              Sign Up
-            </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="/login" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
-            </Grid>
+            </Box>
           </Box>
-        </Box>
       </Container>
       <Box sx={{
             marginTop: 2,
