@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import {Snackbar, Alert, Input} from '@mui/material'
+import {Snackbar, Alert} from '@mui/material'
 
 const theme = createTheme();
 
@@ -34,7 +34,7 @@ export default function NewPassword () {
         // formData.append('pwd', userForm.pass)
 
 
-        let rta = await fetch(url, {
+        await fetch(url, {
             method: 'POST',
             mode: 'cors',
             headers:{

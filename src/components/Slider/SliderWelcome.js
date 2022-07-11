@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import './SliderWelcome.css'
 import BtnSlider from './BtnSlider'
 import { useNavigate } from 'react-router-dom'

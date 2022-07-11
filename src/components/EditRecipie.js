@@ -128,7 +128,9 @@ export default function EditRecipie(props){
         const ingStringArray = ingArray.map(item =>`${item.type} - ${item.qty}`)
         
         let newRecipe =  {
-
+            
+            firstName: user.firstName,
+            lastName: user.lastName,
             profilePic: user.profilePic,  
             recipes: {
                 _id: newRecipeArray.length,

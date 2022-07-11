@@ -89,7 +89,7 @@ export default function LogIn() {
       // const rta2 = 401
       const rta2 = 400
       
-      if (rta2 ==401){
+      if (rta2 === 401){
         setOpenError(true);
         setErrors(["Please, enter a valid username"])
 

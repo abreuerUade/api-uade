@@ -35,7 +35,7 @@ export default function AuthProvider({ children }) {
         
         let rdo = response.status;
         console.log("response",response);
-        if (rdo==401){
+        if (rdo === 401){
             //error password
             
             return rdo;
