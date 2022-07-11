@@ -1,21 +1,19 @@
 import * as React from 'react';
 import { Box } from '@mui/material';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import { FormControl } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import FilterListIcon from '@mui/icons-material/FilterList';
+import { useState } from 'react';
 
 
-const ResponsiveFilterBar = () => {
+const ResponsiveFilterBar = ({onCategoryFilter}) => {
 
-    const [order, setOrder] = React.useState('');
+  const [category, setCategory] = useState("");
 
-    const handleChange = (event) => {
-      setOrder(event.target.value);
-    };
- 
+  const handleCategoryChange = (event) => {
+    const{value} = event.target;
+    setCategory(value);
+    onCategoryFilter(value);
+  }
 
   return (
     
@@ -25,23 +23,9 @@ const ResponsiveFilterBar = () => {
         
         <TextField margin='dense' size='small' id="ingredientes" label="Ingredients" variant="outlined" />
         
-        <TextField margin='dense' size='small' id="categoria" label="Category" variant="outlined" />
+        <TextField margin='dense' size='small' id="categoria" label="Category" variant="outlined" onChange={handleCategoryChange}/>
         
-        <FormControl size='small' sx={{ m: 1, minWidth: 100 }}>
-                <InputLabel id="demo-simple-select-label">Order By</InputLabel>
-                <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={order}
-                label="Order By"
-                autoWidth
-                onChange={handleChange}
-                >
-                <MenuItem value={"Difficulty"}>Difficulty</MenuItem>
-                <MenuItem value={"Rating"}>Rating</MenuItem>
-                </Select>
-        </FormControl>
-        
+        <TextField margin='dense' size='small' id="categoria" label="User" variant="outlined" />
        
     </Box>
   );

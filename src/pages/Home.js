@@ -9,11 +9,10 @@ import AddIcon from '@mui/icons-material/Add';
 import { Link } from 'react-router-dom';
 import urlWebServices from '../controllers/webServices'
 
-
 export default function Home(){
     const effectRan = useRef(false);     
     const [recetas, setRecetas] = useState([]);
-    const urlRecetas = urlWebServices.recetasGet;
+    const urlRecetas = urlWebServices.recetasGet; 
     
     const style = {
         marginBottom : 15,
@@ -43,24 +42,35 @@ export default function Home(){
             }
 
             fetchRecetas();
+            
         }
 
         return () => effectRan.current = true;
     }, [urlRecetas])
+    console.log(recetas)
 
-    
+    const handleFilterCategory = (category) => {
+        const filteredData = recetas.filter((receta) =>{
+            const catReceta = '{receta.recipes.category}';
+            if(category.toLowerCase() !== '' && catReceta.toLowerCase().includes(category.toLowerCase())){
+                return receta;
+            }
+        });
+        setRecetas(filteredData);
+    } //TODO: 
+
     const recipeElements = recetas.map(receta => {
         return (<Grid item xs={3} sm={4} key={receta.recipes._id} >
                     <RecipeCard item={receta} state={'online'}  />            
                 </Grid>)
-            }) 
-    
+            })
+            
     return (   
         <>
         <Navbar />
         
         <Container sx={{ width: '100%', marginTop: "15px" }}>
-            <Filterbar />
+            <Filterbar onCategoryFilter={handleFilterCategory}/>
             <Grid container sx={{display: 'flex',justifyContent:"center",alignItems:"center"}} 
                    
                   spacing={{ xs: 2, md: 4}} 
@@ -74,7 +84,7 @@ export default function Home(){
         <Link to='/recipeManager'>
             <Fab sx={style} color="primary" aria-label="add">
                 <AddIcon />
-            </Fab>
+            </Fab> 
         </Link>
         <Footer />
         </>
