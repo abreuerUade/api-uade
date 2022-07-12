@@ -54,33 +54,20 @@ npm start
 
 | Requerimiento | Descripcion |
 | ------------- | ----------- |
+| **SITIO INSTITUCIONAL** | *La aplicación debe incluir un sitio institucional en donde los usuarios pueden consultar y buscar distintas recetas*|
+| **REGISTRO NUEVOS USUARIOS**| *Los usuarios podrán registrarse para utilizar la aplicación, para ello deberán completar un formulario con la siguiente información: **nombre y apellido, mail, número de teléfono**. No se permitirá registrar usuarios con el mismo mail.*|
 | **INGRESO USUARIOS** | *Los usuarios podrán ingresar a la aplicación con su mail y contraseña. Tendrán la posibilidad de solicitar una nueva en caso de olvidarla mediante la opción **OLVIDE CONTRASEÑA**. Se recomienda utilizar algún criterio de validación para el reseteo de la misma.* |
 | **PERFIL USUARIOS REGISTRADOS**| *Los usuarios registrados podrán gestionar su nombre y cambiar contraseña.*|
 | **REGISTRO DE RECETAS** | Los usuarios podrán registrar nuevas recetas en el sitio. Cada receta debe contar con: **nombre**, **categoria**, **ingredientes**, **procedimiento**, **dificultad (calificada de 1 a 5)** e **imagenes**. Las recetas creadas quedaran registradas en el sistema en estado borrador hasta que el usuario decida publicarlas.
 | **MODIFICACION DE RECETAS** |  Los usuarios podrán modificar el contenido de sus recetas, quitarlas de publicación o publicarlas nuevamente.|
-|**ELIMINACION DE RECETAS**| Los usuarios podrán eliminar sus recetas del sitio.|
-|**CALIFICAR RECETAS**| Los usuarios registrados podrán calificar las recetas publicadas. Esta calificación debe poder visualizarse en el sitio principal para que los usuarios puedan filtrar recetas.|
+| **ELIMINACION DE RECETAS** | Los usuarios podrán eliminar sus recetas del sitio.|
+| **CALIFICAR RECETAS** | Los usuarios registrados podrán calificar las recetas publicadas. Esta calificación debe poder visualizarse en el sitio principal para que los usuarios puedan filtrar recetas.|
+
 
 #### *Diagrama de clases*
+--
 
-```mermaid
-classDiagram
-Class01 <| — AveryLongClass : Cool
-Class03 * — Class04
-Class05 o — Class06
-Class07 .. Class08
-Class09 → C2 : Where am i?
-Class09 — * C3
-Class09 — |> Class07
-Class07 : equals()
-Class07 : Object[] elementData
-Class01 : size()
-Class01 : int chimp
-Class01 : int gorilla
-Class08 ←> C2: Cool label
-```
- 
-
+#### *Diagrama no relacional
  
 ## Equipo de Trabajo
 - Andres Breuer
