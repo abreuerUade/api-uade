@@ -1,9 +1,12 @@
 # Tabla de Contenidos
-1. [Introducción](#introduction)
-2. [Requisitos](#requirements)
+1. [Introducción](#Introduccion)
+2. [Requisitos](#Requisitos)
 3. [Instalación](#Instalación)
 4. [Test](#Test)
-4. [Documentación](#doc)
+5. [Documentación](#Documentacion)
+    1.[Requerimientos](#Requerimientos)
+    2.[Diagrama de clases conceptuales](#Diagrama_de_clases_conceptuales)
+6. [Equipo de trabajo](#Equipo_de_trabajo)
 
 
 ## Introducción
@@ -68,8 +71,7 @@ npm start
 
 ![diagrama de clases conceptuales](https://i.imgur.com/9PqEuVV.png)
  
-## Equipo de Trabajo
+## Equipo de trabajo
 - Andres Breuer
 - Gianfranco Caneva
 - Timoteo Güerini
-
