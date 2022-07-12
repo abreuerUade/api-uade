@@ -69,6 +69,10 @@ npm start
 #### *Diagrama de clases conceptuales*
 
 ![diagrama de clases conceptuales](https://i.imgur.com/9PqEuVV.png)
+
+#### *Diagrama **mongodb** *
+
+![diagrama mongo](https://i.imgur.com/0JeVxtI.png)
  
 ## Equipo de trabajo
 - Andres Breuer
