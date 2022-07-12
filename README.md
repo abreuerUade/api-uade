@@ -80,6 +80,8 @@ Class01 : int gorilla
 Class08 ←> C2: Cool label
 ```
  
+ ![stack Overflow](http://lmsotfy.com/so.png)
+ 
 ## Equipo de Trabajo
 - Andres Breuer
 - Gianfranco Caneva
