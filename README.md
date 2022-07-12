@@ -3,9 +3,8 @@
 2. [Requisitos](#Requisitos)
 3. [Instalación](#Instalación)
 4. [Test](#Test)
-5. [Documentación](#Documentacion)
-    1.[Requerimientos](#Requerimientos)
-    2.[Diagrama de clases conceptuales](#Diagrama_de_clases_conceptuales)
+5. [Documentación](#Documentación)
+
 6. [Equipo de trabajo](#Equipo_de_trabajo)
 
 
