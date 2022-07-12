@@ -33,7 +33,7 @@ Es necesario tener descargados back-end y front-end, los cuales pueden ser encon
 2. Abrir alguno de los dos proyectos  
 3. Abrir una nueva terminal y el siguientes comando para instalar las dependencias 
     - ```sh
-        npm install        
+        npm install --legacy-peer-deps        
         ``` 
 > Debemos realizar esto con **ambos** proyectos (**BACK Y FRONT**)
 
