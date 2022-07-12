@@ -1,72 +1,87 @@
-# Getting Started with Create React App
+# Tabla de Contenidos
+1. [Introducción](#introduction)
+2. [Requisitos](#requirements)
+3. [Instalación](#Instalación)
+4. [Test](#Test)
+4. [Documentación](#doc)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Introducción
+Esta documentacion corresponde al trabajo práctico de aplicaciones interactivas
 
-In the project directory, you can run:
+> Librerias utilizadas:
 
-### `npm start`
+| Libreria | Doc |
+| ------ | ------ |
+|javascript| https://www.w3schools.com/js |
+| material ui | https://mui.com/material-ui/ |
+| reactjs | https://es.reactjs.org/docs/getting-started.html |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Requisitos
+Es necesario tener descargados back-end y front-end, los cuales pueden ser encontrados en: 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| Proyecto | Link |
+| ------ | ------ |
+| **FRONT** | https://github.com/abreuerUade/api-uade |
+| **BACK** | https://github.com/abreuerUade/tpo-api-server |
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instalación
+1. [Instalar Visual Studio Code](https://code.visualstudio.com)
+2. Abrir alguno de los dos proyectos  
+3. Abrir una nueva terminal y el siguientes comando para instalar las dependencias 
+    - ```sh
+        npm install        
+        ``` 
+> Debemos realizar esto con **ambos** proyectos (**BACK Y FRONT**)
 
-### `npm run build`
+## Test
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Para hacer funcionar la aplicación es necesario correr el servidor de manera local. Para ello, con el proyecto **BACK** abierto en 
+**Visual Studio Code**, ejecutar lo siguiente en la terminal de comandos:
+```sh
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Ahora, tambien con **vscode** abierto en nuestro proyecto **FRONT**, ejecutar en una terminal:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+npm start
+```
 
-### `npm run eject`
+## Documentación
+#### *Requerimientos*
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Requerimiento | Descripcion |
+| ------------- | ----------- |
+| **INGRESO USUARIOS** | *Los usuarios podrán ingresar a la aplicación con su mail y contraseña. Tendrán la posibilidad de solicitar una nueva en caso de olvidarla mediante la opción **OLVIDE CONTRASEÑA**. Se recomienda utilizar algún criterio de validación para el reseteo de la misma.* |
+| **PERFIL USUARIOS REGISTRADOS**| *Los usuarios registrados podrán gestionar su nombre y cambiar contraseña.*|
+| **REGISTRO DE RECETAS** | Los usuarios podrán registrar nuevas recetas en el sitio. Cada receta debe contar con: **nombre**, **categoria**, **ingredientes**, **procedimiento**, **dificultad (calificada de 1 a 5)** e **imagenes**. Las recetas creadas quedaran registradas en el sistema en estado borrador hasta que el usuario decida publicarlas.
+| **MODIFICACION DE RECETAS** |  Los usuarios podrán modificar el contenido de sus recetas, quitarlas de publicación o publicarlas nuevamente.|
+|**ELIMINACION DE RECETAS**| Los usuarios podrán eliminar sus recetas del sitio.|
+|**CALIFICAR RECETAS**| Los usuarios registrados podrán calificar las recetas publicadas. Esta calificación debe poder visualizarse en el sitio principal para que los usuarios puedan filtrar recetas.|
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### *Diagrama de clases*
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```mermaid
+classDiagram
+Class01 <| — AveryLongClass : Cool
+Class03 * — Class04
+Class05 o — Class06
+Class07 .. Class08
+Class09 → C2 : Where am i?
+Class09 — * C3
+Class09 — |> Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+Class08 ←> C2: Cool label
+```
+ 
+## Equipo de Trabajo
+- Andres Breuer
+- Gianfranco Caneva
+- Timoteo Güerini
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-s
