@@ -64,10 +64,9 @@ npm start
 | **CALIFICAR RECETAS** | Los usuarios registrados podrán calificar las recetas publicadas. Esta calificación debe poder visualizarse en el sitio principal para que los usuarios puedan filtrar recetas.|
 
 
-#### *Diagrama de clases*
---
+#### *Diagrama de clases conceptuales*
 
-#### *Diagrama no relacional
+![diagrama de clases conceptuales](https://i.imgur.com/9PqEuVV.png)
  
 ## Equipo de Trabajo
 - Andres Breuer
