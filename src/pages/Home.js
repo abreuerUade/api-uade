@@ -14,7 +14,7 @@ export default function Home(){
     const effectRan = useRef(false);     
     const [recetas, setRecetas] = useState([]);
 
-    const [search, setSearch] = useState({ingredients: '', category: '', user:''});
+    const [search, setSearch] = useState({name: '' ,ingredients: '', category: '', user:''});
     
     const urlRecetas = urlWebServices.recetasGet;
 
@@ -54,8 +54,9 @@ export default function Home(){
     }, [urlRecetas])
 
     
-    const recetasFilter = recetas.filter(item => 
-        ((item.recipes.category).toLowerCase().includes((search.category).toLowerCase())) &&
+    const recetasFilter = recetas.filter(item =>
+        (item.recipes.name).toLowerCase().includes((search.name).toLowerCase()) && 
+        (item.recipes.category).toLowerCase().includes((search.category).toLowerCase()) &&
         ((item.firstName).toLowerCase().includes((search.user).toLowerCase()) || 
         (item.lastName).toLowerCase().includes((search.user).toLowerCase())) &&
         (item.recipes.ingredients).toString().toLowerCase().includes((search.ingredients).toLowerCase())
@@ -90,6 +91,7 @@ export default function Home(){
                 <AddIcon />
             </Fab>
         </Link>
+        
         <Footer />
         </>
         

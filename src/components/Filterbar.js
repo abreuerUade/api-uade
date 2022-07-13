@@ -23,6 +23,8 @@ const ResponsiveFilterBar = ({search, setSearch}) => {
     <Box boxShadow={3} sx={{ display:'flex',justifyContent: 'space-around', alignContent:'center', marginBottom:"10px" }}>
         
         <FilterListIcon sx={{marginTop:'10px'}} fontSize='large' color='primary' />
+
+        <TextField onChange={handleChange} value={search.name} name='name' margin='dense' size='small' id="name" label="Name" variant="outlined" />
         
         <TextField onChange={handleChange} value={search.ingredients} name='ingredients' margin='dense' size='small' id="ingredientes" label="Ingredients" variant="outlined" />
         

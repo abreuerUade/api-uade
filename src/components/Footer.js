@@ -40,6 +40,7 @@ export default function Footer() {
           px: 2,
           mt: 10,
           backgroundColor: '#3E4450',
+
         }}
       >
         <Box maxWidth="sm">
