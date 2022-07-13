@@ -4,8 +4,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -89,7 +87,7 @@ export default function LogIn() {
       // const rta2 = 401
       const rta2 = 400
       
-      if (rta2 ==401){
+      if (rta2 == 401){
         setOpenError(true);
         setErrors(["Please, enter a valid username"])
 
@@ -159,17 +157,12 @@ export default function LogIn() {
               type="password"
               id="password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
             <div>
               <ReCAPTCHA 
                 ref={captcha}
                 sitekey="6Lef8-EfAAAAANeSJlmWdzmQ29HC2TeR85FsiN4m" 
                 onChange={onChange}/>
-            </div>
-    
+            </div>    
             {captchaValid === false && <div>
               Validate captcha  
             </div>}

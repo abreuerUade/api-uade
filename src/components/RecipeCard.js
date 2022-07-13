@@ -5,7 +5,6 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import EditIcon from '@mui/icons-material/Edit';
 import PublishIcon from '@mui/icons-material/Publish';
 import ShareIcon from '@mui/icons-material/Share';
@@ -167,14 +166,12 @@ export default function RecipeReviewCard(prop) {
       }
       navigate('/recipeManager');
 
-
   }
 
   function handleEdit() {
     let recetasUsuario = JSON.parse(localStorage.getItem(user.email))
     let receta = recetasUsuario.filter(item => item !== prop.item.recipes._id)
     navigate('/recipeManager', {state: receta})
-    
   }
 
   function handleShare() {
@@ -191,8 +188,6 @@ export default function RecipeReviewCard(prop) {
       <CardHeader
         avatar={
           <Avatar src= {prop.item.profilePic} />
-            
-      
         }
         action={
           <IconButton aria-label="settings">
@@ -222,7 +217,6 @@ export default function RecipeReviewCard(prop) {
 
           {prop.state !== 'modify' && <Box sx={{padding: '0px'}}>
             <IconButton onClick={toggleHeart} aria-label="add to favorites">
-              <FavoriteIcon  sx={{ color: `${isHeart}` } } /> 
             </IconButton>
 
             <IconButton onClick={handleShare} aria-label="share">
