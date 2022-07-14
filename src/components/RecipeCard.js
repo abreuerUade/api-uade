@@ -5,7 +5,6 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import EditIcon from '@mui/icons-material/Edit';
 import PublishIcon from '@mui/icons-material/Publish';
 import ShareIcon from '@mui/icons-material/Share';
@@ -221,10 +220,6 @@ export default function RecipeReviewCard(prop) {
           <CardActions sx={{display: 'flex', justifyContent:"space-between",alignContent:'center'}} disableSpacing>
 
           {prop.state !== 'modify' && <Box sx={{padding: '0px'}}>
-            <IconButton onClick={toggleHeart} aria-label="add to favorites">
-              <FavoriteIcon  sx={{ color: `${isHeart}` } } /> 
-            </IconButton>
-
             <IconButton onClick={handleShare} aria-label="share">
               <ShareIcon />
             </IconButton>
