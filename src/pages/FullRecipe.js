@@ -48,7 +48,6 @@ useEffect(() => {
 
         fetchReceta()
         return () => {
-            console.log("Algo")
           }
     },[])
 
