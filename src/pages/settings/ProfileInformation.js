@@ -10,8 +10,9 @@ import {useState, forwardRef} from 'react';
 import Paper from '@mui/material/Paper';
 import {Snackbar, Alert} from '@mui/material'
 import useAuth from '../../auth/useAuth';
+import urlWebServices from '../../controllers/webServices';
 
-export default function ProfileInformation(props) {
+export default function ProfileInformation() {
 
   const { user } = useAuth()
 
@@ -20,6 +21,16 @@ export default function ProfileInformation(props) {
   const [open, setOpen] = useState(false);
   const [openError, setOpenError] = useState(false);
   const [errors, setErrors] = useState([]);
+  const [userForm, setUserForm] = useState({firstName: user.firstName, lastName: user.lastName, email:user.email})
+
+  const hanldeUserForm = (event) => {
+    setUserForm(prevForm => {
+			return {
+				...prevForm,
+				[event.target.name]: event.target.value
+			}
+		})
+  }
 
 
   const SnackbarAlert = forwardRef(
@@ -39,34 +50,27 @@ export default function ProfileInformation(props) {
     const numbersCondition= ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
     const atString = ["@"];
     var mensajesError = [];
-    var firstName = document.getElementById('firstname');
-    var surname = document.getElementById('surname');
-    var username = document.getElementById('username');
-    var email = document.getElementById('email');
-    var country = document.getElementById('country');
-    var city = document.getElementById('city');
+    
+    
 
-    if (firstName.value === null || firstName.value === ''){
+    if (userForm.firstName === null || userForm.firstName === ''){
       mensajesError.push("Error. First name cannot be empty");
     }
-    if (numbersCondition.some(x => firstName.value.includes(x)) ||
-         numbersCondition.some(x => surname.value.includes(x))||
-         numbersCondition.some(x => country.value.includes(x))||
-         numbersCondition.some(x => city.value.includes(x))         
+    if (numbersCondition.some(x => userForm.firstName.includes(x)) ||
+         numbersCondition.some(x => userForm.lastName.includes(x))
+                
          ) {
       mensajesError.push("Error. Numbers are not allowed");
     }
-    if (!atString.some(x => email.value.includes(x))) {
+    if (!atString.some(x => userForm.email.includes(x))) {
       mensajesError.push("Error. Email should has a valid format");
     }
     
-    if (surname.value === null || surname.value === ''){
+    if (userForm.lastName === null || userForm.lastName === ''){
       mensajesError.push("Error. Last name cannot be empty");
     }
-    if (username.value === null || username.value === ''){
-      mensajesError.push("Error. Username cannot be empty");
-    }
-    if (email.value === null || email.value === ''){
+    
+    if (userForm.email === null || userForm.email === ''){
       mensajesError.push("Error. Email cannot be empty");
     }
 
@@ -74,18 +78,46 @@ export default function ProfileInformation(props) {
 
   };
 
-  const newF = () => {
+  const updateLocal = () => {
+    let localUser = JSON.parse(localStorage.getItem("user"))
+    localUser.firstName = userForm.firstName 
+    localUser.lastName = userForm.lastName
+    localStorage.setItem("user", JSON.stringify(localUser))
+  }
+
+  const handleSave =async () => {
     var listOfErrors= validateFields();
     var numberOfErrors = listOfErrors.length === 0
-         
+    const url = urlWebServices.user
+
     if (numberOfErrors){
       //There are no errors    
       setOpen(true)
       changeDisabled();
+      
+
+      await fetch(url, {
+        method: "PUT",
+        mode: "cors",
+        headers:{
+          'Accept':'application/json',
+					'Origin':'http://localhost:3000',
+          'Authorization': 'Bearer ' + localStorage.getItem("x"),
+					'Content-Type': 'application/json'},
+
+				body: JSON.stringify(userForm),
+        })
+        
+        
+        updateLocal()
+
+        document.location.reload(true)
+      }
+
       //pop up exitoso   
 
 
-    }
+    
     else {
       setOpenError(true)
       setErrors(listOfErrors)
@@ -149,7 +181,9 @@ export default function ProfileInformation(props) {
                 <Grid item xs={4} sm={4} md={4} lg={4}>
                   <TextField
                         disabled={campoDesactivado}
-                        defaultValue={`${user.firstName}`}
+                        value={userForm.firstName}
+                        onChange={hanldeUserForm}
+                        name='firstName'
                         required
                         label="Primary Name"
                         id="firstname"              
@@ -159,50 +193,28 @@ export default function ProfileInformation(props) {
                 <Grid item xs={8} sm={8} md={8} lg={8}>
                   <TextField
                         disabled={campoDesactivado}
-                        defaultValue={`${user.lastName}`}
+                        value={userForm.lastName}
+                        onChange={hanldeUserForm}
+                        name='lastName'
                         required
                         label="Last Name"
-                        id="surname" 
+                        id="lastName" 
                         fullWidth               
                   />
                 </Grid>
+                
                 <Grid item xs={12} sm={12} md={12} lg={12}>
                   <TextField
-                        disabled={campoDesactivado}
-                        defaultValue={`${user.userName}`}
-                        required
-                        label="Username"
-                        id="username"
-                        fullWidth             
-                  />
-                </Grid>
-                <Grid item xs={12} sm={12} md={12} lg={12}>
-                  <TextField
-                        disabled={campoDesactivado}
-                        defaultValue={`${user.mail}`}
+                        disabled
+                        value={userForm.email}
+                        onChange={hanldeUserForm}
+                        name='email'
                         required
                         label="Email"
                         id="email"
                         fullWidth            
                   />
                 </Grid>
-
-              <Grid item xs={4} sm={4} md={4} lg={4}>
-                <TextField
-                      disabled={campoDesactivado}
-                      label="Country"
-                      id="country"       
-                      size = 'medium'       
-                />
-              </Grid>
-              <Grid item xs={8} sm={8} md={8} lg={8}>
-                <TextField
-                      disabled={campoDesactivado}
-                      label="City"
-                      id="city" 
-                      fullWidth               
-                />
-              </Grid>
                 
               </Grid>
               <br></br>
@@ -218,7 +230,7 @@ export default function ProfileInformation(props) {
               <Button 
                     id='savebutton'
                     variant="contained" 
-                    onClick= {newF}   
+                    onClick= {handleSave}   
                     disabled={botonDesactivado}          
                     className="css-sghohy-MuiButtonBase-root-MuiButton-root btnRight"  
                     sm={8} md={8}>

@@ -9,7 +9,8 @@ const urlWebServices = {
     uploadUserImg: urlApi + "userImg",
     uploadFileImg: urlApi + "recetaImg",
     resetPwd: urlApi + "resetPassword",
-    sendMail: urlApi + "mailSend"
+    sendMail: urlApi + "mailSend",
+    user: urlApi + "user"
 }
 
 export default urlWebServices;

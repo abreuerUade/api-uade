@@ -12,19 +12,19 @@ import InfoIcon from '@mui/icons-material/Info';
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItem Button component="a" href='/profileinfo'>
+    <ListItem button='true' component="a" href='/profileinfo'>
       <ListItemIcon>
         <PersonIcon />
       </ListItemIcon>
       <ListItemText primary="Profile Information" />
     </ListItem>
-    <ListItem Button component="a" href='/notification'>
+    <ListItem button='true' component="a" href='/notification'>
       <ListItemIcon>
         <NotificationsIcon />
       </ListItemIcon>
       <ListItemText primary="Notification" />
     </ListItem>
-    <ListItem Button component="a" href='/security'>
+    <ListItem button='true' component="a" href='/security'>
       <ListItemIcon>
         <SecurityIcon />
       </ListItemIcon>
@@ -38,13 +38,13 @@ export const secondaryListItems = (
     <ListSubheader component="div" inset>
       Others
     </ListSubheader>
-    <ListItem Button component="a" href='/help'>
+    <ListItem button='true' component="a" href='/help'>
       <ListItemIcon>
         <HelpIcon />
       </ListItemIcon>
       <ListItemText primary="Help" />
     </ListItem>
-    <ListItem Button component="a" href='/about'>
+    <ListItem button='true' component="a" href='/about'>
       <ListItemIcon>
         <InfoIcon />
       </ListItemIcon>
