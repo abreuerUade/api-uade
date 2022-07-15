@@ -124,7 +124,7 @@ export default function NewPassword () {
                 {errors[0]}
               </SnackbarAlert>
             </Snackbar>
-            
+
           </Container>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />

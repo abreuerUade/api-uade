@@ -7,10 +7,10 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import '../../cssComponents/buttonComp.css';
 import {useState, forwardRef} from 'react';
-import Switch from '../../components/Switch'
 import Paper from '@mui/material/Paper';
 import {Snackbar, Alert} from '@mui/material'
 import useAuth from '../../auth/useAuth';
+import urlWebServices from '../../controllers/webServices';
 
 export default function Security(props) {
 
@@ -21,6 +21,16 @@ export default function Security(props) {
   const [open, setOpen] = useState(false);
   const [openError, setOpenError] = useState(false);
   const [errors, setErrors] = useState([]);
+  const [pwdForm, setPwdForm] = useState({oldPwd:'', pwd: '', confPwd: '', email:user.email})
+
+  const handleChangePwd = (event) => {
+    setPwdForm(prev => {
+      return {
+        ...prev,
+        [event.target.name]: event.target.value}
+    })
+
+  }
 
 
   const SnackbarAlert = forwardRef(
@@ -33,38 +43,35 @@ export default function Security(props) {
     setBotonDesactivado(prevState => !prevState);
   }; 
 
-  
+  const changePwd = async () => {
+        
+    let url = urlWebServices.resetPwd;
 
+    await fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        headers:{
+            'Accept':'application/json',
+            'Origin':'http://localhost:3000',
+            'Content-Type': 'application/json'},
+        body: JSON.stringify(pwdForm),
 
-  const validateFields = () => {
-    const phonenumbersCondition = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "+"];
-    const atString = ["@"];
-    var mensajesError = [];
-    var password = document.getElementById('password');
-    var alternativeemail = document.getElementById('alternativeemail');
-    var phone = document.getElementById('phone');
-    const phoneNumberDigits= phone.value.split("")     
-    if (!phoneNumberDigits.every( digit=>phonenumbersCondition.includes(digit))) {
-        mensajesError.push("Error. Please enter a valid phone number");
-    }
-
-    if (password.value === null || password.value === ''){
-      mensajesError.push("Error. Current password cannot be empty");
-    }
+    }).then(res => res.text())
     
-    if (!atString.some(x => alternativeemail.value.includes(x))) {
-      mensajesError.push("Error. Email should has a valid format");
-    }
-    return mensajesError
+    
+}
 
-  };
+  const handleSave = async () => {
 
-  const newF = () => {
-    var listOfErrors= validateFields();
-    var numberOfErrors = listOfErrors.length === 0
+    
           
-    if (numberOfErrors){
-      //There are no errors    
+    if (true){
+      //There are no errors
+
+      let rta = await changePwd()
+
+      console.log(rta);
+      
       setOpen(true)
       changeDisabled();
       //pop up exitoso   
@@ -72,8 +79,9 @@ export default function Security(props) {
 
     }
     else {
-      setOpenError(true)
-      setErrors(listOfErrors)
+      //console.log("false", match)
+      //setOpenError(true)
+      //setErrors(listOfErrors)
       //changeDisabled(); is not executed
     }
  
@@ -128,8 +136,11 @@ export default function Security(props) {
                         <Grid container spacing={2}>
                         <Grid item xs={12} sm={12} md={12} lg={12}>
                             <TextField
+                                type="password"
                                 disabled={campoDesactivado}
-                                defaultValue={`${user.password}`}
+                                value={pwdForm.oldPwd}
+                                name='oldPwd'
+                                onChange={handleChangePwd}
                                 required
                                 label="Current Password"
                                 id="password"
@@ -138,7 +149,11 @@ export default function Security(props) {
                         </Grid>
                         <Grid item xs={12} sm={12} md={12} lg={12}>
                             <TextField
+                                type="password"
                                 disabled={campoDesactivado}
+                                value={pwdForm.pwd}
+                                name='pwd'
+                                onChange={handleChangePwd}
                                 label="New Password"
                                 id="newpsw"
                                 fullWidth            
@@ -147,36 +162,20 @@ export default function Security(props) {
 
                         <Grid item xs={12} sm={12} md={12} lg={12}>
                             <TextField
+                                type="password"
                                 disabled={campoDesactivado}
+                                value={pwdForm.confPwd}
+                                name='confPwd'
+                                onChange={handleChangePwd}
                                 label="Confirm New Password"
                                 id="confirmnewpsw"
                                 fullWidth            
                             />
                         </Grid>
-
-                        <Grid item xs={12} sm={12} md={12} lg={12}>
-                            <TextField
-                                disabled={campoDesactivado}
-                                defaultValue={`${user.alternativeEmail}`}
-                                label="Alternative Email"
-                                id="alternativeemail"
-                                fullWidth            
-                            />
-                        </Grid>
-
-                        <Grid item xs={12} sm={12} md={12} lg={12}>
-                            <TextField
-                                disabled={campoDesactivado}
-                                defaultValue={`${user.phone}`}
-                                label="Phone Number"
-                                id="phone"
-                                fullWidth            
-                            />
-                        </Grid>
-                        
+                     
                         </Grid>
                         <br></br>
-                        <Switch text="Two-Factor Authentication (SFA)" disabled={campoDesactivado}></Switch>
+                        
                         <br></br>
                         <br></br>
                         <Button 
@@ -191,7 +190,7 @@ export default function Security(props) {
                         <Button 
                             id='savebutton'
                             variant="contained" 
-                            onClick= {newF}   
+                            onClick= {handleSave}   
                             disabled={botonDesactivado}          
                             className="css-sghohy-MuiButtonBase-root-MuiButton-root btnRight"  
                             sm={8} md={8}>

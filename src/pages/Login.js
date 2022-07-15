@@ -83,7 +83,7 @@ export default function LogIn() {
       //There are no errors  
       
       const rta = login(document.getElementById('username').value,document.getElementById('password').value);
-      //TODO: rta actualmente devuelve una promise. No encontramos la forma de resolverla para que nos devuelva el status y obtener el 401
+      //TODO: rta actualmente devuelve una promise. No se encontró la forma de resolverla para que nos devuelva el status y obtener el 401
       // const rta2 = 401
       const rta2 = 400
       
@@ -123,7 +123,7 @@ export default function LogIn() {
               {errors[0]}
             </SnackbarAlert>
           </Snackbar>
-          
+
         </Container>
         <CssBaseline />
         <Box
