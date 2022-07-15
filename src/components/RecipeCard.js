@@ -14,7 +14,6 @@ import { Box, CardContent, Typography } from '@mui/material';
 import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
 import {  pink, yellow } from '@mui/material/colors';
-import { useState } from 'react';
 import useAuth from '../auth/useAuth';
 import urlWebServices from '../controllers/webServices';
 import { useNavigate } from 'react-router-dom';
@@ -24,16 +23,7 @@ import { useNavigate } from 'react-router-dom';
 export default function RecipeReviewCard(prop) {
 
   const { user } = useAuth()
-  let navigate = useNavigate();
-  const [isFav, setIsFav] = useState(false)
-  
-
-  let isHeart = isFav ? "red" : "grey"
-
-
-  function toggleHeart() {
-    setIsFav(prevHeart => !prevHeart)
-  }
+  let navigate = useNavigate();  
 
   async function handleDelete(){
 

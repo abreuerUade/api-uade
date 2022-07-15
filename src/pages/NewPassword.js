@@ -29,11 +29,6 @@ export default function NewPassword () {
         
         let url = urlWebServices.resetPwd;
 
-        // const formData = new URLSearchParams()
-        // formData.append('email', userForm.email)
-        // formData.append('pwd', userForm.pass)
-
-
         await fetch(url, {
             method: 'POST',
             mode: 'cors',

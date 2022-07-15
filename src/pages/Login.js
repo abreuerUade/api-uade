@@ -82,7 +82,7 @@ export default function LogIn() {
     if (numberOfErrors){
       //There are no errors  
       
-      const rta = login(document.getElementById('username').value,document.getElementById('password').value);
+      login(document.getElementById('username').value,document.getElementById('password').value);
       //TODO: rta actualmente devuelve una promise. Tengo que buscar la forma de que devuelva el status y obtener el 401
       // const rta2 = 401
       const rta2 = 400

@@ -21,7 +21,7 @@ export default function ProfileInformation() {
   const [open, setOpen] = useState(false);
   const [openError, setOpenError] = useState(false);
   const [errors, setErrors] = useState([]);
-  const [userForm, setUserForm] = useState({firstName: user.firstName, lastName: user.lastName, email:user.email})
+  const [userForm, setUserForm] = useState({firstName: user.firstName, lastName: user.lastName, email:user.email, phone: user.phone})
 
   const hanldeUserForm = (event) => {
     setUserForm(prevForm => {
@@ -215,6 +215,18 @@ export default function ProfileInformation() {
                         fullWidth            
                   />
                 </Grid>
+
+                <Grid item xs={12} sm={12} md={12} lg={12}>
+                  <TextField
+                      disabled={campoDesactivado}
+                      value={userForm.phone}
+                      onChange={hanldeUserForm}
+                      name='phone'
+                      label="Phone Number"
+                      id="phone"
+                      fullWidth            
+                            />
+                        </Grid>
                 
               </Grid>
               <br></br>
