@@ -71,41 +71,7 @@ export default function RecipeReviewCard(prop) {
     }
     
   }
-
-  // function uploadLocalImages(){
-  //   const imagenes = prop.item.recipes.images;
-  //   prop.item.recipes.images = []
-  //   const url = urlWebServices.uploadFileImg;
-  //   console.log(imagenes);
-  //   imagenes.forEach(  img =>  {
-    
-  //       try {
-          
-  //       const rta = fetch(url,{
-  //         method: 'POST', 
-  //         mode: "cors",
-  //         headers:{
-  //           'Accept':'application/json',
-  //           'Authorization': 'Bearer ' + localStorage.getItem("x"),
-  //           'Origin':'http://localhost:3000',
-  //           'Content-Type': 'application/json'},
-  //         body: JSON.stringify({data: img}),
-				
-	// 		  }).then(res => res.json()).then(data =>{
-  //         console.log(data.secure_url)
-  //         prop.item.recipes.images.push(data.secure_url)
-  //       })
-        
-  //       console.log('rta');    
-        
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   })
-    
-  //   //handleDelete()
-  // }
-
+  
   async function uploadLocalImages2(imagenes){
     const url = urlWebServices.uploadFileImg;
     let imageUrisPromises = []
@@ -141,7 +107,6 @@ export default function RecipeReviewCard(prop) {
   async function handleUpload() {
     
     const url = urlWebServices.recetas
-    // uploadLocalImages()
     let uris = await uploadLocalImages2(prop.item.recipes.images)
     for (let x = 0; x < uris.length; x++) {
       console.log('??', uris[x])

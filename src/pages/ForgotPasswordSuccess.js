@@ -24,11 +24,13 @@ const SnackbarAlert = forwardRef(
     <ThemeProvider theme={theme}>
         <NavbarWelcome />
         <Container style={{width:'50%', mt: '20px'}}>
+          
             <Snackbar open="true" autoHideDuration={4000} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
               <SnackbarAlert severity="success">
                 Email sent successfully
               </SnackbarAlert>
             </Snackbar>
+            
           </Container>
         <Container component="main" maxWidth="xs">
         <CssBaseline />

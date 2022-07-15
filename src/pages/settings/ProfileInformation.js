@@ -115,13 +115,8 @@ export default function ProfileInformation(props) {
       <Grid container spacing={3}>
         <Grid item xs={12} md={8} lg={9}>
           <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-            <Container style={{width:'50%'}}>
-              
-                {/* DONT DELETE. TAKED AS REFERENCE. THIS IS STANDAR SNACKBAR
-                <div id="alertsite">
-                  <Snackbar message= "The information has been updated successfully!" autoHideDuration={4000} open={open} onClose={handleClose} 
-                  anchorOrigin={{vertical: 'top', horizontal: 'center'}}></Snackbar>
-                </div> */}
+            <Container style={{width:'50%'}}>           
+
               <Snackbar open={open} autoHideDuration={4000} onClose={handleClose} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
                 <SnackbarAlert onClose={handleClose} severity="success">
                   The information has been updated successfully!
@@ -132,6 +127,7 @@ export default function ProfileInformation(props) {
                   {errors[0]}
                 </SnackbarAlert>
               </Snackbar>
+              
             </Container>
             <Typography
             sx={{ display: 'inline' }}

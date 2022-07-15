@@ -212,11 +212,13 @@ export default function SignUp() {
     <ThemeProvider theme={theme}>
         <NavbarWelcome />
         <Container style={{width:'50%', marginTop:'30px'}}>
+
             <Snackbar open={openError} autoHideDuration={4000} onClose={handleErrorClose} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
               <SnackbarAlert onClose={handleErrorClose} severity="error">
                 {errors[0]}
               </SnackbarAlert>
             </Snackbar>
+            
           </Container>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
@@ -330,23 +332,7 @@ export default function SignUp() {
                       onChange={handleForm}
                     />
                   </Grid>
-                  {/* <Grid item xs={12} sm={6}>
-                    <TextField
-                      name="country"
-                      fullWidth
-                      id="country"
-                      label="Country"
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      fullWidth
-                      id="city"
-                      label="City"
-                      name="city"
-                    />
-                  </Grid> */}
-                  
+                                    
               </Grid>
                 <Button
                   //type="submit"

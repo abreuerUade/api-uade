@@ -28,12 +28,6 @@ export default function NewPassword () {
     const resetPwd = async (userForm) => {
         
         let url = urlWebServices.resetPwd;
-
-        // const formData = new URLSearchParams()
-        // formData.append('email', userForm.email)
-        // formData.append('pwd', userForm.pass)
-
-
         await fetch(url, {
             method: 'POST',
             mode: 'cors',
@@ -124,11 +118,13 @@ export default function NewPassword () {
         <ThemeProvider theme={theme}>
             <NavbarWelcome />
             <Container style={{width:'50%', marginTop:'30px'}}>
+
             <Snackbar open={openError} autoHideDuration={4000} onClose={handleErrorClose} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
               <SnackbarAlert onClose={handleErrorClose} severity="error">
                 {errors[0]}
               </SnackbarAlert>
             </Snackbar>
+            
           </Container>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />

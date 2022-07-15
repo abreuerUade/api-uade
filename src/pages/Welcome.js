@@ -169,16 +169,8 @@ export default function Welcome(){
                 </Grid>
             </Grid>
             <br></br> 
-            <br></br> 
-            
-            {/* <Box textAlign='center'>
-                <Button className='btnCenter' variant="contained" href="/home">
-                    See more recipes <ReceiptLongIcon></ReceiptLongIcon>
-                </Button>       
-            </Box> 
-            THIS BUTTON WILL BE ADDED IN A SECOND MVP AND THE FUNCTION WILL BE ENTER WITHOUT BEING LOGGED IN.
-            BUT FOR THAT WE NEED A NAVBAR FOR VISITORS AND BLOCK FUNCITIONALITIES SUCH AS MY RECIPES, CREATE NEW RECIPES, MY ACCOUNT SETTINGS, SO ON AND SO FORTH
-            */}
+            <br></br>           
+           
             
         </Container>
         <Footer />
