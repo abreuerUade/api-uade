@@ -67,22 +67,20 @@ export default function Security(props) {
           
     if (true){
       //There are no errors
-
+      setOpen(true)
+      changeDisabled();
       let rta = await changePwd()
 
       console.log(rta);
       
-      setOpen(true)
-      changeDisabled();
-      //pop up exitoso   
+    
+
 
 
     }
     else {
-      //console.log("false", match)
-      //setOpenError(true)
-      //setErrors(listOfErrors)
-      //changeDisabled(); is not executed
+      setOpenError(true)
+
     }
  
   };
