@@ -37,9 +37,9 @@ export default function NewPassword () {
                 'Content-Type': 'application/json'},
             body: JSON.stringify(userForm),
 
-        }).then(res => res.json()).then(data => console.log(data))
+        }).then(res => res.json()).then(data => console.log(data)).then(navigate('/login'))
         
-        navigate('/login')
+        
     }
     
     const validateFields = () => {
